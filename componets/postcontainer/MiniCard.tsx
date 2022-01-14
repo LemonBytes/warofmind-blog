@@ -1,5 +1,6 @@
 import Image from "next/image";
-
+import styles from "../../styles/cards/Cards.module.css";
+import test from "../../assets/test.jpg";
 export interface IMiniCardPost {
   id: string;
   title: string;
@@ -14,10 +15,10 @@ export const MiniCard: React.FC<IMiniCardPost> = ({
   linkToPost,
 }) => {
   return (
-    <div>
+    <div className={styles.minicards}>
       <a>
         <strong>{title}</strong>
-        <Image src={imageLink} alt=""></Image>
+        <Image width={200} height={120} src={test} alt=""></Image>
       </a>
     </div>
   );
