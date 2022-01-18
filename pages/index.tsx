@@ -73,7 +73,6 @@ const Home: NextPage<IPost> = ({ posts }) => {
   return (
     <main className={styles.home}>
       <h1>War of Mind</h1>
-      <TrendingPosts posts={posts} />
     </main>
   );
 };
@@ -88,18 +87,4 @@ const Home: NextPage<IPost> = ({ posts }) => {
 //   };
 // };
 
-export function getStaticProps() {
-  const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
-    const { content, data } = matter(source);
-
-    return {
-      content,
-      data,
-      filePath,
-    };
-  });
-
-  return { props: { posts } };
-}
 export default Home;
