@@ -1,6 +1,6 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
+import { POSTS_PATH } from "../utils/mdxUtils";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
