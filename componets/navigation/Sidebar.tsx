@@ -1,11 +1,14 @@
 import styles from "../../styles/navigation/Navbar.module.css";
 
-export const Sidebar = () => {
+interface IState {
+  openClose: boolean;
+}
+
+export const Sidebar: React.FC<IState> = ({ openClose }) => {
   return (
-    <ul className={styles.sidebar}>
-      <li>hallo</li>
-      <li>kakao</li>
-      <li>suppe</li>
-    </ul>
+    <div
+      id="sidebar"
+      className={openClose ? styles.sidebar : styles.closedSideBar}
+    ></div>
   );
 };

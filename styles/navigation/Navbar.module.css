@@ -1,76 +1,91 @@
-.navigationClosed {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  bottom: -100px;
-  right: -100px;
-  background: black;
-  display: flex;
-  position: fixed;
-  transform: rotate(-360deg);
-  transition: ease-in-out;
-  transition-duration: 0.5s;
-  border-radius: 50%;
-
-  z-index: -1;
-}
-
 .navigationOpen {
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  bottom: -100px;
-  right: -100px;
+  width: 75px;
+  height: 75px;
+  position: fixed;
+  bottom: 60px;
+  right: 30px;
   background: black;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: fixed;
-  transform: rotate(360deg);
+  justify-content: center;
   transition: ease-in-out;
   transition-duration: 0.5s;
-  border-radius: 50%;
-
-  z-index: -1;
+  border-radius: 3px;
+  padding-left: 1px;
 }
 
-.imgContainer {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  margin: 3px;
+.sidebar {
+  width: 80%;
+  height: 150px;
+  position: fixed;
+  bottom: 80px;
+  right: 60px;
+  border-radius: 3px;
+  background: black;
+  transition: ease-in-out;
+  transition-duration: 0.2s;
+  border-radius: 3px;
+  display: block;
+  color: white;
+}
+
+.closedSideBar {
+  width: 0px;
+  height: 0px;
+  position: fixed;
+  bottom: 125px;
+  right: 50px;
+  border-radius: 0px;
+  background: black;
+  transition: ease-in-out;
+  transition-duration: 0.1s;
+  border-radius: 0px;
+  overflow: hidden;
 }
 
 .linkOne {
+  float: left;
   color: white;
+  /* 
   position: absolute;
   top: 5px;
   margin-left: -25px;
   margin-top: 15px;
   transform: rotate(-0deg);
+  */
 }
 
 .linkTwo {
+  float: left;
   color: white;
+  /* 
   position: absolute;
   top: 5px;
   margin-left: -90px;
   margin-top: 30px;
+      */
   background: transparent;
 }
 
 .linkThree {
+  float: left;
   color: white;
+  /* 
   position: absolute;
   top: 5px;
   margin-left: -125px;
   margin-top: 70px;
+    */
 }
 
 .linkFour {
+  float: left;
   color: white;
+  /* 
   position: absolute;
-  top: 5px;
+
+ top: 5px;
   margin-left: -135px;
   margin-top: 120px;
+  */
 }
