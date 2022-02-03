@@ -2,7 +2,7 @@
   width: 75px;
   height: 75px;
   position: fixed;
-  bottom: 60px;
+  bottom: 10%;
   right: 30px;
   background: black;
   display: flex;
@@ -12,6 +12,7 @@
   transition-duration: 0.5s;
   border-radius: 3px;
   padding-left: 1px;
+  border: 1px solid white;
 }
 
 .topSquare {
@@ -29,50 +30,60 @@
 
 .squareClosed {
   left: -90px;
-  top: 90px;
+  top: 10%;
   padding-left: 0px;
   transform: rotate(-360deg);
 }
 
 .squareOpen {
-  left: 30px;
-  top: 60px;
+  left: 15px;
+  top: 10%;
   padding-left: 1px;
-  transform: rotate(360deg);
 }
 
 .sidebar {
-  height: 150px;
-  width: 80%;
+  height: 300px;
   position: fixed;
   border-radius: 3px;
-  background: black;
   transition: ease-in-out;
-  transition-duration: 0.2s;
-  border-radius: 3px;
+  transition-duration: 0.3s;
   color: white;
   overflow: hidden;
+  background-image: url("../../assets/brush.png");
+  background-size: 300%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
 }
 
 .botSidebar {
-  bottom: 80px;
-  right: 60px;
+  bottom: 10%;
+  right: 0px;
+  font-size: 1.5em;
+  background-position-x: -40px;
+  overflow-x: auto;
 }
 
 .topSidebar {
-  top: 80px;
-  left: 60px;
-  font-size: 1.5em;
-  text-align: center;
+  height: 300px;
+  top: 10%;
+  left: 0px;
+  font-size: 2.5em;
   overflow: hidden;
+  background-position-x: -650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .open {
-  width: 80%;
+  width: 100%;
 }
 
 .closed {
   width: 0px;
+  background-position-x: 300px;
 }
 
 .blurrArea {

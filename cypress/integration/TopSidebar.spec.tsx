@@ -19,7 +19,7 @@ describe(`the top side should contain h1`, () => {
   it("has one h1 ", () => {
     cy.visit("http://localhost:3000/");
     cy.get("#navigation").click();
-    cy.get("#topSideBar").contains("h1", "War of Mind");
+    cy.get("#topSideBar").contains("strong", "War of Mind");
   });
 });
 

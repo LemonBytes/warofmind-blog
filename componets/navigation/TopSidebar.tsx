@@ -16,7 +16,7 @@ export const TopSidebar: React.FC<IState> = ({ openClose }) => {
         }`}
       >
         <div>
-          <h1>War of Mind</h1>
+          <strong>War of Mind</strong>
         </div>
       </div>
       <div
