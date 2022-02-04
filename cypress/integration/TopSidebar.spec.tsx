@@ -15,18 +15,18 @@ describe(`the top sidebar should be rendered`, () => {
   });
 });
 
-describe(`the top side should contain h1`, () => {
-  it("has one h1 ", () => {
+describe(`the top side should contain strong`, () => {
+  it("has one strong ", () => {
     cy.visit("http://localhost:3000/");
     cy.get("#navigation").click();
-    cy.get("#topSideBar").contains("strong", "War of Mind");
+    cy.get("#topSideBar").contains("strong", "WAR OF MIND");
   });
 });
 
-describe(`the top bar should have a img`, () => {
-  it("has one image ", () => {
+describe(`if device is larger than 600px Topbar shoulndt be visible`, () => {
+  it("its should not be visbible", () => {
     cy.visit("http://localhost:3000/");
-    cy.get("#navigation").click();
-    cy.get("#topBar").contains("img");
+    cy.viewport(601, 700);
+    cy.get("#topBar").should("not.be.visible");
   });
 });

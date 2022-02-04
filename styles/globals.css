@@ -6,6 +6,9 @@ a {
 * {
   box-sizing: border-box;
 }
+body {
+background: #424242;
+}
 
 :root {
   --main-color: #212121;

@@ -15,17 +15,10 @@ describe(`the sidebar should be rendered`, () => {
   });
 });
 
-describe(`the sidebar should contain links`, () => {
-  it("should be 8 links", () => {
+describe(`if device is larger than 600px BlurrArea shoulndt be visible`, () => {
+  it("its is rendered properly", () => {
     cy.visit("http://localhost:3000/");
-    cy.get("#navigation").click();
-    cy.get("#botSidebar").contains("a", "All Posts");
-    cy.get("#botSidebar").contains("a", "Boxing");
-    cy.get("#botSidebar").contains("a", "Kickboxing");
-    cy.get("#botSidebar").contains("a", "Muay Thai");
-    cy.get("#botSidebar").contains("a", "BJJ");
-    cy.get("#botSidebar").contains("a", "Mind");
-    cy.get("#botSidebar").contains("a", "Reviews");
-    cy.get("#botSidebar").contains("a", "Contact");
+    cy.viewport(601, 700);
+    cy.get("#botSidebar").should("not.be.visible");
   });
 });

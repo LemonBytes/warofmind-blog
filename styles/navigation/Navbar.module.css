@@ -1,5 +1,10 @@
 @import "/globals.css";
 
+.mobileView {
+  display: block;
+ }
+
+
 .navigationOpen {
   width: 75px;
   height: 75px;
@@ -21,7 +26,7 @@
   position: fixed;
   border-radius: 3px;
   transition: ease-in-out;
-  transition-duration: 0.3s;
+  transition-duration: 0.2s;
   color: white;
   overflow: hidden;
   background-image: url("../../assets/brush.png");
@@ -84,7 +89,7 @@
   border: 1px solid #c62828;
   background: rgb(198, 40, 40, 0.2);
   color: #c62828;
-  border-radius: 2px;
+  border-radius: 10px;
   transform: skewX(20deg);
 }
 
@@ -101,6 +106,18 @@
   background-position-x: 300px;
 }
 
+.topTitle {
+  height: 50px;
+  color: #c62828;
+  overflow: hidden;
+  margin-top: -25px;
+  margin-left: 30px;
+  padding: 0px 10px 0px 10px;
+  position: absolute;
+}
+
+
+
 .blurrArea {
   width: 110vw;
   height: 110vh;
@@ -109,3 +126,74 @@
   position: fixed;
   background: rgb(33, 33, 33, 0.8);
 }
+
+  .largeView {
+    display: none;
+  }
+
+  @media only screen and (min-width: 600px) {
+    .mobileView {
+     display: none;
+    }
+    
+    .largeView {
+      display: block;
+    }
+
+    .navHead {
+      width: 100vw;
+      height: 30vh;  
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .brusContainer {
+      width: 140vw;
+      height: 40vh;
+      background-image: url("../../assets/brush.png");
+      background-size:contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+    }
+    
+    .outerLinkBox {
+      height: 200px;
+      width: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: scroll;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    
+    .innerLinkBox {
+      height: 125px;
+      width: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .navLink {
+      width: 120px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  
+    }
+    
+   
+    
+  }

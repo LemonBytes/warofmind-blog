@@ -15,8 +15,8 @@ export const TopSidebar: React.FC<IState> = ({ openClose }) => {
           openClose ? styles.open : styles.closed
         }`}
       >
-        <div>
-          <strong>War of Mind</strong>
+        <div className={styles.topTitle}>
+          <strong>WAR OF MIND</strong>
         </div>
       </div>
     </div>

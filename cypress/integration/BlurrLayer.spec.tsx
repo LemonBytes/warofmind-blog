@@ -14,3 +14,11 @@ describe(`the blurrArea is rendered when navigation is clicked`, () => {
     cy.get("#blurrLayer").should("be.visible");
   });
 });
+
+describe(`if device is larger than 600px BlurrArea shoulndt be visible`, () => {
+  it("its is rendered properly", () => {
+    cy.visit("http://localhost:3000/");
+    cy.viewport(601, 700);
+    cy.get("#blurrLayer").should("not.exist");
+  });
+});
