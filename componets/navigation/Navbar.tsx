@@ -1,6 +1,5 @@
 import open from "../../assets/open.png";
 import close from "../../assets/closed.png";
-import brush from "../../assets/brush.png";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/navigation/Navbar.module.css";

@@ -70,11 +70,7 @@ export interface IPost {
 
 const Home: NextPage<IPost> = ({ posts }) => {
   //console.log(posts);
-  return (
-    <main className={styles.home}>
-      <h1>War of Mind</h1>
-    </main>
-  );
+  return <main className={styles.home}></main>;
 };
 
 // export const getStaticProps = async () => {

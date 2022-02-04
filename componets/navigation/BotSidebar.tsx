@@ -15,15 +15,57 @@ export const BotSidebar: React.FC<IState> = ({ openClose }) => {
           openClose ? styles.open : styles.closed
         }`}
       >
-        <div>
-          <Link href={"/"}>All Posts</Link>
-          <Link href={"/"}>Boxing</Link>
-          <Link href={"/"}>Kickboxing</Link>
-          <Link href={"/"}>Muay Thai</Link>
-          <Link href={"/"}>BJJ</Link>
-          <Link href={"/"}>Mind</Link>
-          <Link href={"/"}>Reviews</Link>
-          <Link href={"/"}>Contact</Link>
+        <div className={styles.outerLinkBox}>
+          <div className={styles.innerLinkBox}>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                <strong>ALL POSTS</strong>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                {" "}
+                <strong>BOXING</strong>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                {" "}
+                <strong>KICKBOXING</strong>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                {" "}
+                <strong>MUAY THAI</strong>
+              </a>
+            </Link>
+          </div>
+          <div className={styles.innerLinkBox}>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                {" "}
+                <strong>BJJ</strong>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                <strong>MIND</strong>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                {" "}
+                <strong>REVIEWS</strong>
+              </a>
+            </Link>
+            <Link href={"/"}>
+              <a className={styles.navLink}>
+                {" "}
+                <strong>CONTACT</strong>
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

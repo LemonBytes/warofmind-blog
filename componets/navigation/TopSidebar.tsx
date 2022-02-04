@@ -19,21 +19,6 @@ export const TopSidebar: React.FC<IState> = ({ openClose }) => {
           <strong>War of Mind</strong>
         </div>
       </div>
-      <div
-        className={`${styles.topSquare} ${
-          openClose ? styles.squareOpen : styles.squareClosed
-        }`}
-      >
-        <div>
-          <Image
-            width={75}
-            height={75}
-            className={styles.image}
-            src={logo}
-            alt={"logo"}
-          ></Image>
-        </div>
-      </div>
     </div>
   );
 };
