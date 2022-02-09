@@ -1,5 +1,3 @@
-import Image from "next/image";
-import logo from "../../assets/logo.jpg";
 import styles from "../../styles/navigation/Navbar.module.css";
 
 interface IState {

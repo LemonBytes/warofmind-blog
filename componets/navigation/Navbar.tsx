@@ -1,5 +1,5 @@
-import open from "../../assets/open.png";
-import close from "../../assets/closed.png";
+import open from "../../public/assets/images/open.png";
+import close from "../../public/assets/images/closed.png";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/navigation/Navbar.module.css";
@@ -34,9 +34,7 @@ export const Navbar = () => {
       </div>
       <div className={styles.largeView}>
         <div className={styles.navHead}>
-          <div className={styles.brusContainer}>
-            <LinkBox />
-          </div>
+          <div className={styles.brushContainer}></div>
         </div>
       </div>
     </div>

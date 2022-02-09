@@ -9,7 +9,6 @@ interface IState {
 export const BotSidebar: React.FC<IState> = ({ openClose }) => {
   return (
     <div>
-      {" "}
       <div
         id="botSidebar"
         className={`${styles.sidebar} ${styles.botSidebar} ${

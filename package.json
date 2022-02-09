@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "cypress": "cypress open"
+    "test": "cypress open"
+
   },
   "dependencies": {
     "@cypress/react": "^5.12.1",
