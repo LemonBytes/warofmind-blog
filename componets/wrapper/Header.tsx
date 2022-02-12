@@ -1,9 +1,9 @@
 import styles from "../../styles/navigation/Navbar.module.css";
-import { Navbar } from "../navigation/Navbar";
+import { NavigationLayer } from "../navigation/NavigationLayer";
 export const WomHeader = () => {
   return (
     <header className={styles.head}>
-      <Navbar />
+      <NavigationLayer />
     </header>
   );
 };

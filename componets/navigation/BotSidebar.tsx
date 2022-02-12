@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "../../styles/navigation/Navbar.module.css";
-import { LinkBox } from "./LinkBox";
+import { LinkContainer } from "./LinkContainer";
 
 interface IState {
   openClose: boolean;
@@ -15,7 +15,7 @@ export const BotSidebar: React.FC<IState> = ({ openClose }) => {
           openClose ? styles.open : styles.closed
         }`}
       >
-        <LinkBox />
+        <LinkContainer />
       </div>
     </div>
   );

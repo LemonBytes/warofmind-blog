@@ -1,11 +1,7 @@
 import Link from "next/link";
 import styles from "../../styles/navigation/Navbar.module.css";
 
-interface IDisplay {
-  display: string;
-}
-
-export const LinkBox = () => {
+export const LinkContainer = () => {
   return (
     <div className={styles.outerLinkBox}>
       <div className={styles.innerLinkBox}>
