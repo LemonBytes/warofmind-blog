@@ -6,12 +6,13 @@ import styles from "../../styles/navigation/Navbar.module.css";
 import { BotSidebar } from "./BotSidebar";
 import { TopSidebar } from "./TopSidebar";
 import { BlurrLayer } from "./BlurrLayer";
-import { LinkBox } from "./LinkBox";
+import { MenuView } from "./MenuView";
 
 export const Navbar = () => {
   const [openClose, setOpenClose] = useState(false);
   const openCloseNavi = (): void => {
     setOpenClose(!openClose);
+    console.log("hi");
   };
 
   return (
@@ -33,8 +34,13 @@ export const Navbar = () => {
         </nav>
       </div>
       <div className={styles.largeView}>
+        <MenuView openClose={openClose} />
         <div className={styles.navHead}>
-          <div className={styles.brushContainer}></div>
+          <div
+            onClick={openCloseNavi}
+            id="largeViewHeader"
+            className={styles.brushContainer}
+          ></div>
         </div>
       </div>
     </div>

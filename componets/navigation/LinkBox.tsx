@@ -1,6 +1,10 @@
 import Link from "next/link";
 import styles from "../../styles/navigation/Navbar.module.css";
 
+interface IDisplay {
+  display: string;
+}
+
 export const LinkBox = () => {
   return (
     <div className={styles.outerLinkBox}>
@@ -25,8 +29,6 @@ export const LinkBox = () => {
             <strong>MUAY THAI</strong>
           </a>
         </Link>
-      </div>
-      <div className={styles.innerLinkBox}>
         <Link href={"/"}>
           <a className={styles.navLink}>
             <strong>BJJ</strong>

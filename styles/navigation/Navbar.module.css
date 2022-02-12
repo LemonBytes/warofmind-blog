@@ -47,15 +47,15 @@
   left: 0px;
   font-family: "Naruto";
   overflow: hidden;
-  background-position-x: -650px;
+  background-position-x: -720px;
 }
 
 .botSidebar {
   bottom: 10%;
   right: 0px;
-  font-size: 1em;
   background-position-x: -40px;
   text-align-last: left;
+  font-size: 1em;
   font-family: Naruto;
 }
 
@@ -64,7 +64,6 @@
   width: 400px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   overflow-x: scroll;
   scroll-behavior: smooth;
   position: absolute;
@@ -75,32 +74,27 @@
 }
 
 .innerLinkBox {
-  height: 125px;
+  height: 100px;
   width: auto;
   display: grid;
-  grid-column-gap: 20px;
-  grid-row-gap: 10px;
-  grid-template-columns: 120px 10px;
-  margin-right: 125px;
-  margin-top: 20px;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0px 20px 0px 20px;
 }
 
 .navLink {
-  width: 120px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  font-size: 1.5rem;
-  background-image: linear-gradient(180deg, white, #c62828, #c62828);
-  stroke: 2px solid black;
-  background-clip: text;
-  border-radius: 0px;
-  -webkit-text-fill-color: transparent;
-}
-
-.navLink > strong {
+  font-size: 1.4rem;
+  color: black;
+  padding: 5px;
+  border-radius: 2px;
+  background-image: url("../../public/assets/images/WBrush.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .open {
@@ -138,7 +132,7 @@
   display: none;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 500px) {
   .mobileView {
     display: none;
   }
@@ -148,53 +142,85 @@
   }
 
   .navHead {
-    width: 100vw;
-    height: 30vh;
+    width: 100px;
+    height: 100vh;
     position: fixed;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
 
   .brushContainer {
-    width: 250px;
-    height: 250px;
+    width: 50px;
+    height: 50px;
     background-image: url("../../public/assets/images/brushCircle.png");
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid red;
+    text-align: center;
+    margin: 15px;
+    cursor: pointer;
   }
 
   .outerLinkBox {
-    height: 200px;
-    width: 100vh;
+    height: 100vh;
+    width: 600px;
     display: flex;
+    flex-direction: column;
+    overflow: visible;
     align-items: center;
     position: relative;
-    overflow: scroll;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    left: 0px;
+    border-radius: 0px;
   }
 
   .innerLinkBox {
-    height: 125px;
     width: auto;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+
+  .innerLinkBox::-webkit-scrollbar {
+    display: none;
   }
 
   .navLink {
-    width: 120px;
-    height: 30px;
-    display: flex;
+    width: auto;
+    height: auto;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    font-family: Naruto;
+    background-image: none;
+    background-size: cover;
+    background-position: center;
+    font-size: 6rem;
+  }
+
+  .closedMenu {
+    width: 100vw;
+    height: 100vh;
+    transition: ease-in-out;
+    transition-duration: 0.3s;
+    background: rgb(33, 33, 33, 0.6);
+    z-index: 1;
+    position: absolute;
+    left: -100vw;
+  }
+
+  .openMenu {
+    width: 100vw;
+    height: 100vh;
+    transition: ease-in-out;
+    transition-duration: 0.3s;
+    background: rgb(33, 33, 33, 0.6);
+    position: absolute;
+    left: 0px;
   }
 }
