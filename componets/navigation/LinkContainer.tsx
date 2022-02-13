@@ -7,11 +7,6 @@ export const LinkContainer = () => {
       <div className={styles.innerLinkBox}>
         <Link href={"/"}>
           <a className={styles.navLink}>
-            <strong>ALL POSTS</strong>
-          </a>
-        </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
             <strong>BOXING</strong>
           </a>
         </Link>
@@ -38,6 +33,11 @@ export const LinkContainer = () => {
         <Link href={"/"}>
           <a className={styles.navLink}>
             <strong>REVIEWS</strong>
+          </a>
+        </Link>
+        <Link href={"/"}>
+          <a className={styles.navLink}>
+            <strong>ALL POSTS</strong>
           </a>
         </Link>
         <Link href={"/"}>

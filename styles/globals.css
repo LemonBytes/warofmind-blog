@@ -7,11 +7,11 @@ a {
   box-sizing: border-box;
 }
 body {
-  background: #424242;
+  background: #4c4c4c;
   overflow: hidden;
 }
 
 :root {
   --main-color: #212121;
-  --accent-color: #424242;
+  --accent-color: #4c4c4c;
 }
