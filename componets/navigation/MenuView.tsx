@@ -10,10 +10,17 @@ export const MenuView: React.FC<IState> = ({ openClose, setOpenClose }) => {
   return (
     <div
       id="menuView"
-      className={openClose ? styles.openMenu : styles.closedMenu}
+      className={`${styles.navigationMenu} ${
+        openClose ? styles.openMenu : styles.closedMenu
+      }`}
     >
-      <button onClick={() => setOpenClose(!openClose)}>X</button>
       <LinkContainer />
+      <div
+        className={styles.closeButton}
+        onClick={() => setOpenClose(!openClose)}
+      >
+        X
+      </div>
     </div>
   );
 };

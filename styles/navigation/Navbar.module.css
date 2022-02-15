@@ -9,6 +9,10 @@
   display: block;
 }
 
+.largeView {
+  display: none;
+}
+
 .navigationOpen {
   width: 75px;
   height: 75px;
@@ -55,7 +59,7 @@
   right: 0px;
   background-position-x: -40px;
   text-align-last: left;
-  font-size: 1em;
+  font-size: 1rem;
   font-family: Naruto;
 }
 
@@ -106,19 +110,6 @@
   background-position-x: 300px;
 }
 
-.topTitle {
-  height: 50px;
-  font-size: 2.6em;
-  overflow: hidden;
-  margin-top: -25px;
-  margin-left: 30px;
-  padding: 0px 10px 0px 10px;
-  position: absolute;
-  background-image: linear-gradient(180deg, white, #c62828, #c62828);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .blurrArea {
   width: 110vw;
   height: 110vh;
@@ -128,48 +119,57 @@
   background: rgb(33, 33, 33, 0.8);
 }
 
-.largeView {
-  display: none;
-}
-
 @media only screen and (min-width: 500px) {
   .mobileView {
     display: none;
   }
 
   .largeView {
-    display: block;
+    position: fixed;
+    display: flex;
+    left: 0px;
+    top: 0px;
+  }
+
+  .largeTopBar {
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    position: fixed;
+    align-items: flex-start;
+    justify-content: space-between;
+    background: transparent;
+  }
+
+  .contactLink {
+    font-family: Naruto;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    padding: 15px;
+    color: rgb(212, 211, 211);
+  }
+
+  .logoContainer {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-bottom-right-radius: 10px;
   }
 
   .navHead {
-    width: 100px;
-    height: 100vh;
-    position: fixed;
+    width: 65px;
+    height: 60px;
+    position: absolute;
     right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    align-self: center;
+    border: 1px solid white;
+    cursor: pointer;
   }
 
-  .logoContainer {
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-
-  .ippoContainer {
-    width: 100px;
-    height: 200px;
-    position: absolute;
-    border-radius: 10px;
-
-    left: 0px;
-    bottom: -50px;
-    z-index: 0;
-  }
   .brushContainer {
     width: 50px;
     height: 50px;
@@ -182,15 +182,27 @@
     cursor: pointer;
   }
 
+  .legalLink {
+    font-family: Naruto;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    padding: 25px;
+    color: rgb(212, 211, 211);
+    position: absolute;
+    display: flex;
+    align-self: flex-end;
+    right: 0px;
+  }
+
   .outerLinkBox {
     height: 100vh;
     width: 100vw;
     display: flex;
     justify-content: flex-start;
     overflow: visible;
-    left: 0px;
+    right: 0px;
     border-radius: 0px;
-    z-index: 2;
   }
 
   .innerLinkBox {
@@ -202,7 +214,7 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     padding: 100px 0px 100px 0px;
-    left: 1px;
+    right: 1px;
   }
 
   .innerLinkBox::-webkit-scrollbar {
@@ -220,42 +232,34 @@
     color: rgb(212, 211, 211);
   }
 
-  .closedMenu {
+  .navigationMenu {
     width: 100vw;
     height: 100vh;
     transition: ease-in-out;
     transition-duration: 0.3s;
     background: rgba(0, 0, 0, 0.9);
-    z-index: 2;
-    position: absolute;
-    left: -100vw;
+    position: relative;
+  }
+
+  .closedMenu {
+    right: -100vw;
     top: 0px;
   }
 
   .openMenu {
-    width: 100vw;
-    height: 100vh;
-    transition: ease-in-out;
-    transition-duration: 0.3s;
-    background: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    z-index: 2;
-    left: 0px;
+    right: -0px;
     top: 0px;
   }
 
-  .openMenu > button {
+  .closeButton {
     width: 50px;
     height: 50px;
-    background: transparent;
-    border: none;
     float: right;
-    margin: 5px;
     color: white;
     font-family: Naruto;
     font-size: 2.5rem;
-    z-index: 3;
+    margin: 5px;
     cursor: pointer;
-    position: absolute;
+    position: relative;
   }
 }

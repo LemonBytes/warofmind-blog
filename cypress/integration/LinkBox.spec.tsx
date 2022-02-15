@@ -19,6 +19,5 @@ describe(`the Linkbox should contain links`, () => {
     cy.get("#linkBox").contains("a", "BJJ");
     cy.get("#linkBox").contains("a", "MIND");
     cy.get("#linkBox").contains("a", "REVIEWS");
-    cy.get("#linkBox").contains("a", "CONTACT");
   });
 });

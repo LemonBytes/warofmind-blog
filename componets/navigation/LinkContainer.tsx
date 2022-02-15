@@ -5,45 +5,26 @@ export const LinkContainer = () => {
   return (
     <div className={styles.outerLinkBox}>
       <div className={styles.innerLinkBox}>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>BOXING</strong>
-          </a>
+        <Link href="/boxing">
+          <a className={styles.navLink}>BOXING</a>
         </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>KICKBOXING</strong>
-          </a>
+        <Link href="/kickboxing">
+          <a className={styles.navLink}>KICKBOXING</a>
         </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>MUAY THAI</strong>
-          </a>
+        <Link href="/muay-thai">
+          <a className={styles.navLink}>MUAY THAI</a>
         </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>BJJ</strong>
-          </a>
+        <Link href="/brazilian-jiu-jitsu">
+          <a className={styles.navLink}>BJJ</a>
         </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>MIND</strong>
-          </a>
+        <Link href="/mind">
+          <a className={styles.navLink}>MIND</a>
         </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>REVIEWS</strong>
-          </a>
+        <Link href="/reviews">
+          <a className={styles.navLink}>REVIEWS</a>
         </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>ALL POSTS</strong>
-          </a>
-        </Link>
-        <Link href={"/"}>
-          <a className={styles.navLink}>
-            <strong>CONTACT</strong>
-          </a>
+        <Link href="/all-posts">
+          <a className={styles.navLink}>ALL POSTS</a>
         </Link>
       </div>
     </div>
