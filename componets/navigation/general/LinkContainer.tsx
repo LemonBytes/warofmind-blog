@@ -16,7 +16,7 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
         <Link href="/boxing">
           <a
             onMouseOver={() => handleMouse("boxing")}
-            onMouseLeave={() => handleMouse("noPreview")}
+            onMouseLeave={() => handleMouse("")}
             id="link1"
             className={styles.navLink}
           >
@@ -24,32 +24,62 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
           </a>
         </Link>
         <Link href="/kickboxing">
-          <a id="link2" className={styles.navLink}>
+          <a
+            onMouseOver={() => handleMouse("kickboxing")}
+            onMouseLeave={() => handleMouse("")}
+            id="link2"
+            className={styles.navLink}
+          >
             KICKBOXING
           </a>
         </Link>
         <Link href="/muay-thai">
-          <a id="link3" className={styles.navLink}>
+          <a
+            onMouseOver={() => handleMouse("muayThai")}
+            onMouseLeave={() => handleMouse("")}
+            id="link3"
+            className={styles.navLink}
+          >
             MUAY THAI
           </a>
         </Link>
         <Link href="/brazilian-jiu-jitsu">
-          <a id="link4" className={styles.navLink}>
+          <a
+            onMouseOver={() => handleMouse("bjj")}
+            onMouseLeave={() => handleMouse("")}
+            id="link4"
+            className={styles.navLink}
+          >
             BJJ
           </a>
         </Link>
         <Link href="/mind">
-          <a id="link5" className={styles.navLink}>
+          <a
+            onMouseOver={() => handleMouse("mind")}
+            onMouseLeave={() => handleMouse("")}
+            id="link5"
+            className={styles.navLink}
+          >
             MIND
           </a>
         </Link>
         <Link href="/reviews">
-          <a id="link6" className={styles.navLink}>
+          <a
+            onMouseOver={() => handleMouse("reviews")}
+            onMouseLeave={() => handleMouse("")}
+            id="link6"
+            className={styles.navLink}
+          >
             REVIEWS
           </a>
         </Link>
         <Link href="/all-posts">
-          <a id="link7" className={styles.navLink}>
+          <a
+            onMouseOver={() => handleMouse("allPosts")}
+            onMouseLeave={() => handleMouse("")}
+            id="link7"
+            className={styles.navLink}
+          >
             ALL POSTS
           </a>
         </Link>

@@ -251,7 +251,10 @@
   }
 
   .previewBox {
-    background: red;
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    border: 1px solid rgb(212, 211, 211);
   }
 
   .closeButton {

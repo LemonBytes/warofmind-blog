@@ -1,18 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useMousePosition } from "../../../hooks/useMousePosition";
 import styles from "../../../styles/navigation/Navbar.module.css";
 import { LinkContainer } from "../general/LinkContainer";
+import { PreviewBox } from "./PreviewBox";
 
 interface IState {
   openClose: boolean;
   setOpenClose: (openClose: boolean) => void;
 }
 
-export type previewType = "boxing" | "noPreview";
+export type previewType =
+  | "boxing"
+  | "kickboxing"
+  | "muayThai"
+  | "bjj"
+  | "mind"
+  | "reviews"
+  | "allPosts"
+  | "karate"
+  | "";
 
 export const MenuView: React.FC<IState> = ({ openClose, setOpenClose }) => {
-  const [acticvePreviewType, setActicvePreviewType] =
-    useState<previewType>("noPreview");
-
+  const [acticvePreviewType, setActicvePreviewType] = useState<previewType>("");
+  const { xPosition, yPosition } = useMousePosition();
+  console.log(acticvePreviewType);
   return (
     <div
       id="menuView"
@@ -20,6 +31,13 @@ export const MenuView: React.FC<IState> = ({ openClose, setOpenClose }) => {
         openClose ? styles.openMenu : styles.closedMenu
       }`}
     >
+      {acticvePreviewType && (
+        <PreviewBox
+          xPosition={xPosition}
+          yPosition={yPosition}
+          previewType={acticvePreviewType}
+        />
+      )}
       <LinkContainer setActicvePreviewType={setActicvePreviewType} />
 
       <div
