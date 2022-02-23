@@ -12,8 +12,8 @@ interface IState {
 export type previewType =
   | "boxing"
   | "kickboxing"
-  | "muayThai"
-  | "bjj"
+  | "muay-thai"
+  | "brazilian-jiu-jitsu"
   | "mind"
   | "reviews"
   | "allPosts"

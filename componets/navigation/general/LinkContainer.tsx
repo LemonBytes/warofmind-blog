@@ -1,88 +1,60 @@
 import Link from "next/link";
 import styles from "../../../styles/navigation/Navbar.module.css";
 import { previewType } from "../largeDevice/MenuView";
+import { WomLink } from "./WomLink";
 
 interface IHover {
   setActicvePreviewType?: (string: previewType) => void;
 }
+const LinkInfos = [
+  {
+    previewType: "boxing" as previewType,
+    linkText: "BOXING",
+  },
+  {
+    previewType: "kickboxing" as previewType,
+    linkText: "KICkBOXING",
+  },
+  {
+    previewType: "muay-thai" as previewType,
+    linkText: "MUAY THAI",
+  },
+  {
+    previewType: "brazilian-jiu-jitsu" as previewType,
+    linkText: "BJJ",
+  },
+  {
+    previewType: "mind" as previewType,
+    linkText: "MIND",
+  },
+  {
+    previewType: "reviews" as previewType,
+    linkText: "REVIEWS",
+  },
+  {
+    previewType: "allPosts" as previewType,
+    linkText: "ALL POSTS",
+  },
+  {
+    previewType: "karate" as previewType,
+    linkText: "KARATE",
+  },
+];
 
 export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
-  const handleMouse = (type: previewType) => {
-    if (setActicvePreviewType) setActicvePreviewType(type);
-  };
   return (
     <div id="linkCon" className={styles.outerLinkBox}>
       <div className={styles.innerLinkBox}>
-        <Link href="/boxing">
-          <a
-            onMouseOver={() => handleMouse("boxing")}
-            onMouseLeave={() => handleMouse("")}
-            id="link1"
-            className={styles.navLink}
-          >
-            BOXING
-          </a>
-        </Link>
-        <Link href="/kickboxing">
-          <a
-            onMouseOver={() => handleMouse("kickboxing")}
-            onMouseLeave={() => handleMouse("")}
-            id="link2"
-            className={styles.navLink}
-          >
-            KICKBOXING
-          </a>
-        </Link>
-        <Link href="/muay-thai">
-          <a
-            onMouseOver={() => handleMouse("muayThai")}
-            onMouseLeave={() => handleMouse("")}
-            id="link3"
-            className={styles.navLink}
-          >
-            MUAY THAI
-          </a>
-        </Link>
-        <Link href="/brazilian-jiu-jitsu">
-          <a
-            onMouseOver={() => handleMouse("bjj")}
-            onMouseLeave={() => handleMouse("")}
-            id="link4"
-            className={styles.navLink}
-          >
-            BJJ
-          </a>
-        </Link>
-        <Link href="/mind">
-          <a
-            onMouseOver={() => handleMouse("mind")}
-            onMouseLeave={() => handleMouse("")}
-            id="link5"
-            className={styles.navLink}
-          >
-            MIND
-          </a>
-        </Link>
-        <Link href="/reviews">
-          <a
-            onMouseOver={() => handleMouse("reviews")}
-            onMouseLeave={() => handleMouse("")}
-            id="link6"
-            className={styles.navLink}
-          >
-            REVIEWS
-          </a>
-        </Link>
-        <Link href="/all-posts">
-          <a
-            onMouseOver={() => handleMouse("allPosts")}
-            onMouseLeave={() => handleMouse("")}
-            id="link7"
-            className={styles.navLink}
-          >
-            ALL POSTS
-          </a>
-        </Link>
+        {LinkInfos.map((infos, key) => {
+          return (
+            <WomLink
+              key={key}
+              setActicvePreviewType={setActicvePreviewType}
+              previewType={infos.previewType}
+              linkText={infos.linkText}
+            />
+          );
+        })}
       </div>
     </div>
   );
