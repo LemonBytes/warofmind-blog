@@ -25,8 +25,9 @@
   justify-content: center;
   transition: ease-in-out;
   transition-duration: 0.5s;
-  border-radius: 4px;
+  border-radius: 3px;
   padding-left: 1px;
+  border: 1px solid white;
 }
 
 .sidebar {
@@ -45,20 +46,52 @@
   align-items: center;
 }
 
+.open {
+  width: 100%;
+}
+
+.closed {
+  width: 0px;
+  background-position-x: 300px;
+}
+
 .topSidebar {
   height: 300px;
-  top: 10%;
+  top: 7%;
   left: 0px;
   font-family: "Naruto";
   overflow: hidden;
-  background-position-x: -720px;
+  background-position-x: -700px;
+  display: flex;
+}
+
+.navLinkTop {
+  width: 200px;
+  height: 40px;
+  font-size: 30px;
+  color: white;
+  padding: 5px;
+}
+
+.topLinkBox {
+  width: 200px;
+  height: 40px;
+  margin: -30px 0px 0px 30px;
+  overflow: hidden;
+}
+
+.topLinkBoxTwo {
+  width: 200px;
+  height: 40px;
+  margin: 20px 0px 0px 70px;
+  overflow: hidden;
 }
 
 .botSidebar {
   bottom: 10%;
   right: 0px;
   background-position-x: -40px;
-  text-align-last: left;
+  text-align: left;
   font-size: 1rem;
   font-family: Naruto;
 }
@@ -93,21 +126,9 @@
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  color: black;
+  color: white;
   padding: 5px;
-  border-radius: 2px;
-  background-image: url("../../public/assets/images/WBrush.png");
-  background-size: cover;
-  background-position: center;
-}
-
-.open {
-  width: 100%;
-}
-
-.closed {
-  width: 0px;
-  background-position-x: 300px;
+  font-weight: 500;
 }
 
 .blurrArea {

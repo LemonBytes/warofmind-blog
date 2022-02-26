@@ -8,7 +8,7 @@ import { BotSidebar } from "../mobile/BotSidebar";
 import { TopSidebar } from "../mobile/TopSidebar";
 import { BlurrLayer } from "../mobile/BlurrLayer";
 import { MenuView } from "../largeDevice/MenuView";
-import { Topbar } from "../Topbar";
+import { Topbar } from "./Topbar";
 import Link from "next/link";
 
 export const NavigationLayer = () => {
@@ -20,6 +20,7 @@ export const NavigationLayer = () => {
   return (
     <div id="navbar">
       <div id="mobileView" className={styles.mobileView}>
+        <Topbar />
         {openClose && <BlurrLayer />}
         <TopSidebar openClose={openClose} />
         <BotSidebar openClose={openClose} />
@@ -36,6 +37,7 @@ export const NavigationLayer = () => {
         </nav>
       </div>
       <div className={styles.largeView}>
+        <Topbar largeView={true} />
         <div className={styles.navHead}>
           <div onClick={openCloseNavi} id="openMenu">
             <Image
@@ -52,7 +54,6 @@ export const NavigationLayer = () => {
             LEGAL NOTICE
           </a>
         </Link>
-        <Topbar />
         <MenuView openClose={openClose} setOpenClose={setOpenClose} />
       </div>
     </div>
