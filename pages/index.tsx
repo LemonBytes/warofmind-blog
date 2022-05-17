@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-import { TrendingPosts } from "../componets/postcontainer/TrendigPosts";
+import { TrendingPosts } from "../components/postcontainer/TrendigPosts";
 
 import styles from "../styles/Home.module.css";
 import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";

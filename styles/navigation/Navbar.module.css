@@ -27,7 +27,8 @@
   transition-duration: 0.5s;
   border-radius: 3px;
   padding-left: 1px;
-  border: 1px solid white;
+  border: 1px solid red;
+
 }
 
 .sidebar {
@@ -152,24 +153,7 @@
     top: 0px;
   }
 
-  .largeTopBar {
-    width: 100vw;
-    height: 80px;
-    display: flex;
-    position: fixed;
-    align-items: flex-start;
-    justify-content: space-between;
-    background: transparent;
-  }
-
-  .contactLink {
-    font-family: Naruto;
-    font-size: 1rem;
-    cursor: pointer;
-    text-align: center;
-    padding: 15px;
-    color: rgb(212, 211, 211);
-  }
+  
 
   .logoContainer {
     width: 50px;
@@ -243,13 +227,15 @@
   }
 
   .navLink {
-    width: auto;
-    height: 250px;
+    width: 70vw;
+    height: 150px;
     font-family: Naruto;
-    background-image: none;
     font-size: 2.5rem;
     color: rgb(212, 211, 211);
-    padding-right: 70%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 15px;
+  
   }
 
   .navigationMenu {

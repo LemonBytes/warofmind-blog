@@ -9,7 +9,10 @@ interface IView {
 
 export const Topbar: React.FC<IView> = ({ largeView }) => {
   return (
-    <div id="topbar" className={styles.largeTopBar}>
+    <div
+      id="topbar"
+      className="w-screen h-14 fixed flex justify-between bg-transparent"
+    >
       <div className={styles.logoContainer}>
         <Image
           src={logo}
@@ -21,7 +24,10 @@ export const Topbar: React.FC<IView> = ({ largeView }) => {
       </div>
       {largeView && (
         <Link href="/contact">
-          <a id="contactME" className={styles.contactLink}>
+          <a
+            id="contactME"
+            className="text-xl font-naruto text-white p-4 cursor-pointer "
+          >
             CONTACT
           </a>
         </Link>

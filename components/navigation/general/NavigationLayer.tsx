@@ -5,7 +5,7 @@ import { useState } from "react";
 import Image from "next/image";
 import styles from "../../../styles/navigation/Navbar.module.css";
 import { BotSidebar } from "../mobile/BotSidebar";
-import { TopSidebar } from "../mobile/TopSidebar";
+import { MobileQuoteBar } from "../mobile/MobileQuoteBar";
 import { BlurrLayer } from "../mobile/BlurrLayer";
 import { MenuView } from "../largeDevice/MenuView";
 import { Topbar } from "./Topbar";
@@ -22,9 +22,9 @@ export const NavigationLayer = () => {
       <div id="mobileView" className={styles.mobileView}>
         <Topbar />
         {openClose && <BlurrLayer />}
-        <TopSidebar openClose={openClose} />
+        <MobileQuoteBar openClose={openClose} />
         <BotSidebar openClose={openClose} />
-        <nav id="navigation" className={styles.navigationOpen}>
+        <nav id="navigation" className="w-20 h-20 fixed bottom-[8%] right-[6%]">
           <div onClick={openCloseNavi} className={styles.imgContainer}>
             <Image
               width={45}
