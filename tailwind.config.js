@@ -3,7 +3,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",],
   theme: {
     colors: {
-      white: "#d4d3d3"
+      white: "#d4d3d3",
+      blurrBlack: `rgb(${200}, ${4}, ${34}, ${0.8})`,
+
     },
     extend: {
       fontFamily: {
@@ -13,14 +15,21 @@ module.exports = {
         brush: "url('../public/assets/images/brush.png')"
       },
       backgroundSize: {
-        "300": "400%",
+        "450": "400%",
+        "350": "350%"
       },
       backgroundPosition: {
-        farLeft: "-650px",
-        mediumLeft: "300px"
+        topBarHidden: "-150px",
+        topBarShown: "300px",
+        bottBarShown: "-60px"
+
       },
       width: {
-        mediumView: "70vw"
+        mediumView: "70vw",
+        blurrAreaW: "110vw",
+      },
+      height: {
+        blurrAreaH: "110vh"
       },
       bottom: {
         "6%": '6%'

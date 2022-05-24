@@ -11,8 +11,8 @@ export const MobileQuoteBar: React.FC<IState> = ({ openClose }) => {
     <div id="topBar">
       <div
         id="topSideBar"
-        className={`h-72 top-20 left-0 fixed flex items-center font-naruto overflow-hidden bg-brush bg-300 bg-no-repeat bg-farLeft transition-all ${
-          openClose ? `w-screen` : `w-0 bg-mediumLeft`
+        className={`h-80 top-10 left-0 fixed flex items-center font-naruto overflow-hidden bg-brush bg-450 bg-no-repeat bg-topBarHidden transition-all ${
+          openClose ? `w-screen` : `w-0 bg-topBarShown`
         }`}
       ></div>
     </div>

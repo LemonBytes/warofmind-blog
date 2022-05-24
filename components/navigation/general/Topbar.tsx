@@ -13,7 +13,7 @@ export const Topbar: React.FC<IView> = ({ largeView }) => {
       id="topbar"
       className="w-screen h-14 fixed flex justify-between bg-transparent"
     >
-      <div className={styles.logoContainer}>
+      <div>
         <Image
           src={logo}
           width={50}

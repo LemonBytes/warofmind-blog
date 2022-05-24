@@ -6,7 +6,7 @@ import { PreviewBox } from "./PreviewBox";
 
 interface IState {
   openClose: boolean;
-  setOpenClose: (openClose: boolean) => void;
+  openCloseNavi: () => void;
 }
 
 export type previewType =
@@ -20,7 +20,7 @@ export type previewType =
   | "karate"
   | "";
 
-export const MenuView: React.FC<IState> = ({ openClose, setOpenClose }) => {
+export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
   const [acticvePreviewType, setActicvePreviewType] = useState<previewType>("");
   const { xPosition, yPosition } = useMousePosition();
   console.log(acticvePreviewType);
@@ -40,10 +40,7 @@ export const MenuView: React.FC<IState> = ({ openClose, setOpenClose }) => {
       )}
       <LinkContainer setActicvePreviewType={setActicvePreviewType} />
 
-      <div
-        className={styles.closeButton}
-        onClick={() => setOpenClose(!openClose)}
-      >
+      <div className={styles.closeButton} onClick={openCloseNavi}>
         X
       </div>
     </div>

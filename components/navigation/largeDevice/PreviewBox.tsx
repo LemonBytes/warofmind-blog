@@ -6,8 +6,8 @@ interface IPreview {
   previewType: string;
 }
 
-const X_SHIFT = 20;
-const Y_SHIFT = 90;
+const X_SHIFT = 30;
+const Y_SHIFT = 65;
 
 export const PreviewBox: React.FC<IPreview> = ({
   xPosition,

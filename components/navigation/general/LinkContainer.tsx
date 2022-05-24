@@ -50,10 +50,8 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
       <div className="w-auto h-28 grid grid-cols-4 -px-9 -m-6 gap-x-36 gap-y-2  sm:w-screen sm:h-screen sm:flex sm:flex-col sm:items-start sm:overflow-y-scroll sm:px-4">
         {LinkInfos.map((infos, key) => {
           return (
-            // eslint-disable-next-line react/jsx-key
-            <div>
+            <div key={key}>
               <WomLink
-                key={key}
                 setActicvePreviewType={setActicvePreviewType}
                 previewType={infos.previewType}
                 linkText={infos.linkText}
