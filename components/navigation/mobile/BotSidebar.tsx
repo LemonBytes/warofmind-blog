@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "../../../styles/navigation/Navbar.module.css";
 import { LinkContainer } from "../general/LinkContainer";
 
 interface IState {

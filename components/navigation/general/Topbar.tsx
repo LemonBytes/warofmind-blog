@@ -1,7 +1,7 @@
 import Link from "next/link";
 import logo from "../../../public/assets/images/logo.jpg";
 import Image from "next/image";
-import styles from "../../../styles/navigation/Navbar.module.css";
+import React from "react";
 
 interface IView {
   largeView?: boolean;

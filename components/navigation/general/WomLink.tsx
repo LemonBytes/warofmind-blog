@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { previewType } from "../largeDevice/MenuView";
-import styles from "../../../styles/navigation/Navbar.module.css";
+
 interface IWomLink {
   setActicvePreviewType?: (string: previewType) => void;
   previewType: previewType;

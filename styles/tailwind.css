@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
     @font-face {
         font-family: 'naruto';
-        src: font-url("../public/assets/fonts/naruto.ttf") format('truetype');
-      }
+        src: url("../public/assets/fonts/naruto.ttf");
+    }
 }
+

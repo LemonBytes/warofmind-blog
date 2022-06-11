@@ -5,12 +5,12 @@ import Image from "next/image";
 import open from "../../../public/assets/images/open.png";
 import close from "../../../public/assets/images/closed.png";
 
-interface ILargeNavigation {
+interface IDesktopNavigation {
   openCloseNavi: () => void;
   openClose: boolean;
 }
 
-export const LargeNavigation: React.FC<ILargeNavigation> = ({
+export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
   openCloseNavi,
   openClose,
 }) => {
@@ -18,7 +18,7 @@ export const LargeNavigation: React.FC<ILargeNavigation> = ({
     <div className="hidden sm:fixed sm:flex sm:left-0 sm:top-0 ">
       <Topbar largeView={true} />
       <div className="w-16 h-16 absolute flex items-center justify-center self-center right-5 cursor-pointer">
-        <div onClick={openCloseNavi} id="openMenu">
+        <div className="absolute" onClick={openCloseNavi} id="openMenu">
           <Image
             width={45}
             height={45}
@@ -30,7 +30,8 @@ export const LargeNavigation: React.FC<ILargeNavigation> = ({
       <Link href="/legal-notice">
         <a
           id="legalNotice"
-          className="flex self-end justify-self-end p-5 absolute right-0 text-xl font-naruto text-white p-4 cursor-pointer"
+          className="flex self-end justify-self-end p-5 absolute right-0 text-xl font-naruto
+           text-white p-4 cursor-pointer"
         >
           LEGAL NOTICE
         </a>

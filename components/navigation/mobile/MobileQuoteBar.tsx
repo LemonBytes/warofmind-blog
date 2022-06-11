@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "../../../styles/navigation/Navbar.module.css";
 import { WomLink } from "../general/WomLink";
 
 interface IState {

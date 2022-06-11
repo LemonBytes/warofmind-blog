@@ -1,6 +1,5 @@
-import ippo from "../../public/assets/images/ippo.gif";
 import { useState } from "react";
-import { LargeNavigation } from "../largeDevice/LargeNavigation";
+import { DesktopNavigation } from "../largeDevice/LargeNavigation";
 import { MobileNavigation } from "../mobile/MobilNavigation";
 
 export const NavigationLayer = () => {
@@ -13,7 +12,7 @@ export const NavigationLayer = () => {
   return (
     <div id="navbar">
       <MobileNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
-      <LargeNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
+      <DesktopNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
     </div>
   );
 };

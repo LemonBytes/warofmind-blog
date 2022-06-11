@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useMousePosition } from "../../../hooks/useMousePosition";
-import styles from "../../../styles/navigation/Navbar.module.css";
 import { LinkContainer } from "../general/LinkContainer";
 import { PreviewBox } from "./PreviewBox";
 
@@ -23,13 +22,11 @@ export type previewType =
 export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
   const [acticvePreviewType, setActicvePreviewType] = useState<previewType>("");
   const { xPosition, yPosition } = useMousePosition();
-  console.log(acticvePreviewType);
   return (
     <div
       id="menuView"
-      className={`${styles.navigationMenu} ${
-        openClose ? styles.openMenu : styles.closedMenu
-      }`}
+      className={`w-screen h-screen relative bg-menuBlack transition-all ease-in-out duration-300
+       ${openClose ? "right-0 top-0" : "-right-full top-0"}`}
     >
       {acticvePreviewType && (
         <PreviewBox
@@ -39,10 +36,12 @@ export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
         />
       )}
       <LinkContainer setActicvePreviewType={setActicvePreviewType} />
-
-      <div className={styles.closeButton} onClick={openCloseNavi}>
+      <button
+        className="w-12 h-12 absolute top-0 right-0 m-2 text-white text-4xl font-large font-naruto"
+        onClick={openCloseNavi}
+      >
         X
-      </div>
+      </button>
     </div>
   );
 };

@@ -1,5 +1,3 @@
-import styles from "../../../styles/navigation/Navbar.module.css";
-
 interface IPreview {
   xPosition: number;
   yPosition: number;
@@ -17,7 +15,7 @@ export const PreviewBox: React.FC<IPreview> = ({
   return (
     <div
       id="previewBox"
-      className={styles.previewBox}
+      className="w-64 h-40 absolute border border-white"
       style={{ left: xPosition + X_SHIFT, top: yPosition - Y_SHIFT }}
     >
       <video autoPlay loop muted style={{ width: "100%", height: "100%" }}>

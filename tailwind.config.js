@@ -1,11 +1,10 @@
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",],
+  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}",],
   theme: {
     colors: {
-      white: "#d4d3d3",
+      white: `rgb(${212}, ${211}, ${211})`,
       blurrBlack: `rgb(${200}, ${4}, ${34}, ${0.8})`,
-
+      menuBlack: `rgb(${0}, ${0}, ${0}, ${0.9})`,
     },
     extend: {
       fontFamily: {
@@ -35,7 +34,8 @@ module.exports = {
         "6%": '6%'
       },
       right: {
-        "6%": '6%'
+        "6%": '6%',
+        "offScreen": "-100vw"
       }
     },
   },

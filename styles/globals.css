@@ -1,8 +1,8 @@
+
 a {
   color: inherit;
   text-decoration: none;
 }
-
 * {
   box-sizing: border-box;
 }
@@ -11,7 +11,3 @@ body {
   overflow: hidden;
 }
 
-:root {
-  --main-color: #1a1919;
-  --accent-color: #252525;
-}
