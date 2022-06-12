@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { previewType } from "../largeDevice/MenuView";
-import { WomLink } from "./WomLink";
+import { WomLink } from "../largeDevice/WomLink";
 
 interface IHover {
   setActicvePreviewType?: (string: previewType) => void;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { WomLink } from "../general/WomLink";
+import { WomLink } from "../largeDevice/WomLink";
 
 interface IState {
   openClose: boolean;

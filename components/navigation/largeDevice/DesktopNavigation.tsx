@@ -4,6 +4,7 @@ import { MenuView } from "./MenuView";
 import Image from "next/image";
 import open from "../../../public/assets/images/open.png";
 import close from "../../../public/assets/images/closed.png";
+import { useTranslation } from "next-i18next";
 
 interface IDesktopNavigation {
   openCloseNavi: () => void;
@@ -14,6 +15,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
   openCloseNavi,
   openClose,
 }) => {
+  const { t: translate } = useTranslation("desktopNavi");
   return (
     <div className="hidden sm:fixed sm:flex sm:left-0 sm:top-0 ">
       <Topbar largeView={true} />
@@ -33,7 +35,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
           className="flex self-end justify-self-end p-5 absolute right-0 text-xl font-naruto
            text-white p-4 cursor-pointer"
         >
-          LEGAL NOTICE
+          {translate("legalNotice")}
         </a>
       </Link>
       <MenuView openClose={openClose} openCloseNavi={openCloseNavi} />

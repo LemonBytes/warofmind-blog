@@ -16,6 +16,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "cypress", ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "cypress", "next-i18next.config.js", "next.config.js", "postcss.config.js", "tailwind.config.js", ],
   "exclude": ["node_modules"]
 }

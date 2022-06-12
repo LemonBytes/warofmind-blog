@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DesktopNavigation } from "../largeDevice/LargeNavigation";
+import { DesktopNavigation } from "../largeDevice/DesktopNavigation";
 import { MobileNavigation } from "../mobile/MobilNavigation";
 
 export const NavigationLayer = () => {

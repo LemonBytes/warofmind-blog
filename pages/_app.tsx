@@ -3,8 +3,9 @@ import "../styles/tailwind.css";
 import type { AppProps } from "next/app";
 import { WomHeader } from "../components/wrapper/Header";
 import { WomFooter } from "../components/wrapper/Footer";
+import { appWithTranslation } from "next-i18next";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <WomHeader />
@@ -12,6 +13,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <WomFooter />
     </>
   );
-}
+};
 
-export default MyApp;
+export default appWithTranslation(WarOfMindApp);
