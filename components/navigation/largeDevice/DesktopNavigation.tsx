@@ -15,7 +15,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
   openCloseNavi,
   openClose,
 }) => {
-  const { t: translate } = useTranslation("desktopNavi");
+  const { t } = useTranslation("navigation");
   return (
     <div className="hidden sm:fixed sm:flex sm:left-0 sm:top-0 ">
       <Topbar largeView={true} />
@@ -35,7 +35,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
           className="flex self-end justify-self-end p-5 absolute right-0 text-xl font-naruto
            text-white p-4 cursor-pointer"
         >
-          {translate("legalNotice")}
+          {t("legalNotice")}
         </a>
       </Link>
       <MenuView openClose={openClose} openCloseNavi={openCloseNavi} />

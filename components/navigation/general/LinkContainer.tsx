@@ -1,3 +1,4 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { previewType } from "../largeDevice/MenuView";
 import { WomLink } from "../largeDevice/WomLink";
@@ -8,39 +9,40 @@ interface IHover {
 const LinkInfos = [
   {
     previewType: "boxing" as previewType,
-    linkText: "BOXING",
+    linkText: "boxing",
   },
   {
     previewType: "kickboxing" as previewType,
-    linkText: "KICKBOXING",
+    linkText: "kickboxing",
   },
   {
     previewType: "muay-thai" as previewType,
-    linkText: "MUAY THAI",
+    linkText: "muayThai",
   },
   {
     previewType: "brazilian-jiu-jitsu" as previewType,
-    linkText: "BJJ",
+    linkText: "bjj",
   },
   {
     previewType: "mind" as previewType,
-    linkText: "MIND",
+    linkText: "mind",
   },
   {
     previewType: "reviews" as previewType,
-    linkText: "REVIEWS",
+    linkText: "reviews",
   },
   {
     previewType: "allPosts" as previewType,
-    linkText: "ALL POSTS",
+    linkText: "allPosts",
   },
   {
     previewType: "karate" as previewType,
-    linkText: "KARATE",
+    linkText: "karate",
   },
 ];
 
 export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
+  const { t } = useTranslation("navigation");
   return (
     <div
       id="linkCon"
@@ -53,7 +55,7 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
               <WomLink
                 setActicvePreviewType={setActicvePreviewType}
                 previewType={infos.previewType}
-                linkText={infos.linkText}
+                linkText={t(infos.linkText)}
               />
             </div>
           );

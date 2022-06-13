@@ -5,6 +5,6 @@ i18next.addResourceBundle('en', 'desktopNavi', {
 
 });
 i18next.addResourceBundle('en', 'desktopNavi', {
-    legalNotice: 'DATENSCHUTZ'
+    legalNotice: 'IMPRESSUM'
     
 });
