@@ -5,7 +5,7 @@ interface IState {
   openClose: boolean;
 }
 
-export const BotSidebar: React.FC<IState> = ({ openClose }) => {
+export const BottomNavigationBrush: React.FC<IState> = ({ openClose }) => {
   return (
     <div>
       <div

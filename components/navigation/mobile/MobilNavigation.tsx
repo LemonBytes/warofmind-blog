@@ -1,6 +1,6 @@
 import { Topbar } from "../general/Topbar";
 import { BlurrLayer } from "./BlurrLayer";
-import { BotSidebar } from "./BotSidebar";
+import { BottomNavigationBrush } from "./BottomNavigationBrush";
 import { MobileQuoteBar } from "./MobileQuoteBar";
 import open from "../../../public/assets/images/open.png";
 import close from "../../../public/assets/images/closed.png";
@@ -20,7 +20,7 @@ export const MobileNavigation: React.FC<IMobileNavigation> = ({
       <Topbar />
       {openClose && <BlurrLayer />}
       <MobileQuoteBar openClose={openClose} />
-      <BotSidebar openClose={openClose} />
+      <BottomNavigationBrush openClose={openClose} />
       <nav id="navigation" className="w-20 h-20 fixed bottom-[8%] right-[6%]">
         <div onClick={openCloseNavi}>
           <Image
