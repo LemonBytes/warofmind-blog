@@ -15,7 +15,7 @@ export const MobileQuoteBar: React.FC<IState> = ({ openClose }) => {
           openClose ? `w-screen` : `w-0 bg-topBarShown`
         }`}
       >
-        <QuoteBox />
+        <QuoteBox openClose={openClose} />
       </div>
     </div>
   );
