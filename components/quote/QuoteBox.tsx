@@ -30,7 +30,7 @@ export const QuoteBox: React.FC<IQuoteBox> = ({ openClose }) => {
 
   return (
     <div className="w-screen h-full overflow-x flex item-center justify-center text-white font-naruto">
-      <div className="w-72 h-auto flex-col self-center text-xl -mt-9">
+      <div className="w-80 h-auto flex-col self-center text-base">
         <blockquote>{quote.text}</blockquote>
         <p>{quote.author}</p>
       </div>

@@ -14,7 +14,7 @@ module.exports = {
         brush: "url('../public/assets/images/brush.png')"
       },
       backgroundSize: {
-        "450": "400%",
+        "400": "400%",
         "350": "350%"
       },
       backgroundPosition: {
@@ -36,6 +36,9 @@ module.exports = {
       right: {
         "6%": '6%',
         "offScreen": "-100vw"
+      },
+      screens: {
+        'smallPhone': { 'raw': '(max-height: 670px)' },
       }
     },
   },
