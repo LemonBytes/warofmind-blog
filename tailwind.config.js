@@ -20,7 +20,7 @@ module.exports = {
       backgroundPosition: {
         topBarHidden: "-150px",
         topBarShown: "300px",
-        bottBarShown: "-60px"
+        bottBarShown: "-70px"
 
       },
       width: {
@@ -39,7 +39,8 @@ module.exports = {
       },
       screens: {
         'smallPhone': { 'raw': '(max-height: 670px)' },
-      }
+      },
+
     },
   },
   plugins: [],
