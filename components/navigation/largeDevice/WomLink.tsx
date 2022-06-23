@@ -21,7 +21,7 @@ export const WomLink: React.FC<IWomLink> = ({
         onMouseOver={() => handleMouse(previewType)}
         onMouseLeave={() => handleMouse("")}
         id="link1"
-        className="w-36 h-10 flex items-center justify-center text-2xl text-white p-1.5 font-medium font-naruto sm:w-mediumView sm:h-28 sm:justify-start sm:items-start sm:p-5 sm:mt-16 sm:text-4xl"
+        className="w-36 h-auto flex items-center justify-center text-center text-2xl text-white p-2 font-medium font-naruto sm:w-mediumView sm:h-28 sm:justify-start sm:items-start sm:p-5 sm:mt-16 sm:text-4xl"
       >
         {linkText}
       </a>

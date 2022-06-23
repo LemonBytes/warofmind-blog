@@ -8,20 +8,25 @@ interface IHover {
 }
 const LinkInfos = [
   {
-    previewType: "boxing" as previewType,
-    linkText: "boxing",
-  },
-  {
     previewType: "kickboxing" as previewType,
     linkText: "kickboxing",
+  },
+  {
+    previewType: "boxing" as previewType,
+    linkText: "boxing",
   },
   {
     previewType: "muay-thai" as previewType,
     linkText: "muayThai",
   },
+
   {
     previewType: "brazilian-jiu-jitsu" as previewType,
-    linkText: "bjj",
+    linkText: "brazilian-jiu-jitsu",
+  },
+  {
+    previewType: "karate" as previewType,
+    linkText: "karate",
   },
   {
     previewType: "mind" as previewType,
@@ -31,14 +36,6 @@ const LinkInfos = [
     previewType: "reviews" as previewType,
     linkText: "reviews",
   },
-  {
-    previewType: "allPosts" as previewType,
-    linkText: "allPosts",
-  },
-  {
-    previewType: "karate" as previewType,
-    linkText: "karate",
-  },
 ];
 
 export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
@@ -46,9 +43,9 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
   return (
     <div
       id="linkCon"
-      className="w-96 h-36 relative flex items-center overflow-x-scroll inset-x-6 px-14 rounded-3xl  sm:w-screen sm:h-screen sm:justify-start sm:block sm:right-0 sm:overflow-visible sm:inset-0"
+      className="w-96 h-44 relative flex items-center overflow-x-scroll inset-x-6 px-14 rounded-3xl  sm:w-screen sm:h-screen sm:justify-start sm:block sm:right-0 sm:overflow-visible sm:inset-0"
     >
-      <div className="w-auto h-28 grid grid-cols-4 -px-9 -m-6 gap-x-36 gap-y-2  sm:w-screen sm:h-screen sm:flex sm:flex-col sm:items-start sm:overflow-y-scroll sm:px-4">
+      <div className="w-auto h-auto grid grid-cols-4 -px-9 -m-6 gap-x-40 sm:w-screen sm:h-screen sm:flex sm:flex-col sm:items-start sm:overflow-y-scroll sm:px-4">
         {LinkInfos.map((infos, key) => {
           return (
             <div key={key}>

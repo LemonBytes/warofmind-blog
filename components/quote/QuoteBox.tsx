@@ -21,12 +21,12 @@ export const QuoteBox: React.FC<IQuoteBox> = ({ openClose }) => {
   const currentLang = router.locale;
   const [quote, setQuote] = useState(sendRandomQuote(currentLang));
 
-  useEffect(() => {
-    if (!openClose) {
-      return;
-    }
-    setQuote(() => sendRandomQuote(currentLang));
-  }, [[], openClose]);
+  // useEffect(() => {
+  //   if (!openClose) {
+  //     return;
+  //   }
+  //   setQuote(() => sendRandomQuote(currentLang));
+  // }, [[], openClose]);
 
   return (
     <div className="w-screen h-full overflow-x flex item-center justify-center text-white font-naruto">
