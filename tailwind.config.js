@@ -35,7 +35,7 @@ module.exports = {
       },
       right: {
         "6%": '6%',
-        "offScreen": "-100vw"
+        "offScreen": "-100vw",
       },
       screens: {
         'smallPhone': { 'raw': '(max-height: 670px)' },
