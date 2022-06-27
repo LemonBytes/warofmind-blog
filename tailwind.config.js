@@ -13,29 +13,9 @@ module.exports = {
       backgroundImage: {
         brush: "url('../public/assets/images/brush.png')"
       },
-      backgroundSize: {
-        "400": "400%",
-        "350": "350%"
-      },
       backgroundPosition: {
-        topBarHidden: "-150px",
-        topBarShown: "300px",
-        bottBarShown: "-70px"
-
-      },
-      width: {
-        mediumView: "70vw",
-        blurrAreaW: "110vw",
-      },
-      height: {
-        blurrAreaH: "110vh"
-      },
-      bottom: {
-        "6%": '6%'
-      },
-      right: {
-        "6%": '6%',
-        "offScreen": "-100vw",
+        topBar: "-150px",
+        bottBar: "-70px"
       },
       screens: {
         'smallPhone': { 'raw': '(max-height: 670px)' },

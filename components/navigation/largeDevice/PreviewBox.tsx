@@ -15,7 +15,7 @@ export const PreviewBox: React.FC<IPreview> = ({
   return (
     <div
       id="previewBox"
-      className="w-64 h-40 absolute border border-white"
+      className="w-64 h-40 absolute"
       style={{ left: xPosition + X_SHIFT, top: yPosition - Y_SHIFT }}
     >
       <video autoPlay loop muted style={{ width: "100%", height: "100%" }}>
