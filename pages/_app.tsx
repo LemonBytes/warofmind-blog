@@ -1,16 +1,23 @@
 import "../styles/globals.css";
+import "../styles/tailwind.css";
 import type { AppProps } from "next/app";
-import { WomHeader } from "../componets/wrapper/Header";
-import { WomFooter } from "../componets/wrapper/Footer";
-
-function MyApp({ Component, pageProps }: AppProps) {
+import { WomHeader } from "../components/wrapper/Header";
+import { WomFooter } from "../components/wrapper/Footer";
+import { appWithTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <WomHeader />
       <Component {...pageProps} />
-      <WomFooter />
     </>
   );
-}
+};
 
-export default MyApp;
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["navigation"])),
+  },
+});
+
+export default appWithTranslation(WarOfMindApp);

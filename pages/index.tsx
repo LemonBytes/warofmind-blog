@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
-
-import { TrendingPosts } from "../componets/postcontainer/TrendigPosts";
-
+import { TrendingPosts } from "../components/postcontainer/TrendigPosts";
 import styles from "../styles/Home.module.css";
 import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
 import path from "path";
 import fs from "fs";
-
+import { WomHeader } from "../components/wrapper/Header";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useRouter } from "next/router";
 const DUMMY_POSTS = [
   {
     id: "p1",
@@ -69,22 +70,14 @@ export interface IPost {
 }
 
 const Home: NextPage<IPost> = ({ posts }) => {
-  //console.log(posts);
-  return (
-    <main className={styles.home}>
-      <h1>War of Mind</h1>
-    </main>
-  );
+  const router = useRouter();
+  return <main></main>;
 };
 
-// export const getStaticProps = async () => {
-//   const data = DUMMY_POSTS;
-
-//   return {
-//     props: {
-//       posts: data,
-//     },
-//   };
-// };
+export const getStaticProps = async ({ locale }: any) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["navigation"])),
+  },
+});
 
 export default Home;
