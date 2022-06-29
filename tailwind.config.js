@@ -5,7 +5,7 @@ module.exports = {
     colors: {
       black: `rgb(${26}, ${25}, ${25})`,
       white: `rgb(${212}, ${211}, ${211})`,
-      blurrBlack: `rgb(${200}, ${4}, ${34}, ${0.8})`,
+      blurrRed: `rgb(${200}, ${4}, ${34}, ${0.8})`,
       menuBlack: `rgb(${0}, ${0}, ${0}, ${0.9})`,
     },
     extend: {

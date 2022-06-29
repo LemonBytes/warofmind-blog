@@ -24,8 +24,8 @@ export const MobileNavigation: React.FC<IMobileNavigation> = ({
       <nav id="navigation" className="w-20 h-20 fixed bottom-[8%] right-[6%]">
         <div onClick={openCloseNavi}>
           <Image
-            width={45}
-            height={45}
+            width={250}
+            height={250}
             src={openClose ? open : close}
             alt={"navigation button"}
           ></Image>
