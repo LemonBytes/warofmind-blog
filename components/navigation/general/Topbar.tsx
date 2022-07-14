@@ -16,7 +16,7 @@ export const Topbar: React.FC<IView> = ({ largeView }) => {
       className="w-screen h-14 fixed flex justify-between bg-transparent"
     >
       <Link href="/" passHref>
-        <div className="cursor-pointer">
+        <button className="cursor-pointer">
           <Image
             src={logo}
             width={50}
@@ -24,7 +24,7 @@ export const Topbar: React.FC<IView> = ({ largeView }) => {
             objectFit={"cover"}
             alt={"this is an image of the website logo"}
           ></Image>
-        </div>
+        </button>
       </Link>
       {largeView && (
         <Link href="/contact">

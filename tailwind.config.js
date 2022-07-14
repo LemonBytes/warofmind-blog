@@ -1,7 +1,6 @@
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}",],
   theme: {
-
     colors: {
       black: `rgb(${26}, ${25}, ${25})`,
       white: `rgb(${212}, ${211}, ${211})`,
@@ -25,5 +24,9 @@ module.exports = {
 
     },
   },
+  mode: 'jit',
+  purge: [
+    "./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   plugins: [],
 }

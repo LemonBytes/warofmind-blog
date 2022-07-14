@@ -2,15 +2,17 @@ import "../styles/globals.css";
 import "../styles/tailwind.css";
 import type { AppProps } from "next/app";
 import { WomHeader } from "../components/wrapper/Header";
-import { WomFooter } from "../components/wrapper/Footer";
+import { ParallaxProvider } from "react-scroll-parallax";
+
 import { appWithTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
+    <ParallaxProvider>
       <WomHeader />
       <Component {...pageProps} />
-    </>
+    </ParallaxProvider>
   );
 };
 

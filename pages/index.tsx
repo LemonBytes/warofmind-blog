@@ -8,6 +8,7 @@ import { WomHeader } from "../components/wrapper/Header";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
+import { ParallaxContainer } from "../components/landing/container/ParallaxContainer";
 const DUMMY_POSTS = [
   {
     id: "p1",
@@ -71,7 +72,11 @@ export interface IPost {
 
 const Home: NextPage<IPost> = ({ posts }) => {
   const router = useRouter();
-  return <main></main>;
+  return (
+    <main>
+      <ParallaxContainer />
+    </main>
+  );
 };
 
 export const getStaticProps = async ({ locale }: any) => ({
