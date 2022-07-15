@@ -1,11 +1,33 @@
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { RecentPosts } from "../../postcontainer/RecentPosts";
 import { PageTitle } from "../title/PageTitle";
 
 export const ParallaxContainer = () => {
   return (
-    <div className="w-full h-full  grid absolute text-center overflow-visible overflow-y-scroll mb-[4000px]">
-      <div className="place-self-center">
+    <Parallax pages={6}>
+      <ParallaxLayer
+        offset={0}
+        speed={0}
+        className="gird items-center border border-white "
+      >
         <PageTitle />
-      </div>
-    </div>
+      </ParallaxLayer>
+      <ParallaxLayer
+        offset={1}
+        speed={2}
+        sticky={{ start: 1.3, end: 2.9 }}
+        horizontal={true}
+        className="flex items-center border border-white"
+      >
+        <ParallaxLayer
+          offset={1.8}
+          speed={0.8}
+          horizontal={true}
+          className="flex items-center border border-white"
+        >
+          <RecentPosts posts={[]} />;
+        </ParallaxLayer>
+      </ParallaxLayer>
+    </Parallax>
   );
 };

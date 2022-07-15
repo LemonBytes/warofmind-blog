@@ -1,21 +1,11 @@
-import type { NextPage } from "next";
-import { RecentPosts } from "../components/postcontainer/RecentPosts";
-import styles from "../styles/Home.module.css";
-import { postFilePaths, POSTS_PATH } from "../utils/mdxUtils";
-import path from "path";
-import fs from "fs";
-import { WomHeader } from "../components/wrapper/Header";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useRouter } from "next/router";
-import { ParallaxContainer } from "../components/landing/container/ParallaxContainer";
-import { Parallax } from "react-scroll-parallax";
-import Link from "next/link";
+import { IPost } from "../../pages";
+import { IMiniCardPost, PostCard } from "./PostCard";
+
 const DUMMY_POSTS = [
   {
     id: "p1",
     title: "Das ist ein Titel",
-    imageLink: "../../assets/test.jpg",
+    imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
     preview:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At",
@@ -23,7 +13,7 @@ const DUMMY_POSTS = [
   {
     id: "p2",
     title: "Das ist ein Titel",
-    imageLink: "/../assets/test.jpg",
+    imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
     preview:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At",
@@ -31,7 +21,7 @@ const DUMMY_POSTS = [
   {
     id: "p3",
     title: "Das ist ein Titel",
-    imageLink: "/../assets/test.jpg",
+    imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
     preview:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At",
@@ -39,7 +29,7 @@ const DUMMY_POSTS = [
   {
     id: "p4",
     title: "Das ist ein Titel",
-    imageLink: "/../assets/test.jpg",
+    imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
     preview:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At",
@@ -47,13 +37,13 @@ const DUMMY_POSTS = [
   {
     id: "p5",
     title: "Das ist ein Titel",
-    imageLink: "/../assets/test.jpg",
+    imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
   },
   {
     id: "p6",
     title: "Das ist ein Titel",
-    imageLink: "/../assets/test.jpg",
+    imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
     preview:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At",
@@ -61,24 +51,20 @@ const DUMMY_POSTS = [
   {
     id: "p7",
     title: "Das ist ein Titel",
-    imageLink: "/../assets/test.jpg",
+    imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
     preview:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At",
   },
 ];
 
-export interface IPost {
-  posts: [];
-}
-
-const Home: NextPage<IPost> = ({ posts }) => {
-  const router = useRouter();
+export const RecentPosts: React.FC<IPost> = ({ posts }) => {
   return (
-    <main>
-      <ParallaxContainer />
-    </main>
+    <section className="w-screen h-screen flex items-center">
+      <h5>Trending Posts</h5>
+      {DUMMY_POSTS.map((post: IMiniCardPost, key: number) => {
+        return <PostCard key={key} {...post} />;
+      })}
+    </section>
   );
 };
-
-export default Home;

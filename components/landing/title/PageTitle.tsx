@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Parallax, useParallax } from "react-scroll-parallax";
+
 import { useMousePosition } from "../../../hooks/useMousePosition";
 
 const tittleLetter: string[] = [
@@ -44,19 +44,15 @@ export const PageTitle = () => {
 
   let minimized = minimizePosition(xPosition, yPosition);
 
-  const parallax = useParallax<HTMLDivElement>({
-    translateX: [0, 100],
-  });
   return (
-    <div className="flex font-naruto text-blurrRed text-9xl z-10">
+    <h1 className="w-screen h-screen flex items-center justify-center font-naruto text-blurrRed text-9xl z-10">
       {tittleLetter.map((letter, key) => {
         return (
           <div
-            ref={parallax.ref}
-            /*    style={{
+            style={{
               marginBottom: `${minimized.yPosition}px`,
               right: `${minimized.xPosition}px`,
-            }} */
+            }}
             className="relative float-left transition-all ease-in-out duration-100"
             key={key}
           >
@@ -64,6 +60,6 @@ export const PageTitle = () => {
           </div>
         );
       })}
-    </div>
+    </h1>
   );
 };
