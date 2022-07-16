@@ -61,7 +61,6 @@ const DUMMY_POSTS = [
 export const RecentPosts: React.FC<IPost> = ({ posts }) => {
   return (
     <section className="w-screen h-screen flex items-center">
-      <h5>Trending Posts</h5>
       {DUMMY_POSTS.map((post: IMiniCardPost, key: number) => {
         return <PostCard key={key} {...post} />;
       })}
