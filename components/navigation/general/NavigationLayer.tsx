@@ -10,9 +10,9 @@ export const NavigationLayer = () => {
   };
 
   return (
-    <div id="navbar">
+    <nav id="navbar z-40">
       <MobileNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
       <DesktopNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
-    </div>
+    </nav>
   );
 };

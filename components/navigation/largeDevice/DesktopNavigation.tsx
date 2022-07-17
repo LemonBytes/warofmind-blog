@@ -17,16 +17,24 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
 }) => {
   const { t } = useTranslation("navigation");
   return (
-    <div className="hidden sm:fixed sm:flex sm:left-0 sm:top-0">
-      <Topbar largeView={true} />
-      <div className="w-20 h-20 absolute flex items-center justify-center self-center right-5 cursor-pointer">
+    <div className="hidden sm:w-[10vw] sm:h-screen sm:fixed sm:flex sm:top-0 sm:right-0 sm:z-40">
+      <Link href="/contact">
+        <a
+          id="contactME"
+          className="absolute right-0 text-xl font-naruto
+          text-white p-4 cursor-pointer"
+        >
+          {t("contact")}
+        </a>
+      </Link>
+      <div className="w-20 h-screen absolute flex items-center justify-center self-center right-5 cursor-pointer z-40">
         <button className="absolute" onClick={openCloseNavi} id="openMenu">
           <Image
             width={250}
             height={250}
             src={openClose ? open : close}
             alt={"navigation button"}
-            role="button  "
+            role="button "
           ></Image>
         </button>
       </div>

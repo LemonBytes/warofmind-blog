@@ -9,7 +9,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { ParallaxContainer } from "../components/landing/container/ParallaxContainer";
-import { Parallax } from "react-scroll-parallax";
+
 import Link from "next/link";
 const DUMMY_POSTS = [
   {

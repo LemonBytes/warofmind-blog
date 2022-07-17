@@ -25,8 +25,8 @@ export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
   return (
     <div
       id="menuView"
-      className={`w-screen h-screen relative bg-menuBlack transition-all ease-in-out duration-300 z-30
-       ${openClose ? "right-0 top-0" : "-right-full top-0"}`}
+      className={`w-screen h-screen absolute bg-menuBlack transition-all ease-in-out duration-300
+       ${openClose ? "right-0 top-0" : "right-[-100vw] top-0"}`}
     >
       {acticvePreviewType && (
         <PreviewBox
@@ -36,12 +36,6 @@ export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
         />
       )}
       <LinkContainer setActicvePreviewType={setActicvePreviewType} />
-      <button
-        className="w-12 h-12 absolute top-0 right-0 m-2 text-white text-4xl font-large font-naruto"
-        onClick={openCloseNavi}
-      >
-        X
-      </button>
     </div>
   );
 };

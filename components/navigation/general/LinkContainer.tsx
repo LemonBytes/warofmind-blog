@@ -45,10 +45,14 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
       id="linkCon"
       className="w-96 h-44 relative flex items-center overflow-x-scroll inset-x-6 px-14 rounded-3xl  sm:w-screen sm:h-screen sm:justify-start sm:block sm:right-0 sm:overflow-visible sm:inset-0"
     >
-      <div className="w-auto h-auto grid grid-cols-4 -px-9 -m-6 gap-x-40 sm:w-screen sm:h-screen sm:flex sm:flex-col sm:items-start sm:overflow-y-scroll sm:px-4">
+      <div className="w-auto h-auto grid grid-cols-4 -px-9 -m-6 gap-x-40 sm:w-screen sm:h-screen sm:flex sm:flex-col sm:items-start sm:overflow-y-scroll sm:px-4 ">
         {LinkInfos.map((infos, key) => {
           return (
-            <div key={key}>
+            <div
+              key={key}
+              style={{ transitionDelay: `${100 + key * 10}` }}
+              className="transition-all ease-in-out duration-300"
+            >
               <WomLink
                 setActicvePreviewType={setActicvePreviewType}
                 previewType={infos.previewType}

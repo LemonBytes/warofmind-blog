@@ -9,3 +9,10 @@ body {
   background: #1a1919;
   overflow: hidden;
 }
+
+#root {
+  overflow: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
+}
