@@ -12,7 +12,8 @@ module.exports = {
         naruto: ["naruto"]
       },
       backgroundImage: {
-        brush: "url('../public/assets/images/brush.png')"
+        brush: "url('../public/assets/images/brush.png')",
+        wBrush: "url('../public/assets/images/wBrush.png')"
       },
       backgroundPosition: {
         topBar: "-150px",

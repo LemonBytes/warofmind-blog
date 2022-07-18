@@ -4,7 +4,7 @@ import { IMiniCardPost, PostCard } from "./PostCard";
 const DUMMY_POSTS = [
   {
     id: "p1",
-    title: "Das ist ein Titel",
+    title: "How is Boxing Scored? The Boxing Point System Explained",
     imageLink: "/assets/images/test.jpg",
     linkToPost: "tree",
     preview:
@@ -12,8 +12,8 @@ const DUMMY_POSTS = [
   },
   {
     id: "p2",
-    title: "Das ist ein Titel",
-    imageLink: "/assets/images/test.jpg",
+    title: "How to Measure Reach in Boxing?",
+    imageLink: "/assets/images/box.jpg",
     linkToPost: "tree",
     preview:
       "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At",
@@ -60,7 +60,7 @@ const DUMMY_POSTS = [
 
 export const RecentPosts: React.FC<IPost> = ({ posts }) => {
   return (
-    <section className="w-screen h-screen flex items-center">
+    <section className="w-[200vw] h-auto flex items-center justify-evenly  -mt-20">
       {DUMMY_POSTS.map((post: IMiniCardPost, key: number) => {
         return <PostCard key={key} {...post} />;
       })}

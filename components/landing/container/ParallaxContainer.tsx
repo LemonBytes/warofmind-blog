@@ -1,5 +1,8 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { rgb, rgba } from "@react-spring/shared";
+import Link from "next/link";
 import { useRef } from "react";
+import { WomLink } from "../../navigation/largeDevice/WomLink";
 import { RecentPosts } from "../../postcontainer/RecentPosts";
 
 import { PageTitle } from "../titles/PageTitle";
@@ -19,7 +22,7 @@ export const ParallaxContainer = () => {
   return (
     <section>
       <Parallax
-        pages={20}
+        pages={40}
         style={{
           width: "85vw",
           height: "90vh",
@@ -35,7 +38,7 @@ export const ParallaxContainer = () => {
             return (
               <ParallaxLayer
                 key={key}
-                sticky={{ start: 1 + 0.7 * key, end: 6.5 + 0.7 * key }}
+                sticky={{ start: 1 + 0.7 * key, end: 11.8 + 0.7 * key }}
                 factor={0.1}
               >
                 <div
@@ -48,14 +51,67 @@ export const ParallaxContainer = () => {
             );
           })}
         </>
-        <ParallaxLayer
-          horizontal={true}
-          sticky={{ start: 13, end: 20 }}
-          className="flex items-center "
-        >
-          <ParallaxLayer offset={5} speed={0.36} horizontal={true}>
+        <>
+          <ParallaxLayer
+            horizontal={true}
+            factor={0.1}
+            sticky={{ start: 4.5, end: 20 }}
+            className="flex items-center"
+          >
+            <ParallaxLayer
+              style={{ paddingTop: `455px` }}
+              sticky={{ start: 7.2, end: 16 }}
+              horizontal={false}
+            >
+              <div className="w-[70vw] absolute h-[20px] ml-[-150px] bg-wBrush bg-black bg-contain bg-no-repeat bg-[length:100%_40px]"></div>
+            </ParallaxLayer>
+
+            <ParallaxLayer
+              style={{
+                width: "105vw",
+                height: "25px",
+                marginTop: `455px`,
+                background: "rgb(26,25,25)",
+              }}
+              offset={2.9}
+              speed={0.85}
+              horizontal={true}
+            ></ParallaxLayer>
+            <ParallaxLayer
+              style={{
+                width: "100vw",
+                height: "25px",
+                marginTop: `455px`,
+                background: "rgb(26,25,25)",
+              }}
+              offset={7}
+              speed={0.75}
+              horizontal={true}
+            ></ParallaxLayer>
+          </ParallaxLayer>
+        </>
+
+        <ParallaxLayer sticky={{ start: 17, end: 32 }} speed={0.5}>
+          <h2 className="absolute right-0 top-5 text-center font-naruto text-white text-4xl">
+            recent posts
+          </h2>
+        </ParallaxLayer>
+        <ParallaxLayer horizontal={true} sticky={{ start: 17, end: 33 }}>
+          <ParallaxLayer
+            className="flex items-center"
+            offset={6}
+            speed={0.44}
+            horizontal={true}
+          >
             <RecentPosts posts={[]} />;
           </ParallaxLayer>
+        </ParallaxLayer>
+        <ParallaxLayer sticky={{ start: 17, end: 32 }} speed={0.5}>
+          <Link href={"/test"}>
+            <a className="w-40 absolute bottom-5 text-center font-naruto text-white text-4xl">
+              all posts
+            </a>
+          </Link>
         </ParallaxLayer>
       </Parallax>
     </section>
