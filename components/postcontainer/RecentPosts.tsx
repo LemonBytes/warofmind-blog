@@ -60,7 +60,7 @@ const DUMMY_POSTS = [
 
 export const RecentPosts: React.FC<IPost> = ({ posts }) => {
   return (
-    <section className="w-[200vw] h-auto flex items-center justify-evenly  -mt-20">
+    <section className="w-[200vw] h-auto flex items-center justify-evenly -mt-40">
       {DUMMY_POSTS.map((post: IMiniCardPost, key: number) => {
         return <PostCard key={key} {...post} />;
       })}

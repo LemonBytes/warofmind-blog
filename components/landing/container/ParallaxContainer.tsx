@@ -1,28 +1,41 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import { rgb, rgba } from "@react-spring/shared";
-import Link from "next/link";
-import { useRef } from "react";
-import { WomLink } from "../../navigation/largeDevice/WomLink";
+
+import { useEffect, useRef, useState } from "react";
 import { RecentPosts } from "../../postcontainer/RecentPosts";
+import { QuoteBox } from "../../quote/QuoteBox";
+import { AllPostsButton } from "../buttons/AllPostsButton";
 
 import { PageTitle } from "../titles/PageTitle";
 
-const sentences = [
+const firstSentences = [
   "Beschreite mit mir den Weg, wie ich über die verschiedensten Kampfkünste lerne.",
   "Eine Reise, in der wir den Ursprung der Künste finden, die wie keine zweiten",
   "Körper und Geist an ihre Grenzen treibt, um sie dort zu vereinen.",
-  "Wir werden über verschiedene Techniken und die besten Praktiken stolpern.",
-  "Von Boxen bis zu Brasilien Jiu-Jitsu, aus deinem Haus bis in die Trainingshallen.",
-  "Wissenswertes über den Verstand und Erfahrungsberichte über Trainingsequipments.",
-  "Nur disziplinierter Kämpfer geht mit einem Sieg aus dem War of Mind.",
 ];
 
+const secondSentences = [
+  "Wir werden auf verschiedene Techniken und die besten Praktiken treffen.",
+  "Von Boxen bis zu Brasilien Jiu-Jitsu, aus deinem Haus bis in die Trainingshallen.",
+  "Wissenswertes über den Verstand und Erfahrungsberichte über Trainingsequipments.",
+];
+
+const string =
+  "Nur disziplinierter Kämpfer geht mit einem Sieg aus dem War of Mind.";
+
 export const ParallaxContainer = () => {
-  const ref = useRef();
+  const [height, setHeight] = useState(0);
+  const ref: any = useRef(null);
+  useEffect(() => {
+    if (ref.current) {
+      console.log(ref.current.clientHeight);
+      setHeight(ref.current.clientHeight);
+    }
+  }, []);
+
   return (
     <section>
       <Parallax
-        pages={40}
+        pages={50}
         style={{
           width: "85vw",
           height: "90vh",
@@ -34,24 +47,42 @@ export const ParallaxContainer = () => {
           <PageTitle />
         </ParallaxLayer>
         <>
-          {sentences.map((sentence, key) => {
+          {firstSentences.map((sentence, key) => {
+            return (
+              <ParallaxLayer
+                className="flex items-start"
+                key={key}
+                sticky={{ start: 1 + 0.7 * key, end: 3 + 0.3 * key }}
+                factor={0.1}
+              >
+                <div className="w-[100vw] flex items-end text-left font-naruto text-white sm:text-8xl text-2xl">
+                  <p
+                    ref={ref}
+                    style={{
+                      paddingTop: `${height * key}px`,
+                    }}
+                  >
+                    {sentence}
+                  </p>
+                </div>
+              </ParallaxLayer>
+            );
+          })}
+          {secondSentences.map((sentence, key) => {
             return (
               <ParallaxLayer
                 key={key}
-                sticky={{ start: 1 + 0.7 * key, end: 11.8 + 0.7 * key }}
+                sticky={{ start: 5 + 0.7 * key, end: 10.8 + 0.7 * key }}
                 factor={0.1}
               >
-                <div
-                  style={{ paddingTop: `${150 + 40 * key}px` }}
-                  className="flex font-naruto text-white text-3xl ml-[100px]"
-                >
-                  <p>{sentence}</p>
+                <div className="w-[100vw] font-naruto text-white sm:text-[5vh] text-2xl">
+                  <p style={{ paddingBottom: `${33 * key}` }}>{sentence}</p>
                 </div>
               </ParallaxLayer>
             );
           })}
         </>
-        <>
+        {/*  <>
           <ParallaxLayer
             horizontal={true}
             factor={0.1}
@@ -89,30 +120,33 @@ export const ParallaxContainer = () => {
               horizontal={true}
             ></ParallaxLayer>
           </ParallaxLayer>
-        </>
+        </> */}
 
-        <ParallaxLayer sticky={{ start: 17, end: 32 }} speed={0.5}>
-          <h2 className="absolute right-0 top-5 text-center font-naruto text-white text-4xl">
-            recent posts
-          </h2>
+        <ParallaxLayer
+          sticky={{ start: 17, end: 20 }}
+          className="flex items-center justify-center"
+        >
+          <QuoteBox fontSize="text-8xl" />
         </ParallaxLayer>
-        <ParallaxLayer horizontal={true} sticky={{ start: 17, end: 33 }}>
-          <ParallaxLayer
-            className="flex items-center"
-            offset={6}
-            speed={0.44}
-            horizontal={true}
-          >
-            <RecentPosts posts={[]} />;
+        <>
+          <ParallaxLayer horizontal={true} sticky={{ start: 32, end: 40 }}>
+            <ParallaxLayer
+              className="flex items-center"
+              offset={6}
+              speed={0.44}
+              horizontal={true}
+            >
+              <RecentPosts posts={[]} />;
+            </ParallaxLayer>
           </ParallaxLayer>
-        </ParallaxLayer>
-        <ParallaxLayer sticky={{ start: 17, end: 32 }} speed={0.5}>
-          <Link href={"/test"}>
-            <a className="w-40 absolute bottom-5 text-center font-naruto text-white text-4xl">
-              all posts
-            </a>
-          </Link>
-        </ParallaxLayer>
+          <ParallaxLayer
+            className="flex items-end justify-center"
+            sticky={{ start: 32, end: 40 }}
+            speed={0.5}
+          >
+            <AllPostsButton />
+          </ParallaxLayer>
+        </>
       </Parallax>
     </section>
   );

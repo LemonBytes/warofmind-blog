@@ -25,7 +25,7 @@ export const PostCard: React.FC<IMiniCardPost> = ({
             alt=""
           ></Image>
         </a>
-        <div className="w-[75px] h-[75px] relative bottom-[40px] left-[-37px] z-3 rotate-[45deg] bg-black border  border-white"></div>
+        <div className="w-[75px] h-[75px] relative bottom-[40px] left-[-37px] z-3 rotate-[45deg] bg-black"></div>
       </div>
       <div>
         <h3 className="w-[350px] h-[350] -mt-10 p-5 absolute font-naruto text-2xl text-white text-center">

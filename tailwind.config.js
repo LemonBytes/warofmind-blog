@@ -12,6 +12,7 @@ module.exports = {
         naruto: ["naruto"]
       },
       backgroundImage: {
+        brushR: "url('../public/assets/images/brushR.png')",
         brush: "url('../public/assets/images/brush.png')",
         wBrush: "url('../public/assets/images/wBrush.png')"
       },
