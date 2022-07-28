@@ -15,7 +15,21 @@ export const AestheticSquare: React.FC<ISquare> = ({
 }) => {
   return (
     <div
-      className={`${size.width} ${size.height} absolute ${position.x} ${position.y} border-2 ${color} ${rotation}`}
+      className={
+        "absolute  border-2" +
+        " " +
+        size.width +
+        " " +
+        size.height +
+        " " +
+        position.x +
+        " " +
+        position.y +
+        " " +
+        color +
+        " " +
+        rotation
+      }
     />
   );
 };

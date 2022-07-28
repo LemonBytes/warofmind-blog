@@ -45,7 +45,7 @@ export const PageTitle = () => {
   let minimized = minimizePosition(xPosition, yPosition);
 
   return (
-    <h1 className="w-full h-full flex items-center justify-center font-naruto text-blurrRed text-9xl">
+    <h1 className="w-full h-full flex items-center justify-center  font-naruto text-blurrRed text-9xl">
       {tittleLetter.map((letter, key) => {
         return (
           <div

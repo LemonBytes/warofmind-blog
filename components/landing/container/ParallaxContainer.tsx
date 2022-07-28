@@ -4,26 +4,23 @@ import { QuoteBox } from "../../quote/QuoteBox";
 import { AestheticSquare, ISquare } from "../../squares/AestheticSquare";
 import { AllPostsButton } from "../buttons/AllPostsButton";
 import { PageTitle } from "../titles/PageTitle";
-import squares from "../../../public/assets/squares/squares.json";
+import { squares } from "./sqaures";
 
 const firstSentences = [
-  "Beschreite mit mir den Weg, wie ich über die verschiedensten Kampfkünste lerne.",
-  "Eine Reise, in der wir den Ursprung der Künste finden, die wie keine zweite",
-  "Körper und Geist an ihre Grenzen treibt, um sie dort zu vereinen.",
+  "Beschreite mit mir den Weg, wie ich über verschiedene Kampfkünste lerne...",
+  "Eine Reise, in der wir den Ursprung der Künste finden, die wie keine zweite...",
+  "Körper und Geist an ihre Grenzen treibt, um sie dort zu vereinen...",
+  "Für einen Wachtum das den Kampf bei weitem überschreitet... ",
 ];
 
 const secondSentences = [
-  "Wir werden auf verschiedene Techniken und die besten Praktiken treffen.",
-  "Von Boxen bis zu Brasilien Jiu-Jitsu, aus deinem Haus bis in die Trainingshallen.",
-  "Wissenswertes über den Verstand und Erfahrungsberichte über Trainingsequipments.",
+  "Wir werden auf verschiedene Techniken, Denkensweisen und die besten Praktiken treffen...",
+  "Von Boxen und Muay Thai bis zu Brasilien Jiu-Jitsu, aus deinem Haus bis in die Trainingshallen...",
+  "Wissenswertes über den Verstand und Erfahrungsberichte über Trainingsequipments...",
+  "Denn nur ein disziplinierter Kämpfer geht mit einem Sieg aus dem War of Mind...",
 ];
 
-const string =
-  "Nur disziplinierter Kämpfer geht mit einem Sieg aus dem War of Mind.";
-
 export const ParallaxContainer = () => {
-  const parsedSquares: ISquare[] = JSON.parse(JSON.stringify(squares));
-
   return (
     <section>
       <Parallax
@@ -36,7 +33,7 @@ export const ParallaxContainer = () => {
         }}
       >
         <>
-          <ParallaxLayer offset={0} speed={0}>
+          <ParallaxLayer offset={0} speed={0} sticky={{ start: 0, end: 0.5 }}>
             <PageTitle />
           </ParallaxLayer>
         </>
@@ -47,18 +44,18 @@ export const ParallaxContainer = () => {
               <ParallaxLayer
                 className="flex items-start"
                 key={key}
-                sticky={{ start: 1.5 + 0.7 * key, end: 6 + 0.4 * key }}
+                sticky={{ start: 1.6 + 0.7 * key, end: 5 + 0.4 * key }}
                 offset={1.8 + key / 10}
                 speed={0.2}
                 factor={0.1}
               >
                 <div
                   style={{
-                    marginTop: `${22 * key}%`,
+                    marginTop: `${9 + 20 * key}vh`,
                   }}
-                  className="w-[100vw] h-auto  flex items-end text-left font-naruto text-white xl:text-8xl lg:text-6xl text-4xl"
+                  className="w-[100vw] flex items-end text-left font-naruto text-white xl:text-6xl lg:text-5xl text-4xl"
                 >
-                  <p>{sentence}</p>
+                  <p className="bg-black">{sentence}</p>
                 </div>
               </ParallaxLayer>
             );
@@ -68,14 +65,14 @@ export const ParallaxContainer = () => {
               <ParallaxLayer
                 key={key}
                 className="flex items-start"
-                sticky={{ start: 9 + 0.7 * key, end: 13 + 0.7 * key }}
+                sticky={{ start: 8 + 0.7 * key, end: 12 + 0.7 * key }}
                 factor={0.1}
               >
                 <div
                   style={{
-                    marginTop: `${33 * key}vh`,
+                    marginTop: `${9 + 20 * key}vh`,
                   }}
-                  className="w-[100vw] h-auto flex items-end text-left text-white font-naruto xl:text-8xl lg:text-6xl text-2xl"
+                  className="w-[100vw] bg-black flex items-end text-left text-white font-naruto xl:text-6xl lg:text-5xl text-4xl"
                 >
                   <p>{sentence}</p>
                 </div>
@@ -88,7 +85,7 @@ export const ParallaxContainer = () => {
           sticky={{ start: 16, end: 20 }}
           className="flex items-center justify-center"
         >
-          <QuoteBox fontSize="text-8xl" />
+          <QuoteBox fontSize="text-8xl lg:text-6xl" />
         </ParallaxLayer>
         <>
           <ParallaxLayer horizontal={true} sticky={{ start: 23, end: 39 }}>
@@ -109,10 +106,10 @@ export const ParallaxContainer = () => {
             <AllPostsButton />
           </ParallaxLayer>
         </>
-        {parsedSquares.map((square, key) => {
+        {squares.map((square, key) => {
           return (
             <ParallaxLayer
-              offset={-0.5 + key / 3}
+              offset={-0.5 + key / 3.5}
               key={key}
               speed={0.1 + key / 200}
             >

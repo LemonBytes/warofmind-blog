@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Topbar } from "../general/Topbar";
 import { MenuView } from "./MenuView";
 import Image from "next/image";
 import open from "../../../public/assets/images/open.png";
@@ -17,7 +16,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
 }) => {
   const { t } = useTranslation("navigation");
   return (
-    <div className="hidden sm:w-[10vw] sm:h-screen sm:fixed sm:flex sm:top-0 sm:right-0 sm:z-40">
+    <nav className="hidden sm:w-[10vw] sm:h-screen sm:fixed sm:flex sm:top-0 sm:right-0 sm:z-40">
       <Link href="/contact">
         <a
           id="contactME"
@@ -27,7 +26,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
           {t("contact")}
         </a>
       </Link>
-      <div className="w-20 h-screen absolute flex items-center justify-center self-center right-5 cursor-pointer z-40">
+      <div className="w-20 h-auto absolute  flex items-center justify-center self-center right-5 cursor-pointer z-40">
         <button className="absolute" onClick={openCloseNavi} id="openMenu">
           <Image
             width={250}
@@ -48,6 +47,6 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
         </a>
       </Link>
       <MenuView openClose={openClose} openCloseNavi={openCloseNavi} />
-    </div>
+    </nav>
   );
 };

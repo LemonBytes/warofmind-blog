@@ -19,14 +19,15 @@ const sendRandomQuote = (language: string | undefined) => {
 export const QuoteBox: React.FC<IQuoteBox> = ({ fontSize }) => {
   const router = useRouter();
   const currentLang = router.locale;
+  console.log(currentLang);
   const [quote, setQuote] = useState(sendRandomQuote(currentLang));
 
   return (
     <div className="w-screen h-full overflow-x flex item-center justify-center text-white font-naruto">
       <div
-        className={`w-80 h-auto flex-col self-center text-base text ${fontSize} sm:w-[90%]`}
+        className={`w-80 h-auto flex-col self-center text-base text ${fontSize} xl:w-[85vw]`}
       >
-        <blockquote>{quote.text}</blockquote>
+        <blockquote className="text-center">{quote.text}</blockquote>
         <p>{quote.author}</p>
       </div>
     </div>
