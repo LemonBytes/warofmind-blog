@@ -1,5 +1,8 @@
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}",],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     colors: {
       black: `rgb(${26}, ${25}, ${25})`,
@@ -9,26 +12,23 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        naruto: ["naruto"]
+        naruto: ['naruto'],
       },
       backgroundImage: {
-        brushR: "url('../public/assets/images/brushR.png')",
-        brush: "url('../public/assets/images/brush.png')",
-        wBrush: "url('../public/assets/images/wBrush.png')"
+        brushR: "url('../public/static/assets/images/brushR.png')",
+        brush: "url('../public/static/assets/images/brush.png')",
+        wBrush: "url('../public/static/assets/images/wBrush.png')",
       },
       backgroundPosition: {
-        topBar: "-150px",
-        bottBar: "-70px"
+        topBar: '-150px',
+        bottBar: '-70px',
       },
       screens: {
-        'smallPhone': { 'raw': '(max-height: 670px)' },
+        smallPhone: { raw: '(max-height: 670px)' },
       },
-
     },
   },
   mode: 'jit',
-  purge: [
-    "./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}",
-  ],
-  plugins: [],
-}
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  plugins: [[require('prettier-plugin-tailwindcss')]],
+};
