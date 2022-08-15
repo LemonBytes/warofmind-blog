@@ -14,7 +14,7 @@ export const PostCard: React.FC<IMiniCardPost> = ({
   linkToPost,
 }) => {
   return (
-    <div className="m-3 h-[700] w-[350px] cursor-pointer">
+    <div className="m-3 h-[700] w-[25vw] cursor-pointer">
       <div>
         <a>
           <Image

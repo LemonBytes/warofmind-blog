@@ -18,13 +18,14 @@ const firstSentences = [
 
 export const ParallaxContainer = () => {
   const scrollRef = useRef(null);
-  const { scrollYProgress, scrollY } = useScroll({});
-  const isInView = useInView(scrollRef, { once: false });
 
   return (
-    <section className="flex-col items-center ">
+    <section className="w-[80vw] flex-col items-center self-center border border-white">
       <PageTitle />
-      <div className="h-screen w-[90vw] flex-col">
+      <section className="mb-[50vh] flex h-screen w-full flex-col justify-center text-center">
+        <QuoteBox fontSize="xl:text-9xl" />
+      </section>
+      <section className="mb-[100vh] h-auto w-full flex-col ">
         {firstSentences.map((sentence, key) => {
           return (
             <motion.div
@@ -34,49 +35,21 @@ export const ParallaxContainer = () => {
               viewport={{ once: false }}
               transition={{
                 type: 'spring',
-                stiffness: 40,
+                stiffness: 35,
                 velocity: 40,
               }}
               key={key}
-              className="fixed relative flex h-[auto] w-[200vw] items-end  text-left font-naruto text-4xl text-white lg:text-8xl xl:text-9xl"
+              className=" flex h-auto w-[200vw] items-end text-left font-naruto text-4xl text-white lg:text-8xl xl:text-9xl"
             >
-              <p
-                className="w-[87vw]"
-                style={{
-                  paddingTop: `${1}vh`,
-                }}
-              >
-                {sentence}
-              </p>
+              <p className="w-[87vw]">{sentence}</p>
             </motion.div>
           );
         })}
-        <section className="relative flex h-screen w-[70vw] flex-col justify-center text-center">
-          <QuoteBox fontSize="xl:text-9xl" />
-        </section>
-      </div>
-
-      {/* 
-        <>
-          <ParallaxLayer horizontal={true} sticky={{ start: 32, end: 40 }}>
-            <ParallaxLayer
-              className="flex items-center"
-              offset={6}
-              speed={0.44}
-              horizontal={true}
-            >
-              <RecentPosts posts={[]} />;
-            </ParallaxLayer>
-          </ParallaxLayer>
-          <ParallaxLayer
-            className="flex items-end justify-center"
-            sticky={{ start: 32, end: 40 }}
-            speed={0.5}
-          >
-            <AllPostsButton />
-          </ParallaxLayer>
-        </>
-      </Parallax> */}
+      </section>
+      <section className=" h-screen w-full items-center justify-center border border-white">
+        <RecentPosts posts={[]} />;
+        <AllPostsButton />
+      </section>
     </section>
   );
 };
