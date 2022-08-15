@@ -5,7 +5,7 @@ import { AllPostsButton } from './AllPostsButton';
 import { PageTitle } from './PageTitle';
 import React from 'react';
 const { motion, useInView, useScroll } = require('framer-motion');
-const firstSentences = [
+const sentences = [
   'Beschreite mit mir den Weg, wie ich über verschiedene Kampfkünste lerne...',
   'Eine Reise, in der wir den Ursprung der Künste finden, die wie keine zweite...',
   'Körper und Geist an ihre Grenzen treibt, um sie dort zu vereinen...',
@@ -22,10 +22,18 @@ export const ParallaxContainer = () => {
   const isInView = useInView(scrollRef, { once: false });
 
   return (
-    <section className="flex-col items-center ">
+    <section className="w-[100vw] flex-col items-center">
       <PageTitle />
-      <div className="h-screen w-[90vw] flex-col">
-        {firstSentences.map((sentence, key) => {
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="relative  mb-[200px] flex  h-screen w-[80vw] flex-col justify-center border text-center"
+      >
+        <QuoteBox fontSize="xl:text-7xl lg:text-6xl" />
+      </motion.section>
+      <div className="mb-100 mb-[200px] h-screen w-[90vw] flex-col">
+        {sentences.map((sentence, key) => {
           return (
             <motion.div
               ref={scrollRef}
@@ -34,49 +42,20 @@ export const ParallaxContainer = () => {
               viewport={{ once: false }}
               transition={{
                 type: 'spring',
-                stiffness: 40,
+                stiffness: 25,
                 velocity: 40,
               }}
               key={key}
-              className="fixed relative flex h-[auto] w-[200vw] items-end  text-left font-naruto text-4xl text-white lg:text-8xl xl:text-9xl"
+              className=" relative flex h-[auto] w-[200vw] items-end  text-left font-naruto text-4xl text-white lg:text-8xl xl:text-8xl"
             >
-              <p
-                className="w-[87vw]"
-                style={{
-                  paddingTop: `${1}vh`,
-                }}
-              >
-                {sentence}
-              </p>
+              <p className="relative w-[80vw]">{sentence}</p>
             </motion.div>
           );
         })}
-        <section className="relative flex h-screen w-[70vw] flex-col justify-center text-center">
-          <QuoteBox fontSize="xl:text-9xl" />
+        <section className="relative ">
+          <RecentPosts posts={[]} />;
         </section>
       </div>
-
-      {/* 
-        <>
-          <ParallaxLayer horizontal={true} sticky={{ start: 32, end: 40 }}>
-            <ParallaxLayer
-              className="flex items-center"
-              offset={6}
-              speed={0.44}
-              horizontal={true}
-            >
-              <RecentPosts posts={[]} />;
-            </ParallaxLayer>
-          </ParallaxLayer>
-          <ParallaxLayer
-            className="flex items-end justify-center"
-            sticky={{ start: 32, end: 40 }}
-            speed={0.5}
-          >
-            <AllPostsButton />
-          </ParallaxLayer>
-        </>
-      </Parallax> */}
     </section>
   );
 };
