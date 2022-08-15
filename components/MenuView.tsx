@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { UseMousePosition } from '../hooks/UseMousePosition';
+import { useMousePosition } from '../hooks/useMousePosition';
+
 import { LinkContainer } from './LinkContainer';
 import { PreviewBox } from './PreviewBox';
 
@@ -21,7 +22,7 @@ export type previewType =
 
 export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
   const [acticvePreviewType, setActicvePreviewType] = useState<previewType>('');
-  const { xPosition, yPosition } = UseMousePosition();
+  const { xPosition, yPosition } = useMousePosition();
   return (
     <div
       id="menuView"

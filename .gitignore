@@ -35,7 +35,7 @@ yarn-error.log*
 .vercel
 
 #assets
-./public/assets/videos
+./public/assets/videos/*
 
 # typescript
 *.tsbuildinfo

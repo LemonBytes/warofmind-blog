@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { UseMousePosition } from '../hooks/UseMousePosition';
+import { useMousePosition } from '../hooks/useMousePosition';
 
 const tittleLetter: string[] = [
   'W',
@@ -21,7 +21,7 @@ interface ISize {
 }
 
 export const PageTitle = () => {
-  const { xPosition, yPosition } = UseMousePosition();
+  const { xPosition, yPosition } = useMousePosition();
   const [size, setSize] = useState<ISize>({
     innerWidth: 0,
     innerHeight: 0,
@@ -44,7 +44,7 @@ export const PageTitle = () => {
   let minimized = minimizePosition(xPosition, yPosition);
 
   return (
-    <h1 className="sticky flex h-screen w-full items-center  justify-center font-naruto text-9xl text-blurrRed">
+    <h1 className="flex h-screen w-screen items-center justify-center  font-naruto text-9xl text-blurrRed">
       {tittleLetter.map((letter, key) => {
         return (
           <div
