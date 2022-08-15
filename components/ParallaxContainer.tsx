@@ -22,40 +22,47 @@ export const ParallaxContainer = () => {
   const isInView = useInView(scrollRef, { once: false });
 
   return (
-    <section className="w-[100vw] flex-col items-center">
-      <PageTitle />
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="relative  mb-[200px] flex  h-screen w-[80vw] flex-col justify-center border text-center"
-      >
-        <QuoteBox fontSize="xl:text-7xl lg:text-6xl" />
-      </motion.section>
-      <div className="mb-100 mb-[200px] h-screen w-[90vw] flex-col">
-        {sentences.map((sentence, key) => {
-          return (
-            <motion.div
-              ref={scrollRef}
-              initial={{ x: '-120vw' }}
-              whileInView={{ x: '150px' }}
-              viewport={{ once: false }}
-              transition={{
-                type: 'spring',
-                stiffness: 25,
-                velocity: 40,
-              }}
-              key={key}
-              className=" relative flex h-[auto] w-[200vw] items-end  text-left font-naruto text-4xl text-white lg:text-8xl xl:text-8xl"
-            >
-              <p className="relative w-[80vw]">{sentence}</p>
-            </motion.div>
-          );
-        })}
-        <section className="relative ">
+    <main className="flex w-screen flex-col items-center ">
+      <section className="h-auto w-[80vw]">
+        <PageTitle />
+
+        <section className="flex h-auto w-full flex-col border pb-[50vw]">
+          {sentences.map((sentence, key) => {
+            return (
+              <motion.div
+                ref={scrollRef}
+                initial={{ x: '-80vw' }}
+                whileInView={{ x: '0vw' }}
+                viewport={{ once: false }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 40,
+                  damping: 15,
+                  mass: 2,
+                }}
+                key={key}
+                className="h-[auto] w-full w-[160vw] text-left font-naruto text-4xl text-white lg:text-8xl xl:text-9xl"
+              >
+                <p className="relative w-[80vw]">{sentence}</p>
+              </motion.div>
+            );
+          })}
+        </section>
+        <section className="flex h-screen w-full items-center justify-center text-center">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="h-auto"
+          >
+            <QuoteBox fontSize="xl:text-7xl lg:text-6xl" />
+          </motion.div>
+        </section>
+        <section className="mt-100">
           <RecentPosts posts={[]} />;
         </section>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };

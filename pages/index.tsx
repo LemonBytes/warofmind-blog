@@ -74,11 +74,7 @@ export interface IPost {
 
 const Home: NextPage<IPost> = ({ posts }) => {
   const router = useRouter();
-  return (
-    <main>
-      <ParallaxContainer />
-    </main>
-  );
+  return <ParallaxContainer />;
 };
 
 export default Home;

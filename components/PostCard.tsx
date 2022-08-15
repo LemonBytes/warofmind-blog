@@ -14,24 +14,25 @@ export const PostCard: React.FC<IMiniCardPost> = ({
   linkToPost,
 }) => {
   return (
-    <div className="m-3 h-[700] w-[25vw] cursor-pointer">
+    <div className="m-8 h-[40%] w-[300px] cursor-pointer rounded-t">
       <div>
         <a>
           <Image
-            className="top-0 rounded-t-2xl"
-            width={350}
-            height={350}
+            className="top-0 rounded-t"
+            width={300}
+            height={300}
             src={imageLink}
             alt=""
           ></Image>
         </a>
-        <div className="z-3 relative bottom-[40px] left-[-37px] h-[75px] w-[75px] rotate-[45deg] bg-black"></div>
+        <div className="z-3 relative bottom-[22px] left-[-18px] h-[35px] w-[35px] rotate-[45deg] border border-blurrRed bg-black">
+          <div className="relative h-[35px] w-[35px] rotate-[-45deg] border border-blurrRed bg-black"></div>
+        </div>
       </div>
-      <div>
-        <h3 className="absolute -mt-10 h-[350] w-[350px] p-5 text-center font-naruto text-2xl text-white">
-          {title}
-        </h3>
-      </div>
+
+      <p className="text-ellipses inline-block h-24 w-[300px] overflow-x-hidden text-left font-naruto text-2xl text-white ">
+        {title}
+      </p>
     </div>
   );
 };

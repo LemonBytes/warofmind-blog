@@ -20,7 +20,7 @@ const DUMMY_POSTS = [
   },
   {
     id: 'p3',
-    title: 'Das ist ein Titel',
+    title: 'Das ist ein Titel wegwegsegawegwa ewegaewgaewaewg qwfqWFQwqWFFQW',
     imageLink: '/assets/images/test.jpg',
     linkToPost: 'tree',
     preview:
@@ -28,7 +28,8 @@ const DUMMY_POSTS = [
   },
   {
     id: 'p4',
-    title: 'Das ist ein Titel',
+    title:
+      'Wie du deine Konzentration durch Boxen verbessern kannst Wie du deine Konzentration durch Boxen verbessern kannst',
     imageLink: '/assets/images/test.jpg',
     linkToPost: 'tree',
     preview:
@@ -44,7 +45,7 @@ const DUMMY_POSTS = [
 
 export const RecentPosts: React.FC<IPost> = ({ posts }) => {
   return (
-    <section className="h-auto w-full">
+    <section className="flex h-auto w-full flex-col items-center justify-between">
       <div className="flex items-center justify-center">
         {DUMMY_POSTS.map((post: IMiniCardPost, key: number) => {
           return <PostCard key={key} {...post} />;
