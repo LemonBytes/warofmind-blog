@@ -1,9 +1,9 @@
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { POSTS_PATH } from "../utils/mdxUtils";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { POSTS_PATH } from '../utils/mdxUtils';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -11,7 +11,7 @@ interface Props {
 
 export default function ExamplePage({ source }: any) {
   return (
-    <div style={{ color: "red", marginTop: "50px" }}>
+    <div style={{ color: 'red', marginTop: '50px' }}>
       <MDXRemote {...source} />
     </div>
   );

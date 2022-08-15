@@ -1,0 +1,82 @@
+import { useRef } from 'react';
+import { RecentPosts } from './RecentPosts';
+import { QuoteBox } from './QuoteBox';
+import { AllPostsButton } from './AllPostsButton';
+import { PageTitle } from './PageTitle';
+import React from 'react';
+const { motion, useInView, useScroll } = require('framer-motion');
+const firstSentences = [
+  'Beschreite mit mir den Weg, wie ich über verschiedene Kampfkünste lerne...',
+  'Eine Reise, in der wir den Ursprung der Künste finden, die wie keine zweite...',
+  'Körper und Geist an ihre Grenzen treibt, um sie dort zu vereinen...',
+  'Für einen Wachtum das den Kampf bei weitem überschreitet... ',
+  'Wir werden auf verschiedene Techniken, Denkensweisen und die besten Praktiken treffen...',
+  'Von Boxen und Muay Thai bis zu Brasilien Jiu-Jitsu, aus deinem Haus bis in die Trainingshallen...',
+  'Wissenswertes über den Verstand und Erfahrungsberichte über Trainingsequipments...',
+  'Denn nur ein disziplinierter Kämpfer geht mit einem Sieg aus dem War of Mind...',
+];
+
+export const ParallaxContainer = () => {
+  const scrollRef = useRef(null);
+  const { scrollYProgress, scrollY } = useScroll({});
+  const isInView = useInView(scrollRef, { once: false });
+
+  return (
+    <section className="flex-col items-center ">
+      <PageTitle />
+      <div className="h-screen w-[90vw] flex-col">
+        {firstSentences.map((sentence, key) => {
+          return (
+            <motion.div
+              ref={scrollRef}
+              initial={{ x: '-120vw' }}
+              whileInView={{ x: '150px' }}
+              viewport={{ once: false }}
+              transition={{
+                type: 'spring',
+                stiffness: 40,
+                velocity: 40,
+              }}
+              key={key}
+              className="fixed relative flex h-[auto] w-[200vw] items-end  text-left font-naruto text-4xl text-white lg:text-8xl xl:text-9xl"
+            >
+              <p
+                className="w-[87vw]"
+                style={{
+                  paddingTop: `${1}vh`,
+                }}
+              >
+                {sentence}
+              </p>
+            </motion.div>
+          );
+        })}
+        <section className="relative flex h-screen w-[70vw] flex-col justify-center text-center">
+          <QuoteBox fontSize="xl:text-9xl" />
+        </section>
+      </div>
+
+      {/* 
+        <>
+          <ParallaxLayer horizontal={true} sticky={{ start: 32, end: 40 }}>
+            <ParallaxLayer
+              className="flex items-center"
+              offset={6}
+              speed={0.44}
+              horizontal={true}
+            >
+              <RecentPosts posts={[]} />;
+            </ParallaxLayer>
+          </ParallaxLayer>
+          <ParallaxLayer
+            className="flex items-end justify-center"
+            sticky={{ start: 32, end: 40 }}
+            speed={0.5}
+          >
+            <AllPostsButton />
+          </ParallaxLayer>
+        </>
+      </Parallax> */}
+    </section>
+  );
+};

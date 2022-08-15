@@ -1,10 +1,10 @@
-import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import Link from "next/link";
+import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
+import Link from 'next/link';
 
 const Test = ({ source, frontMatter }: any) => {
   return (
@@ -30,7 +30,7 @@ const Test = ({ source, frontMatter }: any) => {
 export const getStaticPaths = async () => {
   const paths = postFilePaths
     // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ""))
+    .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
     .map((slug) => ({ params: { slug } }));
 
