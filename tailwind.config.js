@@ -14,6 +14,20 @@ module.exports = {
       fontFamily: {
         naruto: ['naruto'],
       },
+      fontSize: new Array(201)
+        .fill()
+        .map((_, i) => i)
+        .reduce((acc, val) => {
+          acc[val] = `${val / 10}rem`;
+          return acc;
+        }, {}),
+      lineHeight: new Array(201)
+        .fill()
+        .map((_, i) => i)
+        .reduce((acc, val) => {
+          acc[val] = `${val / 10}rem`;
+          return acc;
+        }, {}),
       backgroundImage: {
         brushR: "url('../public/static/assets/images/brushR.png')",
         brush: "url('../public/static/assets/images/brush.png')",

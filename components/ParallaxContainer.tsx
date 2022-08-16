@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { RecentPosts } from './RecentPosts';
 import { QuoteBox } from './QuoteBox';
-import { AllPostsButton } from './AllPostsButton';
+import { AllPostsLink } from './AllPostsButton';
 import { PageTitle } from './PageTitle';
 import React from 'react';
 const { motion, useInView, useScroll } = require('framer-motion');
@@ -22,11 +22,11 @@ export const ParallaxContainer = () => {
   const isInView = useInView(scrollRef, { once: false });
 
   return (
-    <main className="flex w-screen flex-col items-center ">
+    <main className="flex w-screen flex-col items-center justify-between ">
       <section className="h-auto w-[80vw]">
         <PageTitle />
 
-        <section className="flex h-auto w-full flex-col border pb-[50vw]">
+        <section className="flex h-auto w-full flex-col pb-[50vw]">
           {sentences.map((sentence, key) => {
             return (
               <motion.div
@@ -41,14 +41,14 @@ export const ParallaxContainer = () => {
                   mass: 2,
                 }}
                 key={key}
-                className="h-[auto] w-full w-[160vw] text-left font-naruto text-4xl text-white lg:text-8xl xl:text-9xl"
+                className="h-[auto] w-full w-[160vw]  text-left font-naruto text-[calc(15vw-8rem)] leading-none text-white "
               >
                 <p className="relative w-[80vw]">{sentence}</p>
               </motion.div>
             );
           })}
         </section>
-        <section className="flex h-screen w-full items-center justify-center text-center">
+        <section className="flex h-[150vh] w-full items-start justify-center text-center ">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -56,12 +56,13 @@ export const ParallaxContainer = () => {
             transition={{ delay: 0.3 }}
             className="h-auto"
           >
-            <QuoteBox fontSize="xl:text-7xl lg:text-6xl" />
+            <QuoteBox fontSize="text-[calc(10vw-2rem)] leading-none " />
           </motion.div>
         </section>
-        <section className="mt-100">
+        <section>
           <RecentPosts posts={[]} />;
         </section>
+        <section className="h-[150vh]"></section>
       </section>
     </main>
   );

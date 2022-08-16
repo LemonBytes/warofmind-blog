@@ -27,7 +27,7 @@ export const QuoteBox: React.FC<IQuoteBox> = ({ fontSize, openClose }) => {
   return (
     <div className="overflow-x item-center flex h-full w-full justify-center font-naruto text-white">
       <div
-        className={`text h-auto w-80 flex-col self-center text-base ${fontSize} xl:w-[85vw]`}
+        className={`h-auto w-full flex-col self-center text-base ${fontSize}`}
       >
         <blockquote className="text-center">{quote.text}</blockquote>
         <p>{quote.author}</p>
