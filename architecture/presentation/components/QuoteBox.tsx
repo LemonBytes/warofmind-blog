@@ -21,7 +21,7 @@ const sendRandomQuote = (language: string | undefined) => {
 export const QuoteBox: React.FC<IQuoteBox> = ({ fontSize, openClose }) => {
   const router = useRouter();
   const currentLang = router.locale;
-  console.log(currentLang);
+
   const [quote, setQuote] = useState(sendRandomQuote(currentLang));
 
   return (

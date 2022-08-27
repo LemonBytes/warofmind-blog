@@ -16,7 +16,7 @@ const sentences = [
   'Denn nur ein disziplinierter Kämpfer geht mit einem Sieg aus dem War of Mind...',
 ];
 
-export const ParallaxContainer = () => {
+export const ParallaxContainer = ({ posts }: any) => {
   const scrollRef = useRef(null);
   const { scrollYProgress, scrollY } = useScroll({});
   const isInView = useInView(scrollRef, { once: false });
@@ -60,7 +60,7 @@ export const ParallaxContainer = () => {
           </motion.div>
         </section>
         <section>
-          <RecentPosts posts={[]} />;
+          <RecentPosts posts={posts} />;
         </section>
         <section className="h-[150vh]"></section>
       </section>

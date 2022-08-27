@@ -9,29 +9,22 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useRouter } from 'next/router';
 import { ParallaxContainer } from '../architecture/presentation/components/ParallaxContainer';
-
 import Link from 'next/link';
 import { createClient, SanityClient } from 'next-sanity';
+import { PostAdapter } from '../architecture/core/adapters/post-adapter';
 
 export interface IPost {
-  posts: [];
+  posts: any[];
 }
 
 const Home: NextPage<IPost> = ({ posts }) => {
-  console.log(posts);
   const router = useRouter();
-  return <ParallaxContainer />;
+  return <ParallaxContainer posts={posts} />;
 };
 
-const client = createClient({
-  projectId: 'cb6cd06x',
-  dataset: 'production',
-  apiVersion: '2022-03-25',
-  useCdn: false,
-});
-
 export async function getStaticProps() {
-  const posts = await client.fetch(`*[_type == "post" ]`);
+  const IndexAdapter = new PostAdapter();
+  const posts = await IndexAdapter.findLast();
   console.log(posts);
   return {
     props: {

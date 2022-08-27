@@ -1,6 +1,6 @@
 import { IPost } from '../../../pages';
 import { AllPostsLink } from './AllPostsButton';
-import { IMiniCardPost, PostCard } from './PostCard';
+import { PostCard } from './PostCard';
 
 const DUMMY_POSTS = [
   {
@@ -77,13 +77,13 @@ const DUMMY_POSTS = [
   },
 ];
 
-export const RecentPosts: React.FC<IPost> = ({ posts }) => {
+export const RecentPosts = ({ posts }: any) => {
   return (
     <section className="flex h-screen flex-col items-center">
       <div className="m-10 grid w-full items-start justify-around">
         <div className="grid grid-cols-3 gap-3 gap-y-20">
-          {DUMMY_POSTS.map((post: IMiniCardPost, key: number) => {
-            return <PostCard key={key} {...post} />;
+          {posts.map((post: any, key: number) => {
+            return <PostCard key={key} post={post} />;
           })}
         </div>
       </div>

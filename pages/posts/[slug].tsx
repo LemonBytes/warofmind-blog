@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import Link from 'next/link';
+import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 
 const Test = ({ source, frontMatter }: any) => {
   return (
@@ -28,12 +29,11 @@ const Test = ({ source, frontMatter }: any) => {
 };
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
-    // Remove file extensions for page paths
-    .map((path) => path.replace(/\.mdx?$/, ''))
-    // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }));
-
+  const IndexAdapter = new PostAdapter();
+  const posts = await IndexAdapter.findAll();
+  const paths = posts.map((post: any) => {
+    return post.slug_current;
+  });
   return {
     paths,
     fallback: false,
@@ -41,12 +41,11 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  console.log(params.slug);
   const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(postFilePath);
 
   const { content, data } = matter(source);
-  console.log(content, data);
+
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [],
