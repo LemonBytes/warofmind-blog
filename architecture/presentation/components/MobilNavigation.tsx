@@ -2,8 +2,8 @@ import { Topbar } from './Topbar';
 import { BlurrLayer } from './BlurrLayer';
 import { BottomNavigationBrush } from './BottomNavigationBrush';
 import { MobileQuoteBar } from './MobileQuoteBar';
-import open from '../public/static/assets/images/open.png';
-import close from '../public/static/assets/images/closed.png';
+import open from '../../../public/static/assets/images/open.png';
+import close from '../../../public/static/assets/images/closed.png';
 import Image from 'next/image';
 
 interface IMobileNavigation {

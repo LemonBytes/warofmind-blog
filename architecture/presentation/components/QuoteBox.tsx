@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import quotes_de from '../public/static/assets/quotes/quotes_de.json';
-import quotes_en from '../public/static/assets//quotes/quotes_en.json';
+import quotes_de from '../../../public/static/assets/quotes/quotes_de.json';
+import quotes_en from '../../../public/static/assets/quotes/quotes_en.json';
 
 interface IQuoteBox {
   fontSize?: string;

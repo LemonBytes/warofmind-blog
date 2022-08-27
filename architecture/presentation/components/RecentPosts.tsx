@@ -1,4 +1,4 @@
-import { IPost } from '../pages';
+import { IPost } from '../../../pages';
 import { AllPostsLink } from './AllPostsButton';
 import { IMiniCardPost, PostCard } from './PostCard';
 
