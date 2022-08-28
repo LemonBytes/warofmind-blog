@@ -4,7 +4,7 @@
   "author": "Michele Ayadi",
   "scripts": {
     "prettier": "prettier --write .",
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -14,6 +14,7 @@
     "@cypress/react": "^5.12.1",
     "@mdx-js/loader": "^1.6.22",
     "@next/mdx": "^12.0.8",
+    "@portabletext/react": "^1.0.6",
     "@react-spring/parallax": "^9.5.0",
     "@react-spring/web": "^9.5.0",
     "cypress": "^9.4.1",
@@ -25,6 +26,7 @@
     "next-images": "^1.8.4",
     "next-mdx-remote": "^3.0.8",
     "next-sanity": "^0.8.2",
+    "next-sanity-image": "^4.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-spring": "^9.5.0"
@@ -34,6 +36,7 @@
     "@types/node": "17.0.5",
     "@types/react": "^17.0.38",
     "autoprefixer": "^10.4.5",
+    "cross-env": "^7.0.3",
     "eslint": "8.5.0",
     "eslint-config-next": "12.0.7",
     "postcss": "^8.4.13",

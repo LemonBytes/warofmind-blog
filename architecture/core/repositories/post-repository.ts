@@ -4,6 +4,6 @@ export interface IPostRepository {
   findAll(): Promise<any>;
   findLast(): Promise<any>;
   findPopular(): Promise<any>;
-  findById(): Promise<any>;
+  findBySlug(): Promise<any>;
   findByTheme(): Promise<any>;
 }

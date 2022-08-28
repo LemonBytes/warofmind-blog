@@ -1,39 +1,45 @@
-import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemote } from 'next-mdx-remote';
+import { PortableText } from '@portabletext/react';
 import Link from 'next/link';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
+import { WomLink } from '../../architecture/presentation/components/WomLink';
 
-const Test = ({ source, frontMatter }: any) => {
+const myPortableTextComponents = {
+  marks: {
+    link: ({ children, value }: any) => {
+      return (
+        <WomLink previewType={''} linkText={children}>
+          {children}
+        </WomLink>
+      );
+    },
+  },
+};
+
+const Test = ({ post }: any) => {
   return (
-    <div>
-      <header>
-        <nav>
-          <Link href="/">
-            <a>👈 Go back home</a>
-          </Link>
-        </nav>
-      </header>
-      <div className="post-header">
-        <h1>{frontMatter.title}</h1>
-      </div>
-      <main>
-        <MDXRemote {...source} />
-      </main>
-      ;
-    </div>
+    <section className="flex w-screen flex-col items-center self-center">
+      <article className="flex w-[80vw] flex-col items-center border">
+        <PortableText
+          value={[...post.body]}
+          components={myPortableTextComponents}
+        />
+      </article>
+    </section>
   );
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths = async ({ locales }: any) => {
   const IndexAdapter = new PostAdapter();
   const posts = await IndexAdapter.findAll();
-  const paths = posts.map((post: any) => {
-    return post.slug_current;
+  const paths = posts.flatMap((post: any) => {
+    return locales.map((locale: any) => {
+      return {
+        params: { slug: post.slug.current },
+        locale: locale,
+      };
+    });
   });
+
   return {
     paths,
     fallback: false,
@@ -41,24 +47,12 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: any) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
-  const source = fs.readFileSync(postFilePath);
-
-  const { content, data } = matter(source);
-
-  const mdxSource = await serialize(content, {
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-    scope: data,
-  });
-
+  console.log(params.slug);
+  const SlugAdapter = new PostAdapter();
+  const [post] = await SlugAdapter.findBySlug(params.slug);
+  console.log(post);
   return {
-    props: {
-      source: mdxSource,
-      frontMatter: data,
-    },
+    props: { post },
   };
 };
 

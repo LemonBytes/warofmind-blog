@@ -19,7 +19,10 @@ export class PostAdapter {
   async findPopular() {
     return await this.sanityClient.fetch(`*[_type == "post" ]`);
   }
-  async findById() {
-    return await this.sanityClient.fetch(`*[_type == "post" ]`);
+  async findBySlug(slug: string) {
+    const post = await this.sanityClient.fetch(
+      `*[_type == "post" && slug.current == '${slug}']`
+    );
+    return post;
   }
 }
