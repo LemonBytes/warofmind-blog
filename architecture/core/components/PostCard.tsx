@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useSanityImageService } from '../../core/services/sanity-image.service';
+import { useSanityImageService } from '../services/sanity-image.service';
 
 export const PostCard = ({ post }: any) => {
   const image = useSanityImageService(post.mainImage.asset._ref);

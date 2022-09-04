@@ -23,7 +23,7 @@ export const ParallaxContainer = ({ posts }: any) => {
 
   return (
     <main className="flex w-screen flex-col items-center justify-between ">
-      <section className="h-auto w-[80vw]">
+      <section className="h-auto w-[70vw]">
         <PageTitle />
 
         <section className="flex h-auto w-full flex-col pb-[50vw]">

@@ -2,7 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { appWithTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { WomHeader } from '../architecture/presentation/components/Header';
+import { WomHeader } from '../architecture/core/components/Header';
 
 const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   return (

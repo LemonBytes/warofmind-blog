@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { ParallaxContainer } from '../architecture/presentation/components/ParallaxContainer';
+import { ParallaxContainer } from '../architecture/core/components/ParallaxContainer';
 import { PostAdapter } from '../architecture/core/adapters/post-adapter';
 
 export interface IPost {

@@ -1,7 +1,7 @@
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
-    './architecture/presentation/components/**/*.{js,ts,jsx,tsx}',
+    './architecture/core/components/**/*.{js,ts,jsx,tsx}',
 
   ],
   theme: {
@@ -44,6 +44,6 @@ module.exports = {
     },
   },
   mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './architecture/presentation/components//**/*.{js,ts,jsx,tsx}'],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './architecture/core/components//**/*.{js,ts,jsx,tsx}'],
   plugins: [[require('prettier-plugin-tailwindcss')]],
 };
