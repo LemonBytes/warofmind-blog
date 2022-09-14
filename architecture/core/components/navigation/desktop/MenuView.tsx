@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useMousePosition } from '../../../hooks/useMousePosition';
+import { useMousePosition } from '../../../../../hooks/useMousePosition';
 
-import { LinkContainer } from './LinkContainer';
+import { LinkContainer } from '../general/LinkContainer';
 import { PreviewBox } from './PreviewBox';
 
 interface IState {

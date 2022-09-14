@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { ParallaxContainer } from '../architecture/core/components/ParallaxContainer';
+import { Landing } from '../architecture/core/components/pages/landing/Landing';
 import { PostAdapter } from '../architecture/core/adapters/post-adapter';
 
 export interface IPost {
@@ -9,7 +9,7 @@ export interface IPost {
 
 const Home: NextPage<IPost> = ({ posts }) => {
   const router = useRouter();
-  return <ParallaxContainer posts={posts} />;
+  return <Landing posts={posts} />;
 };
 
 export async function getStaticProps() {

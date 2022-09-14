@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import logo from '../public/static/assets/images/logo.jpg';
+import logo from '../../../../../public/static/assets/images/logo.jpg';
 
 import Image from 'next/image';
 export const LogoContainer = () => {

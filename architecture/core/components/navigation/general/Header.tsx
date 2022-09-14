@@ -1,7 +1,7 @@
 import { NavigationLayer } from './NavigationLayer';
 export const WomHeader = () => {
   return (
-    <header className="absolute">
+    <header className="fixed z-50">
       <NavigationLayer />
     </header>
   );

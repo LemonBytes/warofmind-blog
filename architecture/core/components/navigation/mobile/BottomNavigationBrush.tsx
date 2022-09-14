@@ -1,4 +1,4 @@
-import { LinkContainer } from './LinkContainer';
+import { LinkContainer } from '../general/LinkContainer';
 
 interface IState {
   openClose: boolean;
@@ -9,7 +9,7 @@ export const BottomNavigationBrush: React.FC<IState> = ({ openClose }) => {
     <div>
       <div
         id="botSidebar"
-        className={`fixed bottom-24 flex h-80 w-screen items-center bg-brush bg-[length:350%] bg-bottBar bg-no-repeat
+        className={`fixed bottom-16 flex h-80 w-screen items-center bg-brush bg-[length:330%] bg-bottBar bg-no-repeat
          font-naruto transition-all smallPhone:bottom-10
           ${openClose ? `right-0` : `right-[-420px]`} `}
       >

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { previewType } from './MenuView';
+import { previewType } from './navigation/desktop/MenuView';
 
 interface IWomLink {
   setActicvePreviewType?: (string: previewType) => void;

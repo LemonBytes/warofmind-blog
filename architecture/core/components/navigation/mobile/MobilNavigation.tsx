@@ -2,8 +2,8 @@ import { Topbar } from './Topbar';
 import { BlurrLayer } from './BlurrLayer';
 import { BottomNavigationBrush } from './BottomNavigationBrush';
 import { MobileQuoteBar } from './MobileQuoteBar';
-import open from '../../../public/static/assets/images/open.png';
-import close from '../../../public/static/assets/images/closed.png';
+import open from '../../../../../public/static/assets/images/open.png';
+import close from '../../../../../public/static/assets/images/closed.png';
 import Image from 'next/image';
 
 interface IMobileNavigation {
@@ -16,20 +16,19 @@ export const MobileNavigation: React.FC<IMobileNavigation> = ({
   openClose,
 }) => {
   return (
-    <div id="mobileView" className="block sm:hidden">
-      <Topbar />
+    <div id="mobileView" className="block md:hidden">
       {openClose && <BlurrLayer />}
       <MobileQuoteBar openClose={openClose} />
       <BottomNavigationBrush openClose={openClose} />
-      <nav id="navigation" className="fixed bottom-[8%] right-[6%] h-20 w-20">
-        <div onClick={openCloseNavi}>
+      <nav id="navigation" className="fixed bottom-[8%] right-[10%] h-20 w-20">
+        <button onClick={openCloseNavi}>
           <Image
             width={250}
             height={250}
             src={openClose ? open : close}
             alt={'navigation button'}
           ></Image>
-        </div>
+        </button>
       </nav>
     </div>
   );

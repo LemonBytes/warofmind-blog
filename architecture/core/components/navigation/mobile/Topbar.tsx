@@ -13,7 +13,7 @@ export const Topbar: React.FC<IView> = ({ largeView }) => {
   return (
     <div
       id="topbar"
-      className="bg-transparent fixed flex h-14 w-screen justify-between border border-white"
+      className="bg-transparent fixed flex h-14 w-screen justify-between"
     ></div>
   );
 };

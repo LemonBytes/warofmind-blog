@@ -1,7 +1,6 @@
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
-import { previewType } from './MenuView';
-import { WomLink } from './WomLink';
+import { previewType } from '../desktop/MenuView';
+import { WomLink } from '../../WomLink';
 
 interface IHover {
   setActicvePreviewType?: (string: previewType) => void;
@@ -43,9 +42,9 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
   return (
     <div
       id="linkCon"
-      className="relative inset-x-6 flex h-44 w-96 items-center overflow-x-scroll rounded-3xl px-14  sm:inset-0 sm:right-0 sm:block sm:h-screen sm:w-screen sm:justify-start sm:overflow-visible"
+      className="w-98 relative inset-x-4 flex h-44 items-center overflow-x-scroll rounded-3xl  lg:inset-0 lg:right-0 lg:block lg:h-screen lg:w-screen lg:justify-start lg:overflow-visible lg:px-16"
     >
-      <div className="-px-9 -m-6 grid h-auto w-auto grid-cols-4 gap-x-40 sm:flex sm:h-screen sm:w-screen sm:flex-col sm:items-start sm:overflow-y-scroll sm:px-4 ">
+      <div className="lg:-px-9 grid h-auto w-auto grid-cols-4 gap-x-40 lg:-m-6 lg:flex lg:h-screen lg:w-screen lg:flex-col lg:items-start lg:overflow-y-scroll lg:px-4">
         {LinkInfos.map((infos, key) => {
           return (
             <div
