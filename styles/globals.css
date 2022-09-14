@@ -9,6 +9,10 @@
     font-family: 'naruto';
     src: url('../public/static/assets/fonts/naruto.ttf');
   }
+  @font-face {
+    font-family: 'capriola';
+    src: url('../public/static/assets/fonts/Capriola.ttf');
+  }
   body {
     @apply bg-black;
   }

@@ -3,5 +3,6 @@ module.exports = {
   i18n,
   images: {
     domains: ['cdn.sanity.io']
-  }
+  },
+  optimizeFonts: true,
 };

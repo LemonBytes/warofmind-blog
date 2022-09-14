@@ -14,6 +14,7 @@ module.exports = {
     extend: {
       fontFamily: {
         naruto: ['naruto'],
+        capriola: ["capriola"]
       },
       fontSize: new Array(201)
         .fill()

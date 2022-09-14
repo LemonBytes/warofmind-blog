@@ -26,7 +26,7 @@ export const ParallaxContainer = ({ posts }: any) => {
       <section className="h-auto w-[70vw]">
         <PageTitle />
 
-        <section className="flex h-auto w-full flex-col pb-[50vw]">
+        {/*  <section className="flex h-auto w-full flex-col pb-[50vw]">
           {sentences.map((sentence, key) => {
             return (
               <motion.div
@@ -47,7 +47,7 @@ export const ParallaxContainer = ({ posts }: any) => {
               </motion.div>
             );
           })}
-        </section>
+        </section> */}
         <section className="flex h-[150vh] w-full items-start justify-center text-center ">
           <motion.div
             initial={{ opacity: 0 }}
