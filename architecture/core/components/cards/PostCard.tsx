@@ -11,16 +11,13 @@ export const PostCard = ({ post }: any) => {
         <div className="border border-[grey]">
           <Image
             layout="responsive"
-            sizes="(max-width: 800px) 100vw, 800px"
+            sizes="(max-width: 1200px) 100vw, 800px"
             className="top-0 rounded-t"
-            width={250}
-            height={250}
+            width={900}
+            height={600}
             alt=""
             src={image.src}
           />
-          {/* <div className="z-3 relative bottom-[22px] left-[-18px] h-[35px] w-[35px] rotate-[45deg] border border-blurrRed bg-black">
-            <div className="relative h-[35px] w-[35px] rotate-[-45deg] border border-blurrRed bg-black"></div>
-          </div> */}
         </div>
         <p className="text-ellipses h-auto w-auto text-center font-naruto text-2xl text-white ">
           {post.title}

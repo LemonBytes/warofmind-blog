@@ -15,7 +15,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
   openCloseNavi,
   openClose,
 }) => {
-  const { t } = useTranslation('navigation');
+  const { t } = useTranslation('common');
   return (
     <div className="hidden sm:fixed sm:top-0 sm:right-0 sm:z-40 sm:flex sm:h-screen sm:w-[10vw]">
       <Link href="/contact">

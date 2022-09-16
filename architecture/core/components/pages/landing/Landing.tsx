@@ -11,7 +11,7 @@ export const Landing = ({ posts }: any) => {
 
   return (
     <main className="flex w-screen flex-col items-center justify-between">
-      <section className="h-[120vh] w-[90vw] lg:w-[70vw]">
+      <section className="h-[120vh] w-[90vw] lg:w-[80vw]">
         <section>
           <PageTitle />
         </section>

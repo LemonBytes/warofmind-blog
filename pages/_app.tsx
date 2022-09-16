@@ -4,7 +4,7 @@ import { appWithTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { WomHeader } from '../architecture/core/components/navigation/general/Header';
 import Head from 'next/head';
-import nextI18NextConfig from '../next-i18next.config.js';
+
 const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
@@ -20,16 +20,4 @@ const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export async function getStaticProps({ locale }: any) {
-  return {
-    props: {
-      ...(await serverSideTranslations(
-        locale,
-        ['common', 'navigation'],
-        nextI18NextConfig
-      )),
-      // Will be passed to the page component as props
-    },
-  };
-}
 export default appWithTranslation(WarOfMindApp);

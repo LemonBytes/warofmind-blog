@@ -38,7 +38,7 @@ const LinkInfos = [
 ];
 
 export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
-  const { t } = useTranslation('navigation');
+  const { t } = useTranslation('common');
   return (
     <div
       id="linkCon"
