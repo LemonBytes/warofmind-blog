@@ -10,27 +10,28 @@ export const Landing = ({ posts }: any) => {
   const scrollRef = useRef(null);
 
   return (
-    <main className="flex w-screen flex-col items-center justify-between">
-      <section className="h-[120vh] w-[90vw] lg:w-[80vw]">
+    <main className="flex w-screen flex-col  items-center justify-center ">
+      <section className="h-[120vh] w-[90vw] lg:w-[80vw]  ">
         <section>
           <PageTitle />
         </section>
-        <section className="hidden w-full items-center justify-center self-center  text-left lg:flex lg:h-[150vh] lg:w-[70vw] ">
+        <section className="hidden  text-left lg:flex lg:h-[150vh] lg:w-full lg:w-full lg:items-center lg:justify-center ">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="h-auto w-[85vw]"
+            className="h-auto w-[85%]"
           >
             <QuoteBox fontSize="text-3xl lg:text-8xl " />
           </motion.div>
         </section>
-        <section>
+        <section className="lg:screen lg:flex lg:self-start">
           <RecentPosts posts={posts} />;
         </section>
-        <section className="h-[150vh]"></section>
       </section>
+
+      <section className="h-[150vh]"></section>
     </main>
   );
 };
