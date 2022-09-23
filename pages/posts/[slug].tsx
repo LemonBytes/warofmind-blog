@@ -19,7 +19,7 @@ const myPortableTextComponents = {
   },
   marks: {
     link: ({ children, value }: any) => (
-      <a href={value.herf} className="cursor-pointer font-capriola underline ">
+      <a href={value.href} target="_blank" rel="noreferrer" className="cursor-pointer font-capriola underline ">
         {children}
       </a>
     ),

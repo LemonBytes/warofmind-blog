@@ -12,33 +12,55 @@ export const PostCard = ({ post }: any) => {
     <motion.div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="flex h-full w-full cursor-pointer flex-col overflow-hidden"
+      className=" flex h-[500px] w-auto cursor-pointer flex-col items-center overflow-hidden "
     >
-      <motion.a
+      <a
         onClick={() => router.push('/posts/' + post.slug.current)}
-        className="overflow-hidden"
+        className="flex h-[500px] w-full flex-col items-center"
       >
-        <motion.div className="h-auto max-h-[600px] overflow-hidden border">
-          <motion.Image
-            animate={{ scale: isHovered ? 1.2 : 1 }}
-            transition={{ duration: 0.6 }}
-            layout="responsive"
-            sizes="(max-width: 1200px) 100vw, 800px"
-            className="top-0 rounded-t "
-            width={900}
-            height={600}
+        <motion.div
+          animate={{
+            scale: isHovered ? 1.01 : 1.15,
+            opacity: isHovered ? 0.4 : 1,
+          }}
+          className="h-[600px] w-full"
+          transition={{ duration: 0.6 }}
+        >
+          <Image
             alt=""
             src={image.src}
+            layout="fill"
+            objectFit="cover"
+            sizes="320 640 750"
+            objectPosition="center"
           />
         </motion.div>
-        <motion.p
-          animate={{ y: isHovered ? -100 : 80 }}
+        <motion.div
+          animate={{ y: isHovered ? -100 : -0 }}
           transition={{ duration: 0.6 }}
-          className="text-ellipses text-bold w-auto text-center font-naruto text-2xl text-white "
+          className="relative w-screen justify-center lg:bottom-[50%] lg:flex lg:w-[60%]"
         >
-          {post.description}
-        </motion.p>
-      </motion.a>
+          <h3 className="text-ellipses text-bold absolute text-center font-naruto text-4xl text-white ">
+            {post.title}
+          </h3>
+        </motion.div>
+        <motion.div
+          animate={{
+            opacity: isHovered ? 1 : 0,
+            delay: 0.6,
+            duration: 0.6,
+          }}
+          className="relative flex w-screen lg:bottom-[50%] lg:w-[70%]"
+        >
+          <p className="text-ellipses text-bold text absolute text-center font-naruto text-white ">
+            {post.description}
+          </p>
+        </motion.div>
+      </a>
     </motion.div>
   );
 };
+
+{
+  /* */
+}
