@@ -42,7 +42,7 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
   return (
     <div
       id="linkCon"
-      className="w-98 relative inset-x-4 flex h-44 items-center overflow-x-scroll rounded-3xl  lg:inset-0 lg:right-0 lg:block lg:h-screen lg:w-screen lg:justify-start lg:overflow-visible lg:px-16"
+      className="w-98 relative inset-x-4 flex h-44 items-center overflow-x-scroll rounded-3xl  lg:inset-0 lg:right-0 lg:block lg:h-screen lg:w-screen lg:justify-start lg:overflow-visible lg:px-16 lg:pb-20"
     >
       <div className="lg:-px-9 grid h-auto w-auto grid-cols-4 gap-x-40 lg:-m-6 lg:flex lg:h-screen lg:w-screen lg:flex-col lg:items-start lg:overflow-y-scroll lg:px-4">
         {LinkInfos.map((infos, key) => {

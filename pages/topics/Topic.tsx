@@ -52,64 +52,22 @@ const myPortableTextComponents = {
   },
 };
 
-const PostPage = ({ post }: any) => {
+const Topic = ({ post }: any) => {
   const image = useSanityImageService(post.mainImage.asset._ref);
   return (
     <main className="flex h-auto w-screen flex-col items-center lg:p-20">
-      <div className="z-[-1] h-[40%] w-screen lg:h-[20%] lg:w-[80vw] lg:border-2 lg:border-white">
-        <Image
-          sizes="(min-width: 70vw) 89vw, 800px"
-          className="border border-white"
-          width={800}
-          height={400}
-          alt=""
-          src={image.src}
-        />
-      </div>
-
-      <section className="flex w-[90vw] flex-col lg:w-[80vw]">
-        <div className="self-start py-20 text-white">
-          <h1 className="p-2 font-naruto text-4xl lg:text-6xl">{post.title}</h1>
-          <h3 className="text p-2 font-naruto lg:text-3xl">
-            {post.description}
-          </h3>
-        </div>
-        <article className=" flex h-[100vh] flex-col items-center  text-left text-white lg:w-[40vw] lg:items-start lg:text-2xl">
-          <PortableText
-            value={[...post.body]}
-            components={myPortableTextComponents}
-          />
-        </article>
-      </section>
+      <Topic />
     </main>
   );
 };
 
-export const getStaticPaths = async ({ locales }: any) => {
-  const IndexAdapter = new PostAdapter();
-  const posts = await IndexAdapter.findAll();
-  const paths = posts.flatMap((post: any) => {
-    return locales.map((locale: any) => {
-      return {
-        params: { slug: post.slug.current },
-        locale: locale,
-      };
-    });
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
 export const getStaticProps = async ({ params }: any) => {
   const SlugAdapter = new PostAdapter();
-  const [post] = await SlugAdapter.findBySlug(params.slug);
+  const posts = await SlugAdapter.findByTopic(params.topics);
 
   return {
-    props: { post },
+    props: { posts },
   };
 };
 
-export default PostPage;
+export default Topic;

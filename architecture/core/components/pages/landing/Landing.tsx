@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { RecentPosts } from '../../cards/RecentPosts';
+import { PostCardGrid } from '../../cards/PostCardGrid';
 import { QuoteBox } from './QuoteBox';
 
 import { PageTitle } from './PageTitle';
@@ -11,7 +11,7 @@ export const Landing = ({ posts }: any) => {
 
   return (
     <main className="flex w-screen flex-col  items-center justify-center ">
-      <section className="h-[120vh] w-[90vw] lg:w-[80vw]  ">
+      <section className="h-[120vh] w-[90vw] lg:w-[90vw]  ">
         <section>
           <PageTitle />
         </section>
@@ -27,7 +27,7 @@ export const Landing = ({ posts }: any) => {
           </motion.div>
         </section>
         <section className="lg:screen lg:flex lg:self-start">
-          <RecentPosts posts={posts} />;
+          <PostCardGrid posts={posts} />;
         </section>
       </section>
 

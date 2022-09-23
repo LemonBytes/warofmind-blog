@@ -1,5 +1,13 @@
 import { createClient, SanityClient } from 'next-sanity';
 
+export type topicType =
+  | 'boxing'
+  | 'kickboxing'
+  | 'muay-thai'
+  | 'brazilian-jiu-jitsu'
+  | 'mind'
+  | 'reviews'
+  | 'karate';
 export class PostAdapter {
   sanityClient: SanityClient;
   constructor() {
@@ -10,11 +18,18 @@ export class PostAdapter {
       useCdn: false,
     });
   }
+  async findByTopic(topics: topicType[]) {
+    return topics.map(async (topic: topicType) => {
+      return await this.sanityClient.fetch(
+        `*[_type == "post" && ${topic} in post.topics[]]`
+      );
+    });
+  }
   async findAll() {
     return await this.sanityClient.fetch(`*[_type == "post" ]`);
   }
   async findLast() {
-    return await this.sanityClient.fetch(`*[_type == "post" ][0...8]`);
+    return await this.sanityClient.fetch(`*[_type == "post" ][0...7]`);
   }
   async findPopular() {
     return await this.sanityClient.fetch(`*[_type == "post" ]`);
