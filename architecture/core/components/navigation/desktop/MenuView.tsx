@@ -36,7 +36,10 @@ export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
           previewType={acticvePreviewType}
         />
       )}
-      <LinkContainer setActicvePreviewType={setActicvePreviewType} />
+      <LinkContainer
+        openCloseNavi={openCloseNavi}
+        setActicvePreviewType={setActicvePreviewType}
+      />
     </div>
   );
 };

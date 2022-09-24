@@ -18,13 +18,12 @@ export class PostAdapter {
       useCdn: false,
     });
   }
-  async findByTopic(topics: topicType[]) {
-    return topics.map(async (topic: topicType) => {
-      return await this.sanityClient.fetch(
-        `*[_type == "post" && ${topic} in post.topics[]]`
-      );
-    });
+  async findByTopic(topic: topicType) {
+    return await this.sanityClient.fetch(
+      `*[_type == "post" && "${topic}" in topics]`
+    );
   }
+
   async findAll() {
     return await this.sanityClient.fetch(`*[_type == "post" ]`);
   }

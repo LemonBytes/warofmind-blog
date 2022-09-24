@@ -5,12 +5,14 @@ interface IWomLink {
   setActicvePreviewType?: (string: previewType) => void;
   previewType: previewType;
   linkText: string;
+  openCloseNavi?: () => void;
 }
 
 export const WomLink: React.FC<IWomLink> = ({
   setActicvePreviewType,
   previewType,
   linkText,
+  openCloseNavi,
 }) => {
   const handleMouse = (type: previewType) => {
     if (setActicvePreviewType) setActicvePreviewType(type);
@@ -18,6 +20,7 @@ export const WomLink: React.FC<IWomLink> = ({
   return (
     <Link href={`/topics/${previewType}`}>
       <a
+        onClick={openCloseNavi ? openCloseNavi : undefined}
         onMouseOver={() => handleMouse(previewType)}
         onMouseLeave={() => handleMouse('')}
         id="link1"

@@ -4,6 +4,7 @@ import { WomLink } from '../../WomLink';
 
 interface IHover {
   setActicvePreviewType?: (string: previewType) => void;
+  openCloseNavi: () => void;
 }
 const LinkInfos = [
   {
@@ -37,7 +38,10 @@ const LinkInfos = [
   },
 ];
 
-export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
+export const LinkContainer: React.FC<IHover> = ({
+  setActicvePreviewType,
+  openCloseNavi,
+}) => {
   const { t } = useTranslation('common');
   return (
     <div
@@ -53,6 +57,7 @@ export const LinkContainer: React.FC<IHover> = ({ setActicvePreviewType }) => {
               className="transition-all duration-300 ease-in-out"
             >
               <WomLink
+                openCloseNavi={openCloseNavi}
                 setActicvePreviewType={setActicvePreviewType}
                 previewType={infos.previewType}
                 linkText={t(infos.linkText)}

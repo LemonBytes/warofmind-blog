@@ -10,7 +10,7 @@ export const PostCard = ({ post }: any) => {
   const published = DateTime.fromISO(post.publishedAt).toLocaleString(
     DateTime.DATETIME_MED
   );
-  console.log({ ...post.categories });
+
   const image = useSanityImageService(post.mainImage.asset._ref);
   const router = useRouter();
   const [isHovered, setHovered] = useState(false);

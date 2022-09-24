@@ -2,7 +2,6 @@ import { PortableText } from '@portabletext/react';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 import Image from 'next/image';
 import { useSanityImageService } from '../../architecture/core/services/sanity-image.service';
-import Link from 'next/link';
 
 const myPortableTextComponents = {
   block: {
@@ -96,7 +95,7 @@ export const getStaticPaths = async ({ locales }: any) => {
       };
     });
   });
-
+  console.log(paths);
   return {
     paths,
     fallback: false,
