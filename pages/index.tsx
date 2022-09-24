@@ -8,7 +8,6 @@ export interface IPost {
 }
 
 const Home: NextPage<IPost> = ({ posts }) => {
-  console.log(posts);
   const router = useRouter();
   return <Landing posts={posts} />;
 };

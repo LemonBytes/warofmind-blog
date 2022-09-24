@@ -4,9 +4,10 @@ import { useSanityImageService } from '../../architecture/core/services/sanity-i
 import Link from 'next/link';
 import { TopicOverview } from '../../architecture/core/components/pages/topics/TopicsPage';
 
-const TopicPage = ({ posts }: any) => {
+const TopicPage = ({ posts, topic }: any) => {
   return (
     <main className="flex h-auto w-screen flex-col items-center lg:p-20">
+      <h1 className="font-naruto text-8xl text-white">{topic}</h1>
       <TopicOverview posts={posts} />
     </main>
   );
@@ -39,7 +40,8 @@ export const getStaticPaths = async ({ locales }: any) => {
 export const getStaticProps = async ({ params }: any) => {
   const TopicAdapter = new PostAdapter();
   const posts = await TopicAdapter.findByTopic(params.topic);
-  return { props: { posts } };
+  console.log(params);
+  return { props: { posts: posts, topic: params.topic } };
 };
 
 export default TopicPage;
