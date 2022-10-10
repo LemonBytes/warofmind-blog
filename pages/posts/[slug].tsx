@@ -1,12 +1,10 @@
 import { PortableText } from '@portabletext/react';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 import Image from 'next/image';
-import { useSanityImageService } from '../../architecture/core/services/sanity-image.service';
+import { useSanityImageService } from '../../hooks/sanity-image.service';
 
 const myPortableTextComponents = {
   block: {
-    // Ex. 1: customizing common block types
-
     h2: ({ children }: any) => (
       <h2 className="py-5 font-naruto text-2xl lg:text-4xl">{children}</h2>
     ),
@@ -73,7 +71,7 @@ const PostPage = ({ post }: any) => {
             {post.description}
           </h3>
         </div>
-        <article className=" flex h-[100vh] flex-col items-center  text-left text-white lg:w-[40vw] lg:items-start lg:text-2xl">
+        <article className=" flex h-[100vh] flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-2xl">
           <PortableText
             value={[...post.body]}
             components={myPortableTextComponents}

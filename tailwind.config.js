@@ -5,6 +5,12 @@ module.exports = {
 
   ],
   theme: {
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+    },
     colors: {
       black: `rgb(${26}, ${25}, ${25})`,
       white: `rgb(${212}, ${211}, ${211})`,
@@ -46,5 +52,5 @@ module.exports = {
   },
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './architecture/core/components//**/*.{js,ts,jsx,tsx}'],
-  plugins: [[require('prettier-plugin-tailwindcss')]],
+  plugins: [/* [require('prettier-plugin-tailwindcss')] */],
 };

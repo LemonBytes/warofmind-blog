@@ -17,7 +17,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
 }) => {
   const { t } = useTranslation('common');
   return (
-    <div className="hidden sm:fixed sm:top-0 sm:right-0 sm:z-40 sm:flex sm:h-screen sm:w-[10vw]">
+    <div className="hidden md:fixed md:right-0 md:top-0 md:z-40 md:flex md:h-screen md:w-[10vw]">
       <Link href="/contact">
         <a
           id="contactME"

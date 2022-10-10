@@ -12,7 +12,7 @@ export const MobileQuoteBar: React.FC<IState> = ({ openClose }) => {
       <div
         id="topSideBar"
         className={`fixed top-[5vh] flex h-80 w-screen items-center justify-center overflow-hidden bg-brush bg-[length:420%] bg-topBar bg-no-repeat text-center font-naruto transition-all smallPhone:top-0 ${
-          openClose ? `left-0` : `left-[-420px]`
+          openClose ? `left-0` : `left-[-820px]`
         }`}
       >
         <div className="w-[90vw]">

@@ -4,7 +4,7 @@ import { WomLink } from '../../WomLink';
 
 interface IHover {
   setActicvePreviewType?: (string: previewType) => void;
-  openCloseNavi: () => void;
+  openCloseNavi?: () => void;
 }
 const LinkInfos = [
   {
@@ -46,9 +46,9 @@ export const LinkContainer: React.FC<IHover> = ({
   return (
     <div
       id="linkCon"
-      className="w-98 relative inset-x-4 flex h-44 items-center overflow-x-scroll rounded-3xl  lg:inset-0 lg:right-0 lg:block lg:h-screen lg:w-screen lg:justify-start lg:overflow-visible lg:px-16 lg:pb-20"
+      className="w-98 relative inset-x-4 flex h-44 items-center overflow-x-scroll rounded-3xl  md:inset-0 md:right-0 md:block md:h-screen md:w-screen md:justify-start md:overflow-visible md:px-16 md:pb-20"
     >
-      <div className="lg:-px-9 grid h-auto w-auto grid-cols-4 gap-x-40 lg:-m-6 lg:flex lg:h-screen lg:w-screen lg:flex-col lg:items-start lg:overflow-y-scroll lg:px-4">
+      <div className="lg:-px-9 grid h-auto w-auto grid-cols-4 gap-x-40 md:-m-6 md:flex md:h-screen md:w-screen md:flex-col md:items-start md:overflow-y-scroll md:px-4">
         {LinkInfos.map((infos, key) => {
           return (
             <div

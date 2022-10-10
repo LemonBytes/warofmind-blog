@@ -4,16 +4,29 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useSanityImageService } from '../../services/sanity-image.service';
+import { useSanityImageService } from '../../../../hooks/sanity-image.service';
+import tailwindConfig from '../../../../tailwind.config';
+import resolveConfig from 'tailwindcss/resolveConfig';
+import useGetDimensions from '../../../../hooks/useGetDimensions';
+const fullConfig = resolveConfig(tailwindConfig);
+
+const checkBreakpoint = (width: number, breakpoint: string) => {
+  const breakpointNumber = parseInt(breakpoint.replace(/px/, ''));
+  return width <= breakpointNumber;
+};
 
 export const PostCard = ({ post }: any) => {
+  const image = useSanityImageService(post.mainImage.asset._ref);
+  const { width } = useGetDimensions();
+  const { sm }: any = fullConfig.theme?.screens!;
+  const mobile = checkBreakpoint(width, sm);
+  console.log(mobile);
+  const router = useRouter();
+  const [isHovered, setHovered] = useState(false);
   const published = DateTime.fromISO(post.publishedAt).toLocaleString(
     DateTime.DATETIME_MED
   );
 
-  const image = useSanityImageService(post.mainImage.asset._ref);
-  const router = useRouter();
-  const [isHovered, setHovered] = useState(false);
   return (
     <motion.div
       onMouseEnter={() => setHovered(true)}
@@ -25,6 +38,11 @@ export const PostCard = ({ post }: any) => {
         className="flex h-[550px] w-full flex-col items-center"
       >
         <motion.div
+          initial={{
+            scale: mobile ? 1.1 : 1.01,
+            opacity: mobile ? 0.4 : 1,
+            initial: false,
+          }}
           animate={{
             scale: isHovered ? 1.01 : 1.15,
             opacity: isHovered ? 0.4 : 1,
@@ -42,6 +60,9 @@ export const PostCard = ({ post }: any) => {
           />
         </motion.div>
         <motion.div
+          initial={{
+            y: mobile ? -110 : -0,
+          }}
           animate={{ y: isHovered ? -110 : -0 }}
           transition={{ duration: 0.6 }}
           className="relative w-screen justify-center lg:bottom-[60%] lg:flex lg:w-[85%]"
@@ -51,6 +72,7 @@ export const PostCard = ({ post }: any) => {
           </h3>
         </motion.div>
         <motion.div
+          initial={{ opacity: mobile ? 1 : 0 }}
           animate={{
             opacity: isHovered ? 1 : 0,
             delay: 0.6,
@@ -64,6 +86,9 @@ export const PostCard = ({ post }: any) => {
         </motion.div>
       </a>
       <motion.div
+        initial={{
+          y: mobile ? 10 : -50,
+        }}
         animate={{
           y: isHovered ? 10 : 50,
         }}

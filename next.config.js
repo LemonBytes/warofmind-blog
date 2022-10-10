@@ -5,4 +5,5 @@ module.exports = {
     domains: ['cdn.sanity.io']
   },
   optimizeFonts: true,
+
 };

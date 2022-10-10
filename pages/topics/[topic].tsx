@@ -1,6 +1,6 @@
 import { PortableText } from '@portabletext/react';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
-import { useSanityImageService } from '../../architecture/core/services/sanity-image.service';
+import { useSanityImageService } from '../../hooks/sanity-image.service';
 import Link from 'next/link';
 import { TopicOverview } from '../../architecture/core/components/pages/topics/TopicsPage';
 
