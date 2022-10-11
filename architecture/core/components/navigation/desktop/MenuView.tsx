@@ -4,7 +4,7 @@ import { useMousePosition } from '../../../hooks/useMousePosition';
 import { LinkContainer } from '../general/LinkContainer';
 import { PreviewBox } from './PreviewBox';
 
-interface IState {
+interface IMenuView {
   openClose: boolean;
   openCloseNavi: () => void;
 }
@@ -20,7 +20,7 @@ export type previewType =
   | 'karate'
   | '';
 
-export const MenuView: React.FC<IState> = ({ openClose, openCloseNavi }) => {
+export const MenuView: React.FC<IMenuView> = ({ openClose, openCloseNavi }) => {
   const [acticvePreviewType, setActicvePreviewType] = useState<previewType>('');
   const { xPosition, yPosition } = useMousePosition();
   return (

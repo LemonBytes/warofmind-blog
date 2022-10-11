@@ -8,7 +8,7 @@ import { over } from 'cypress/types/lodash';
 const myPortableTextComponents = {
   block: {
     h2: ({ children }: any) => (
-      <h2 className="py-5 font-naruto text-2xl lg:text-4xl">{children}</h2>
+      <h2 className="py-5 font-naruto text-2xl md:text-3xl">{children}</h2>
     ),
     h4: ({ children }: any) => <h4 className="py-5 text-2xl">{children}</h4>,
     // Ex. 2: rendering custom styles
@@ -53,17 +53,19 @@ const myPortableTextComponents = {
 
 const TopicPage = ({ overview }: any) => {
   return (
-    <main className="pb-98 flex h-auto w-[90vw] flex-col items-start text-white md:p-20">
-      <h1 className="font-naruto text-6xl text-white">{overview[0].title}</h1>
-      <section className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start md:pb-72 lg:text-xl">
-        <article>
+    <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:p-20">
+      <h1 className="p-9 font-naruto text-6xl text-white">
+        {overview[0].title}
+      </h1>
+      <section className="flex w-[90vw] flex-col lg:w-[80vw]">
+        <article className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-xl">
           <PortableText
             value={[...overview[0].body]}
             components={myPortableTextComponents}
           />
         </article>
       </section>
-      <section className="h-auto">
+      <section className="flex h-auto w-screen flex-col items-center md:w-[80%]">
         <TopicOverview posts={overview[0].post} />
       </section>
     </main>

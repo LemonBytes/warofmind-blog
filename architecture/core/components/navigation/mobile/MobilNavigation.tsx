@@ -18,7 +18,10 @@ export const MobileNavigation: React.FC<IMobileNavigation> = ({
     <div id="mobileView" className="block md:hidden">
       {openClose && <BlurrLayer />}
       <MobileQuoteBar openClose={openClose} />
-      <BottomNavigationBrush openClose={openClose} />
+      <BottomNavigationBrush
+        openCloseNavi={openCloseNavi}
+        openClose={openClose}
+      />
       <nav id="navigation" className="fixed bottom-[8%] right-[10%] h-20 w-20">
         <button onClick={openCloseNavi}>
           <Image

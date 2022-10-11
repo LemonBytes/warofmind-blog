@@ -12,7 +12,7 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 const checkBreakpoint = (width: number, breakpoint: string) => {
   const breakpointNumber = parseInt(breakpoint.replace(/px/, ''));
-  console.log(width, breakpointNumber);
+
   return width <= breakpointNumber;
 };
 
@@ -21,7 +21,6 @@ export const PostCard = ({ post }: any) => {
   const { width } = useGetDimensions();
   const { sm }: any = fullConfig.theme?.screens!;
   const mobile = checkBreakpoint(width, sm);
-  console.log(mobile);
   const router = useRouter();
   const [isHovered, setHovered] = useState(false);
   const published = DateTime.fromISO(post.publishedAt).toLocaleString(
@@ -59,9 +58,9 @@ export const PostCard = ({ post }: any) => {
         <motion.div
           animate={{ y: isHovered || mobile ? -110 : -0 }}
           transition={{ duration: 0.6 }}
-          className="relative bottom-[60%] w-screen justify-center lg:flex lg:w-[85%]"
+          className="relative bottom-[65%] flex w-screen justify-center  md:bottom-[55%] lg:flex lg:w-[85%]"
         >
-          <h3 className="text-ellipses text-bold absolute text-center font-naruto text-4xl text-white lg:text-4xl ">
+          <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white lg:text-4xl ">
             {post.title}
           </h3>
         </motion.div>
@@ -71,23 +70,34 @@ export const PostCard = ({ post }: any) => {
             delay: 0.6,
             duration: 0.6,
           }}
-          className="relative bottom-[60%] flex w-screen lg:w-[85%]"
+          className="relative bottom-[65%] flex w-screen justify-center md:bottom-[55%]  lg:w-[85%]"
         >
-          <p className="text-ellipses text-bold text absolute text-center font-naruto text-white ">
+          <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white ">
             {post.description}
           </p>
         </motion.div>
       </a>
       <motion.div
         animate={{
-          y: isHovered || mobile ? 10 : 50,
+          y: isHovered || mobile ? -15 : 60,
         }}
         transition={{ duration: 0.6 }}
-        className="relative  left-[5%] bottom-[10%] flex w-screen lg:w-[85%]"
+        className="relative bottom-[10%] flex w-screen w-[85%] justify-between"
       >
         <Link href={'/test'}>
           <a className="text font-naruto text-white">{published}</a>
         </Link>
+        <div className="flex gap-2">
+          {post.topics?.map((topic: string, key: number) => {
+            return (
+              <Link key={key} href={`/topics/${topic}`}>
+                <a className="text flex border p-1 font-naruto text-white">
+                  {topic}
+                </a>
+              </Link>
+            );
+          })}
+        </div>
       </motion.div>
     </motion.div>
   );

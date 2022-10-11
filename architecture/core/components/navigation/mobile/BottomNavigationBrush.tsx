@@ -2,9 +2,13 @@ import { LinkContainer } from '../general/LinkContainer';
 
 interface IState {
   openClose: boolean;
+  openCloseNavi: () => void;
 }
 
-export const BottomNavigationBrush: React.FC<IState> = ({ openClose }) => {
+export const BottomNavigationBrush: React.FC<IState> = ({
+  openClose,
+  openCloseNavi,
+}) => {
   return (
     <div>
       <div
@@ -13,7 +17,7 @@ export const BottomNavigationBrush: React.FC<IState> = ({ openClose }) => {
          font-naruto transition-all smallPhone:bottom-10
           ${openClose ? `right-0` : `right-[-820px]`} `}
       >
-        <LinkContainer />
+        <LinkContainer openCloseNavi={openCloseNavi} />
       </div>
     </div>
   );

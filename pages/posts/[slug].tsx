@@ -6,7 +6,7 @@ import { useSanityImageService } from '../../architecture/core/hooks/sanity-imag
 const myPortableTextComponents = {
   block: {
     h2: ({ children }: any) => (
-      <h2 className="py-5 font-naruto text-2xl lg:text-4xl">{children}</h2>
+      <h2 className="py-5 font-naruto text-2xl lg:text-3xl">{children}</h2>
     ),
     h4: ({ children }: any) => <h4 className="py-5 text-2xl">{children}</h4>,
     // Ex. 2: rendering custom styles
@@ -52,7 +52,7 @@ const myPortableTextComponents = {
 const PostPage = ({ post }: any) => {
   const image = useSanityImageService(post.mainImage.asset._ref);
   return (
-    <main className="flex h-auto w-screen flex-col items-center lg:p-20">
+    <main className="flex h-auto w-screen flex-col items-center pb-[150px] lg:p-20">
       <div className="z-[-1] h-[40%] w-screen lg:h-[20%] lg:w-[80vw] lg:border-2 lg:border-white">
         <Image
           sizes="(min-width: 70vw) 90vw, 800px"
@@ -66,12 +66,10 @@ const PostPage = ({ post }: any) => {
 
       <section className="flex w-[90vw] flex-col lg:w-[80vw]">
         <div className="self-start py-20 text-white">
-          <h1 className="p-2 font-naruto text-4xl lg:text-6xl">{post.title}</h1>
-          <h3 className="text p-2 font-naruto lg:text-3xl">
-            {post.description}
-          </h3>
+          <h1 className="p-2 font-naruto text-3xl md:text-5xl">{post.title}</h1>
+          <h3 className="text md:text p-2 font-naruto">{post.description}</h3>
         </div>
-        <article className=" flex h-[100vh] flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-2xl">
+        <article className="md:text flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start">
           <PortableText
             value={[...post.body]}
             components={myPortableTextComponents}
@@ -93,7 +91,6 @@ export const getStaticPaths = async ({ locales }: any) => {
       };
     });
   });
-  console.log(paths);
   return {
     paths,
     fallback: false,

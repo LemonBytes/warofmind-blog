@@ -18,15 +18,14 @@ export const WomLink: React.FC<IWomLink> = ({
     if (setActicvePreviewType) setActicvePreviewType(type);
   };
   return (
-    <Link href={`/topics/${previewType}`}>
+    <Link passHref href={`/topics/${previewType}`}>
       <a
-        onClick={openCloseNavi ? openCloseNavi : undefined}
         onMouseOver={() => handleMouse(previewType)}
         onMouseLeave={() => handleMouse('')}
         id="link1"
-        className="flex h-auto w-36 items-center justify-center p-2 text-center font-naruto text-2xl font-medium text-white sm:mt-16 sm:h-28 sm:w-[70vw] sm:items-start sm:justify-start sm:p-5 sm:text-4xl"
+        className="flex h-auto w-36 items-center justify-center p-1 text-center font-naruto text-2xl font-medium text-white sm:mt-16 sm:h-28 sm:w-[70vw] sm:items-start sm:justify-start sm:p-5 sm:text-4xl"
       >
-        {linkText}
+        <button onClick={openCloseNavi}>{linkText}</button>
       </a>
     </Link>
   );

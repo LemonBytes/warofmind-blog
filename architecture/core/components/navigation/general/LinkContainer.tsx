@@ -4,7 +4,7 @@ import { WomLink } from '../../WomLink';
 
 interface IHover {
   setActicvePreviewType?: (string: previewType) => void;
-  openCloseNavi?: () => void;
+  openCloseNavi: () => void;
 }
 const LinkInfos = [
   {
