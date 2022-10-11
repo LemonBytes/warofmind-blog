@@ -8,13 +8,14 @@ export interface IPost {
 }
 
 const Home: NextPage<IPost> = ({ posts }) => {
-  const router = useRouter();
+  console.log(posts);
   return <Landing posts={posts} />;
 };
 
 export async function getStaticProps({ locale }: any) {
   const IndexAdapter = new PostAdapter();
   const posts = await IndexAdapter.findLast();
+
   return {
     props: {
       posts,

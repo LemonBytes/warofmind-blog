@@ -1,7 +1,7 @@
 import { PortableText } from '@portabletext/react';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 import Image from 'next/image';
-import { useSanityImageService } from '../../hooks/sanity-image.service';
+import { useSanityImageService } from '../../architecture/core/hooks/sanity-image.service';
 
 const myPortableTextComponents = {
   block: {
@@ -55,7 +55,7 @@ const PostPage = ({ post }: any) => {
     <main className="flex h-auto w-screen flex-col items-center lg:p-20">
       <div className="z-[-1] h-[40%] w-screen lg:h-[20%] lg:w-[80vw] lg:border-2 lg:border-white">
         <Image
-          sizes="(min-width: 70vw) 89vw, 800px"
+          sizes="(min-width: 70vw) 90vw, 800px"
           className="border border-white"
           width={800}
           height={400}

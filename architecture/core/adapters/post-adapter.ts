@@ -20,7 +20,7 @@ export class PostAdapter {
   }
   async findByTopic(topic: topicType) {
     return await this.sanityClient.fetch(
-      `*[_type == "post" && "${topic}" in topics]`
+      `*[_type == "overview" && slug.current == '${topic}' ]{ ..., "post": *[_type == "post" && '${topic}' in topics ]}`
     );
   }
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useMousePosition } from '../../../../../hooks/useMousePosition';
+import { useMousePosition } from '../../../hooks/useMousePosition';
 
 const tittleLetter: string[] = [
   'W',

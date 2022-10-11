@@ -12,7 +12,6 @@ export const PostCardGrid = ({ posts }: any) => {
           })}
         </div>
       </div>
-      <AllPostsLink />
     </section>
   );
 };

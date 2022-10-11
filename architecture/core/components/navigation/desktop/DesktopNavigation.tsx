@@ -21,8 +21,8 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
       <Link href="/contact">
         <a
           id="contactME"
-          className="absolute right-0 cursor-pointer
-          p-4 font-naruto text-xl text-white "
+          className="absolute right-0 cursor-pointer p-3
+        font-naruto text-xl text-white "
         >
           {t('contact')}
         </a>
@@ -42,7 +42,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
         <a
           id="legalNotice"
           href="/legal-notice"
-          className="absolute right-0  flex cursor-pointer self-end justify-self-end p-5 p-4
+          className="absolute right-0 cursor-pointer self-end justify-self-end p-3
            font-naruto text-xl text-white"
         >
           {t('legalNotice')}
