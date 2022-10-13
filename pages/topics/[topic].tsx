@@ -3,7 +3,8 @@ import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 import { useSanityImageService } from '../../architecture/core/hooks/sanity-image.service';
 import Link from 'next/link';
 import { TopicOverview } from '../../architecture/core/components/pages/topics/TopicsPage';
-import { over } from 'cypress/types/lodash';
+
+import router from 'next/router';
 
 const myPortableTextComponents = {
   block: {
@@ -51,16 +52,17 @@ const myPortableTextComponents = {
   },
 };
 
-const TopicPage = ({ overview }: any) => {
+const TopicPage = ({ overview, locale }: any) => {
+  console.log(overview[0].title);
   return (
     <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:p-20">
       <h1 className="p-9 font-naruto text-6xl text-white">
-        {overview[0].title}
+        {overview[0].title[locale]}
       </h1>
       <section className="flex w-[90vw] flex-col lg:w-[80vw]">
         <article className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-xl">
           <PortableText
-            value={[...overview[0].body]}
+            value={[...overview[0].body[locale]]}
             components={myPortableTextComponents}
           />
         </article>
@@ -96,11 +98,11 @@ export const getStaticPaths = async ({ locales }: any) => {
   };
 };
 
-export const getStaticProps = async ({ params }: any) => {
+export const getStaticProps = async ({ params, locale }: any) => {
   const TopicAdapter = new PostAdapter();
   const overview = await TopicAdapter.findByTopic(params.topic);
 
-  return { props: { overview } };
+  return { props: { overview, locale } };
 };
 
 export default TopicPage;

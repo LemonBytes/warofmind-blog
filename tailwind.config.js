@@ -52,5 +52,5 @@ module.exports = {
   },
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './architecture/core/components//**/*.{js,ts,jsx,tsx}'],
-  plugins: [/* [require('prettier-plugin-tailwindcss')] */],
+  plugins: [[/* require('prettier-plugin-tailwindcss') */]],
 };

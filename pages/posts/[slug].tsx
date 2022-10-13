@@ -49,7 +49,7 @@ const myPortableTextComponents = {
   },
 };
 
-const PostPage = ({ post }: any) => {
+const PostPage = ({ post, locale }: any) => {
   const image = useSanityImageService(post.mainImage.asset._ref);
   return (
     <main className="flex h-auto w-screen flex-col items-center pb-[150px] lg:p-20">
@@ -66,12 +66,16 @@ const PostPage = ({ post }: any) => {
 
       <section className="flex w-[90vw] flex-col lg:w-[80vw]">
         <div className="self-start py-20 text-white">
-          <h1 className="p-2 font-naruto text-3xl md:text-5xl">{post.title}</h1>
-          <h3 className="text md:text p-2 font-naruto">{post.description}</h3>
+          <h1 className="p-2 font-naruto text-3xl md:text-5xl">
+            {post.title[locale]}
+          </h1>
+          <h3 className="text md:text p-2 font-naruto">
+            {post.description[locale]}
+          </h3>
         </div>
         <article className="md:text flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start">
           <PortableText
-            value={[...post.body]}
+            value={[...post.body[locale]]}
             components={myPortableTextComponents}
           />
         </article>
@@ -97,12 +101,12 @@ export const getStaticPaths = async ({ locales }: any) => {
   };
 };
 
-export const getStaticProps = async ({ params }: any) => {
+export const getStaticProps = async ({ params, locale }: any) => {
   const SlugAdapter = new PostAdapter();
   const [post] = await SlugAdapter.findBySlug(params.slug);
 
   return {
-    props: { post },
+    props: { post, locale },
   };
 };
 

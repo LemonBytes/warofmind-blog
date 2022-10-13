@@ -8,7 +8,7 @@ export interface IPost {
 }
 
 const Home: NextPage<IPost> = ({ posts }) => {
-  return <Landing posts={posts} />;
+  return <div>{<Landing posts={posts} />}</div>;
 };
 
 export async function getStaticProps({ locale }: any) {

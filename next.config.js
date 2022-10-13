@@ -5,5 +5,10 @@ module.exports = {
     domains: ['cdn.sanity.io']
   },
   optimizeFonts: true,
+  webpack5: true,
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
 
+    return config;
+  },
 };

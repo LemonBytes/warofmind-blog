@@ -8,7 +8,11 @@ import { useSanityImageService } from '../../hooks/sanity-image.service';
 import tailwindConfig from '../../../../tailwind.config';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import useGetDimensions from '../../hooks/useGetDimensions';
-const fullConfig = resolveConfig(tailwindConfig);
+import { useTranslation } from 'next-i18next';
+import { Config } from 'tailwindcss';
+
+//*ts-ignore
+const fullConfig: any = resolveConfig(tailwindConfig);
 
 const checkBreakpoint = (width: number, breakpoint: string) => {
   const breakpointNumber = parseInt(breakpoint.replace(/px/, ''));
@@ -19,9 +23,11 @@ const checkBreakpoint = (width: number, breakpoint: string) => {
 export const PostCard = ({ post }: any) => {
   const image = useSanityImageService(post.mainImage.asset._ref);
   const { width } = useGetDimensions();
+  const { t } = useTranslation('common');
   const { sm }: any = fullConfig.theme?.screens!;
   const mobile = checkBreakpoint(width, sm);
   const router = useRouter();
+  const currentLang = router.locale;
   const [isHovered, setHovered] = useState(false);
   const published = DateTime.fromISO(post.publishedAt).toLocaleString(
     DateTime.DATETIME_MED
@@ -61,7 +67,7 @@ export const PostCard = ({ post }: any) => {
           className="relative bottom-[65%] flex w-screen justify-center  md:bottom-[55%] lg:flex lg:w-[85%]"
         >
           <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white lg:text-4xl ">
-            {post.title}
+            {post.title[currentLang!]}
           </h3>
         </motion.div>
         <motion.div
@@ -73,7 +79,7 @@ export const PostCard = ({ post }: any) => {
           className="relative bottom-[65%] flex w-screen justify-center md:bottom-[55%]  lg:w-[85%]"
         >
           <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white ">
-            {post.description}
+            {post.description[currentLang!]}
           </p>
         </motion.div>
       </a>
@@ -92,7 +98,7 @@ export const PostCard = ({ post }: any) => {
             return (
               <Link key={key} href={`/topics/${topic}`}>
                 <a className="text flex border p-1 font-naruto text-white">
-                  {topic}
+                  {t(topic)}
                 </a>
               </Link>
             );
@@ -102,7 +108,3 @@ export const PostCard = ({ post }: any) => {
     </motion.div>
   );
 };
-
-{
-  /* */
-}
