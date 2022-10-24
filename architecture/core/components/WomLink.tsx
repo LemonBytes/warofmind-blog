@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { previewType } from './navigation/desktop/MenuView';
 
 interface IWomLink {
@@ -17,8 +18,10 @@ export const WomLink: React.FC<IWomLink> = ({
   const handleMouse = (type: previewType) => {
     if (setActicvePreviewType) setActicvePreviewType(type);
   };
+  const router = useRouter();
+  const currentLang = router.locale;
   return (
-    <Link passHref href={`/topics/${previewType}`}>
+    <Link passHref href={`/topics/${previewType}`} locale={currentLang}>
       <a
         onMouseOver={() => handleMouse(previewType)}
         onMouseLeave={() => handleMouse('')}

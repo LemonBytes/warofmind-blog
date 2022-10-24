@@ -53,7 +53,6 @@ const myPortableTextComponents = {
 };
 
 const TopicPage = ({ overview, locale }: any) => {
-  console.log(overview[0].title);
   return (
     <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:p-20">
       <h1 className="p-9 font-naruto text-6xl text-white">

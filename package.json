@@ -24,7 +24,7 @@
     "luxon": "^3.0.3",
     "mocha": "^9.2.0",
     "next": "^12.2.4",
-    "next-i18next": "^11.0.0",
+    "next-i18next": "^11.3.0",
     "next-images": "^1.8.4",
     "next-mdx-remote": "^3.0.8",
     "next-sanity": "^0.8.2",

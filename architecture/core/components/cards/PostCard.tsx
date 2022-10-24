@@ -9,10 +9,9 @@ import tailwindConfig from '../../../../tailwind.config';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import useGetDimensions from '../../hooks/useGetDimensions';
 import { useTranslation } from 'next-i18next';
-import { Config } from 'tailwindcss';
 
-//*ts-ignore
-const fullConfig: any = resolveConfig(tailwindConfig);
+//ts-ignore
+const fullConfig = resolveConfig({ tailwindConfig } as any);
 
 const checkBreakpoint = (width: number, breakpoint: string) => {
   const breakpointNumber = parseInt(breakpoint.replace(/px/, ''));
@@ -96,7 +95,7 @@ export const PostCard = ({ post }: any) => {
         <div className="flex gap-2">
           {post.topics?.map((topic: string, key: number) => {
             return (
-              <Link key={key} href={`/topics/${topic}`}>
+              <Link key={key} href={`/topics/${topic}`} locale={currentLang}>
                 <a className="text flex border p-1 font-naruto text-white">
                   {t(topic)}
                 </a>

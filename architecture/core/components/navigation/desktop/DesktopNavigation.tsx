@@ -3,7 +3,6 @@ import { MenuView } from './MenuView';
 import Image from 'next/image';
 import open from '../../../../../public/static/assets/images/open.png';
 import close from '../../../../../public/static/assets/images/closed.png';
-
 import { useTranslation } from 'next-i18next';
 
 interface IDesktopNavigation {
