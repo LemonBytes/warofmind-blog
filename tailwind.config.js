@@ -2,7 +2,6 @@ module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx, html}',
     './architecture/core/components/**/*.{js,ts,jsx,tsx, html}',
-
   ],
   theme: {
     screens: {
@@ -20,7 +19,7 @@ module.exports = {
     extend: {
       fontFamily: {
         naruto: ['naruto'],
-        capriola: ["capriola"]
+        capriola: ['capriola'],
       },
       fontSize: new Array(201)
         .fill()
@@ -51,6 +50,9 @@ module.exports = {
     },
   },
   mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './architecture/core/components//**/*.{js,ts,jsx,tsx,}'],
-  plugins: [[/* require('prettier-plugin-tailwindcss') */]],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './architecture/core/components//**/*.{js,ts,jsx,tsx,}',
+  ],
+  // plugins: [[require('prettier-plugin-tailwindcss')]],
 };

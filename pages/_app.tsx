@@ -6,7 +6,6 @@ import { WomHeader } from '../architecture/core/components/navigation/general/He
 import Head from 'next/head';
 
 const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
-  const { t } = useTranslation('common');
   return (
     <>
       <Head>
