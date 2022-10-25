@@ -55,24 +55,33 @@ const myPortableTextComponents = {
 
 const TopicPage = ({ overview, locale }: any) => {
   return (
-    <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:p-20">
-      {/* <h1 className="p-9 font-naruto text-6xl text-white">
-        {overview[0]?.title[locale] ? overview[0]?.title[locale] : ''}
-      </h1>
-      <section className="flex w-[90vw] flex-col lg:w-[80vw]">
-        <article className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-xl">
-          {overview[0]?.body[locale] && (
-            <PortableText
-              value={[...overview[0]?.body[locale]]}
-              components={myPortableTextComponents}
-            />
+    <>
+      {overview && (
+        <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:p-20">
+          {overview[0]?.title[locale] && (
+            <h1 className="p-9 font-naruto text-6xl text-white">
+              {overview[0]?.title[locale]}
+            </h1>
           )}
-        </article>
-      </section>
-      <section className="flex h-auto w-screen flex-col items-center md:w-[80%]">
-        {overview[0]?.post && <TopicOverview posts={overview[0]?.post} />}
-      </section> */}
-    </main>
+
+          <section className="flex w-[90vw] flex-col lg:w-[80vw]">
+            <article className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-xl">
+              {overview[0]?.body[locale] ? (
+                <PortableText
+                  value={[...overview[0]?.body[locale]]}
+                  components={myPortableTextComponents}
+                />
+              ) : (
+                <>ups</>
+              )}
+            </article>
+          </section>
+          <section className="flex h-auto w-screen flex-col items-center md:w-[80%]">
+            {overview[0]?.post && <TopicOverview posts={overview[0]?.post} />}
+          </section>
+        </main>
+      )}
+    </>
   );
 };
 
@@ -95,7 +104,7 @@ export const getStaticPaths = async ({ locales }: any) => {
     });
   });
   return {
-    paths: paths,
+    paths,
     fallback: false,
   };
 };
@@ -103,7 +112,7 @@ export const getStaticPaths = async ({ locales }: any) => {
 export const getStaticProps = async ({ params, locale }: any) => {
   const TopicAdapter = new PostAdapter();
   const overview = await TopicAdapter.findByTopic(params.topic);
-
+  console.log(overview[0].title[locale]);
   return {
     props: {
       overview,
