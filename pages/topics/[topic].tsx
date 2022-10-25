@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { TopicOverview } from '../../architecture/core/components/pages/topics/TopicsPage';
 
 import router from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const myPortableTextComponents = {
   block: {
@@ -101,7 +102,13 @@ export const getStaticProps = async ({ params, locale }: any) => {
   const TopicAdapter = new PostAdapter();
   const overview = await TopicAdapter.findByTopic(params.topic);
 
-  return { props: { overview, locale } };
+  return {
+    props: {
+      overview,
+      locale,
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 };
 
 export default TopicPage;

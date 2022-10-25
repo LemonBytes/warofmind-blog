@@ -4,6 +4,7 @@ import Image from 'next/image';
 import open from '../../../../../public/static/assets/images/open.png';
 import close from '../../../../../public/static/assets/images/closed.png';
 import { useTranslation } from 'next-i18next';
+import { useEffect } from 'react';
 
 interface IDesktopNavigation {
   openCloseNavi: () => void;
@@ -15,6 +16,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
   openClose,
 }) => {
   const { t } = useTranslation('common');
+
   return (
     <div className="hidden md:fixed md:right-0 md:top-0 md:z-40 md:flex md:h-screen md:w-[10vw]">
       <Link href="/contact">

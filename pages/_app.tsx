@@ -1,11 +1,12 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
-import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { WomHeader } from '../architecture/core/components/navigation/general/Header';
 import Head from 'next/head';
 
 const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
+  const { t } = useTranslation('common');
   return (
     <>
       <Head>

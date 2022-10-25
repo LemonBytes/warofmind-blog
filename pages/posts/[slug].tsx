@@ -2,6 +2,7 @@ import { PortableText } from '@portabletext/react';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 import Image from 'next/image';
 import { useSanityImageService } from '../../architecture/core/hooks/sanity-image.service';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const myPortableTextComponents = {
   block: {
@@ -106,7 +107,11 @@ export const getStaticProps = async ({ params, locale }: any) => {
   const [post] = await SlugAdapter.findBySlug(params.slug);
 
   return {
-    props: { post, locale },
+    props: {
+      post,
+      locale,
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
   };
 };
 
