@@ -1,35 +1,34 @@
-import React from "react";
-
+import React from 'react';
+const { motion, useViewportScroll, useTransform } = require('framer-motion');
 export interface ISquare {
-  size: { width: string; height: string };
-  position: { x: string; y: string };
-  color: string;
-  rotation: string;
+  size: number;
+  position: { x: number; y: number };
+  rotation: number;
+  screenHeight: number;
 }
 
-export const AestheticSquare: React.FC<ISquare> = ({
+const AestheticSquare: React.FC<ISquare> = ({
   size,
   position,
-  color,
   rotation,
+  screenHeight,
 }) => {
+  const { scrollY } = useViewportScroll();
+  const y1 = useTransform(scrollY, [0, screenHeight], [position.y, -50]);
+
   return (
-    <div
-      className={
-        "absolute  border-2" +
-        " " +
-        size.width +
-        " " +
-        size.height +
-        " " +
-        position.x +
-        " " +
-        position.y +
-        " " +
-        color +
-        " " +
-        rotation
-      }
+    <motion.div
+      initial={{
+        x: position.x,
+        y: position.y,
+        width: size,
+        height: size,
+        rotate: rotation,
+      }}
+      style={{ y: y1 }}
+      className="absolute z-0 border border-blurrRed  "
     />
   );
 };
+
+export default AestheticSquare;

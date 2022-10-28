@@ -1,20 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useMousePosition } from '../../../hooks/useMousePosition';
 
-const tittleLetter: string[] = [
-  'W',
-  'A',
-  'R',
-  '#',
-  'O',
-  'F',
-  '#',
-  'M',
-  'I',
-  'N',
-  'D',
-];
-
 interface ISize {
   innerWidth: number;
   innerHeight: number;
@@ -44,21 +30,16 @@ export const PageTitle = () => {
   let minimized = minimizePosition(xPosition, yPosition);
 
   return (
-    <h1 className="flex h-screen w-full  items-center justify-center font-naruto text-6xl text-blurrRed  lg:text-9xl ">
-      {tittleLetter.map((letter, key) => {
-        return (
-          <p
-            style={{
-              marginBottom: `${minimized.yPosition}px`,
-              right: `${minimized.xPosition}px`,
-            }}
-            className="relative float-left transition-all duration-100 ease-in-out"
-            key={key}
-          >
-            {letter}
-          </p>
-        );
-      })}
+    <h1 className="z-20 flex h-screen w-full items-center  justify-center bg-black font-naruto text-6xl text-blurrRed  lg:text-9xl ">
+      <p
+        style={{
+          marginBottom: `${minimized.yPosition}px`,
+          right: `${minimized.xPosition}px`,
+        }}
+        className="relative float-left transition-all duration-100 ease-in-out"
+      >
+        War of Mind
+      </p>
     </h1>
   );
 };

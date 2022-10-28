@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
+
 import { Landing } from '../architecture/core/components/pages/landing/Landing';
 import { PostAdapter } from '../architecture/core/adapters/post-adapter';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { WomHeader } from '../architecture/core/components/navigation/general/Header';
+
 export interface IPost {
   posts: any[];
 }

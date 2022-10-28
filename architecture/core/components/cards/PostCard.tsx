@@ -75,7 +75,7 @@ export const PostCard = ({ post }: any) => {
             delay: 0.6,
             duration: 0.6,
           }}
-          className="relative bottom-[65%] flex w-screen justify-center md:bottom-[55%]  lg:w-[85%]"
+          className="relative bottom-[60%] flex w-screen justify-center md:bottom-[55%]  lg:w-[85%]"
         >
           <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white ">
             {post.description[currentLang!]}
