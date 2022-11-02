@@ -10,7 +10,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 const myPortableTextComponents = {
   block: {
     h2: ({ children }: any) => (
-      <h2 className="py-5 font-naruto text-2xl md:text-3xl">{children}</h2>
+      <h2 className="self-start py-5 font-naruto text-2xl md:text-3xl">
+        {children}
+      </h2>
     ),
     h4: ({ children }: any) => <h4 className="py-5 text-2xl">{children}</h4>,
     // Ex. 2: rendering custom styles
@@ -56,26 +58,25 @@ const myPortableTextComponents = {
 const TopicPage = ({ overview, locale }: any) => {
   return (
     <>
-      <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:p-20">
+      <main className="flex h-auto w-screen w-[90vw] flex-col items-center  pb-[250px] pt-40 text-white md:p-20">
         {overview[0]?.title[locale] && (
-          <h1 className="p-9 font-naruto text-6xl text-white">
+          <h1 className=" font-naruto text-6xl text-white">
             {overview[0]?.title[locale]}
           </h1>
         )}
 
-        <section className="flex w-[90vw] flex-col lg:w-[80vw]">
-          <article className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-xl">
-            {overview[0]?.body[locale] ? (
-              <PortableText
-                value={[...overview[0]?.body[locale]]}
-                components={myPortableTextComponents}
-              />
-            ) : (
-              <>ups</>
-            )}
-          </article>
-        </section>
-        <section className="flex h-auto w-screen flex-col items-center md:w-[80%]">
+        <article className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-xl">
+          {overview[0]?.body[locale] ? (
+            <PortableText
+              value={[...overview[0]?.body[locale]]}
+              components={myPortableTextComponents}
+            />
+          ) : (
+            <>ups</>
+          )}
+        </article>
+
+        <section className="flex h-screen w-screen flex-col items-center md:w-[100%]">
           {overview[0]?.post && <TopicOverview posts={overview[0]?.post} />}
         </section>
       </main>

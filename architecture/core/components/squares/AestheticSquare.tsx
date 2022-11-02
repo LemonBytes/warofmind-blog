@@ -1,5 +1,5 @@
 import React from 'react';
-const { motion, useViewportScroll, useTransform } = require('framer-motion');
+const { motion } = require('framer-motion');
 export interface ISquare {
   size: number;
   position: { x: number; y: number };
@@ -7,15 +7,11 @@ export interface ISquare {
   screenHeight: number;
 }
 
-const AestheticSquare: React.FC<ISquare> = ({
+export const AestheticSquare: React.FC<ISquare> = ({
   size,
   position,
   rotation,
-  screenHeight,
 }) => {
-  const { scrollY } = useViewportScroll();
-  const y1 = useTransform(scrollY, [0, screenHeight], [position.y, -50]);
-
   return (
     <motion.div
       initial={{
@@ -25,10 +21,11 @@ const AestheticSquare: React.FC<ISquare> = ({
         height: size,
         rotate: rotation,
       }}
-      style={{ y: y1 }}
-      className="absolute z-0 border border-blurrRed  "
+      animate={{
+        y: [position.y, position.y - 75, position.y + 75, position.y],
+      }}
+      transition={{ duration: 75 }}
+      className="-z-1 relative border border-blurrRed  "
     />
   );
 };
-
-export default AestheticSquare;
