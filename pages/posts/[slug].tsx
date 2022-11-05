@@ -70,7 +70,6 @@ const PostPage = ({ post, locale }: any) => {
             src={image.src}
           />
         </div>
-
         <section className="flex w-[90vw] flex-col lg:w-[80vw]">
           <div className="self-start py-20 text-white">
             <h1 className="p-2 font-naruto text-3xl md:text-5xl">
@@ -80,7 +79,7 @@ const PostPage = ({ post, locale }: any) => {
               {post?.description[locale] ? post?.description[locale] : ''}
             </h3>
           </div>
-          <article className="md:text flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start">
+          <article className="md:text flex h-auto flex-col items-center pl-2 text-left text-white md:w-[60vw] md:items-start">
             {post?.body[locale] && (
               <PortableText
                 value={[...post?.body[locale]]}

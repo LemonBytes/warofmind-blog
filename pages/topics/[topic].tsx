@@ -1,10 +1,6 @@
 import { PortableText } from '@portabletext/react';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
-import { useSanityImageService } from '../../architecture/core/hooks/sanity-image.service';
-import Link from 'next/link';
 import { TopicOverview } from '../../architecture/core/components/pages/topics/TopicsPage';
-
-import router from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 
@@ -60,12 +56,8 @@ const TopicPage = ({ overview, locale }: any) => {
   return (
     <>
       <Head>
-        {overview[0]?.title[locale] && (
-          <title>{overview[0]?.title[locale]}</title>
-        )}
-        {overview[0]?.title[locale] && (
-          <meta name="description" content={overview[0]?.description[locale]} />
-        )}
+        <title>{overview[0]?.title[locale]}</title>
+        <meta name="description" content={overview[0]?.description[locale]} />
       </Head>
       <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:w-[90vw] md:items-start md:p-20">
         {overview[0]?.title[locale] && (
@@ -118,7 +110,7 @@ export const getStaticPaths = async ({ locales }: any) => {
 export const getStaticProps = async ({ params, locale }: any) => {
   const TopicAdapter = new PostAdapter();
   const overview = await TopicAdapter.findByTopic(params.topic);
-  console.log(overview[0].title[locale]);
+
   return {
     props: {
       overview,

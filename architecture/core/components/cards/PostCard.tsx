@@ -31,7 +31,6 @@ export const PostCard = ({ post }: any) => {
   const published = DateTime.fromISO(post.publishedAt).toLocaleString(
     DateTime.DATETIME_MED
   );
-
   return (
     <motion.div
       initial={false}
@@ -61,7 +60,7 @@ export const PostCard = ({ post }: any) => {
           />
         </motion.div>
         <motion.div
-          animate={{ y: isHovered || mobile ? -110 : -0 }}
+          animate={{ y: isHovered || mobile ? -135 : -0 }}
           transition={{ duration: 0.6 }}
           className="relative bottom-[65%] flex w-screen justify-center  md:bottom-[55%] lg:flex lg:w-[85%]"
         >
