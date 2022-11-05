@@ -60,8 +60,12 @@ const TopicPage = ({ overview, locale }: any) => {
   return (
     <>
       <Head>
-        <title>{overview[0]?.title[locale]}</title>
-        <meta name="description" content={overview[0]?.description[locale]} />
+        {overview[0]?.title[locale] && (
+          <title>{overview[0]?.title[locale]}</title>
+        )}
+        {overview[0]?.title[locale] && (
+          <meta name="description" content={overview[0]?.description[locale]} />
+        )}
       </Head>
       <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:w-[90vw] md:items-start md:p-20">
         {overview[0]?.title[locale] && (
