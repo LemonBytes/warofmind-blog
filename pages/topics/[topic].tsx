@@ -6,6 +6,7 @@ import { TopicOverview } from '../../architecture/core/components/pages/topics/T
 
 import router from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 
 const myPortableTextComponents = {
   block: {
@@ -17,7 +18,7 @@ const myPortableTextComponents = {
     h4: ({ children }: any) => <h4 className="py-5 text-2xl">{children}</h4>,
     // Ex. 2: rendering custom styles
     normal: ({ children }: any) => (
-      <p className="py-3 font-capriola">{children}</p>
+      <p className="w-full py-3 font-capriola">{children}</p>
     ),
   },
   marks: {
@@ -58,14 +59,17 @@ const myPortableTextComponents = {
 const TopicPage = ({ overview, locale }: any) => {
   return (
     <>
-      <main className="flex h-auto w-screen w-[90vw] flex-col items-center  pb-[250px] pt-40 text-white md:p-20">
+      <Head>
+        <title>{overview[0]?.title[locale]}</title>
+        <meta name="description" content={overview[0]?.description[locale]} />
+      </Head>
+      <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:w-[90vw] md:items-start md:p-20">
         {overview[0]?.title[locale] && (
-          <h1 className=" font-naruto text-6xl text-white">
+          <h1 className=" w-[90vw] font-naruto text-6xl text-white">
             {overview[0]?.title[locale]}
           </h1>
         )}
-
-        <article className="flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start lg:text-xl">
+        <article className="flex h-auto w-[90vw] flex-col items-center text-left  text-white md:w-[50vw] md:items-start  lg:text-xl">
           {overview[0]?.body[locale] ? (
             <PortableText
               value={[...overview[0]?.body[locale]]}
@@ -75,8 +79,7 @@ const TopicPage = ({ overview, locale }: any) => {
             <>ups</>
           )}
         </article>
-
-        <section className="flex h-screen w-screen flex-col items-center md:w-[100%]">
+        <section className="mt-20 flex h-full w-screen flex-col items-center md:w-[100%]">
           {overview[0]?.post && <TopicOverview posts={overview[0]?.post} />}
         </section>
       </main>

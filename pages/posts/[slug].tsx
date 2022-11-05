@@ -3,6 +3,7 @@ import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 import Image from 'next/image';
 import { useSanityImageService } from '../../architecture/core/hooks/sanity-image.service';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 
 const myPortableTextComponents = {
   block: {
@@ -53,37 +54,43 @@ const myPortableTextComponents = {
 const PostPage = ({ post, locale }: any) => {
   const image = useSanityImageService(post.mainImage?.asset._ref);
   return (
-    <main className="flex h-auto w-screen flex-col items-center pb-[150px] lg:p-20">
-      <div className="z-[-1] h-[40%] w-screen lg:h-[20%] lg:w-[80vw] lg:border-2 lg:border-white">
-        <Image
-          sizes="(min-width: 70vw) 90vw, 800px"
-          className="border border-white"
-          width={800}
-          height={400}
-          alt=""
-          src={image.src}
-        />
-      </div>
-
-      <section className="flex w-[90vw] flex-col lg:w-[80vw]">
-        <div className="self-start py-20 text-white">
-          <h1 className="p-2 font-naruto text-3xl md:text-5xl">
-            {post?.title[locale] ? post?.title[locale] : ''}
-          </h1>
-          <h3 className="text md:text p-2 font-naruto">
-            {post?.description[locale] ? post?.description[locale] : ''}
-          </h3>
+    <>
+      <Head>
+        <title>{post?.title[locale]}</title>
+        <meta name="description" content={post?.description[locale]} />
+      </Head>
+      <main className="flex h-auto w-screen flex-col items-center pb-[150px] lg:p-20">
+        <div className="z-[-1] h-[40%] w-screen lg:h-[20%] lg:w-[80vw] lg:border-2 lg:border-white">
+          <Image
+            sizes="(min-width: 70vw) 90vw, 800px"
+            className="border border-white"
+            width={800}
+            height={400}
+            alt=""
+            src={image.src}
+          />
         </div>
-        <article className="md:text flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start">
-          {post?.body[locale] && (
-            <PortableText
-              value={[...post?.body[locale]]}
-              components={myPortableTextComponents}
-            />
-          )}
-        </article>
-      </section>
-    </main>
+
+        <section className="flex w-[90vw] flex-col lg:w-[80vw]">
+          <div className="self-start py-20 text-white">
+            <h1 className="p-2 font-naruto text-3xl md:text-5xl">
+              {post?.title[locale] ? post?.title[locale] : ''}
+            </h1>
+            <h3 className="text md:text p-2 font-naruto">
+              {post?.description[locale] ? post?.description[locale] : ''}
+            </h3>
+          </div>
+          <article className="md:text flex h-auto flex-col items-center text-left text-white md:w-[60vw] md:items-start">
+            {post?.body[locale] && (
+              <PortableText
+                value={[...post?.body[locale]]}
+                components={myPortableTextComponents}
+              />
+            )}
+          </article>
+        </section>
+      </main>
+    </>
   );
 };
 

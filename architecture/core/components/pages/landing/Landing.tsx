@@ -14,7 +14,7 @@ export const Landing = ({ posts }: any) => {
         <section className="h-screen snap-center  pb-[50vh] lg:pb-[0]">
           <PageTitle />
         </section>
-        <section className=" mb-[50vh] hidden h-screen snap-center  text-center md:flex md:w-full md:items-center md:justify-center ">
+        <section className="mb-[50vh] hidden h-screen snap-center  text-center md:flex md:w-full md:items-center md:justify-center ">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}

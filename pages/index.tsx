@@ -6,15 +6,16 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import useGetDimensions from '../architecture/core/hooks/useGetDimensions';
 import { AestheticSquare } from '../architecture/core/components/squares/AestheticSquare';
+import Head from 'next/head';
 
 export const createRandomSqaure = (
   width: number,
   height: number,
   smallSquare: boolean
 ) => {
-  let sqauareSize = width < 600 ? 4 : 7;
+  let sqauareSize = width < 600 ? 4 : 10;
   const size = Math.floor(Math.random() * sqauareSize) + 1;
-  const xPosition = Math.floor(Math.random() * width) + 1;
+  const xPosition = Math.floor(Math.random() * width) + width / 100;
   const yPosition = Math.floor(Math.random() * height) + 1;
   const rotation = Math.floor(Math.random() * 45) + 1;
   return { size, xPosition, yPosition, rotation, smallSquare };
@@ -27,22 +28,20 @@ const Home: NextPage<IPost> = ({ posts }) => {
   const { width, height } = useGetDimensions();
   const sqaures = [];
   if (width && height) {
-    const squareAmount = width < 600 ? 150 : 250;
-    for (let i = 0; i < squareAmount; i++) {
+    for (let i = 0; i < 150; i++) {
       const { size, xPosition, yPosition, rotation, smallSquare } =
-        createRandomSqaure(width, height, Math.random() > 0.3);
+        createRandomSqaure(width * 0.95, height, Math.random() > 0.3);
       sqaures.push({ size, xPosition, yPosition, rotation, smallSquare });
     }
   }
 
   return (
     <>
-      <section className="z-10">
+      <section>
         <Landing posts={posts} />
       </section>
-
       <section className="absolute top-0 z-0 h-screen">
-        {sqaures.map((square, key: number) => {
+        {/*  {sqaures.map((square, key: number) => {
           return (
             <AestheticSquare
               key={key}
@@ -55,7 +54,7 @@ const Home: NextPage<IPost> = ({ posts }) => {
               screenHeight={height}
             />
           );
-        })}
+        })} */}
       </section>
     </>
   );

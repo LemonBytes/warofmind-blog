@@ -25,9 +25,9 @@ export const QuoteBox: React.FC<IQuoteBox> = ({ fontSize }) => {
   const [quote, setQuote] = useState(sendRandomQuote(currentLang));
 
   return (
-    <div className="overflow-x item-center flex h-full w-full justify-center font-naruto text-white">
+    <div className="overflow-x item-center flex h-full w-full justify-center bg-black font-naruto text-white ">
       <div
-        className={`h-auto w-full flex-col items-center self-center text-base `}
+        className={`z-20 h-auto w-full flex-col items-center self-center bg-black text-base `}
       >
         <blockquote className={`${fontSize}`}>{quote.text}</blockquote>
         <p className={`pt-4  ${fontSize}`}>{quote.author}</p>

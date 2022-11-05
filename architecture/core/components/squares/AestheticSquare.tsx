@@ -22,9 +22,15 @@ export const AestheticSquare: React.FC<ISquare> = ({
         rotate: rotation,
       }}
       animate={{
-        y: [position.y, position.y - 75, position.y + 75, position.y],
+        y: [position.y, position.y - 100, position.y + 75],
       }}
-      transition={{ duration: 75 }}
+      transition={{
+        duration: 75,
+        ease: 'easeInOut',
+        times: [0, 0.5, 0.8, 1, 1.2],
+        repeat: Infinity,
+        repeatDelay: 1,
+      }}
       className="-z-1 relative border border-blurrRed  "
     />
   );
