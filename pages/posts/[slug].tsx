@@ -27,12 +27,12 @@ const PostPage = ({ post, locale }: any) => {
         </div>
         <section className="flex w-[90vw] flex-col md:w-[80vw]">
           <div className="self-start py-20 text-white">
-            <h1 className="p-2 font-naruto text-3xl md:text-5xl">
+            <h1 className="p-2 font-naruto text-3xl md:text-4xl">
               {post?.title[locale] ? post?.title[locale] : ''}
             </h1>
-            <h3 className="text md:text w-[90vw] p-2 font-naruto md:w-[80vw]">
+            <h2 className="text md:text w-[90vw] py-2 font-naruto md:w-[80vw]">
               {post?.description[locale] ? post?.description[locale] : ''}
-            </h3>
+            </h2>
           </div>
           <article className="flex h-auto flex-col items-center pl-2 text-left text-white md:w-[60vw] md:items-start">
             {post?.body[locale] && (

@@ -11,8 +11,13 @@ const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
       <Head>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
         />
+        <meta
+          name="description"
+          content="Blog about Martial Arts and building the mind - fight like your favorite Fighter - Boxing - Kickboxing - Muay Thai - find Martial Arts equipment on sale"
+        ></meta>
+        <meta name="robots" content="all"></meta>
         <title>War of Mind</title>
       </Head>
       <WomHeader>
