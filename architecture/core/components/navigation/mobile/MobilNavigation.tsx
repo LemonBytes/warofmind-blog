@@ -1,9 +1,11 @@
 import { BlurrLayer } from './BlurrLayer';
 import { BottomNavigationBrush } from './BottomNavigationBrush';
 import { MobileQuoteBar } from './MobileQuoteBar';
-import open from '../../../../../public/static/assets/images/open.png';
-import close from '../../../../../public/static/assets/images/closed.png';
+import open from '../../../../../public/static/assets/images/open.webp';
+import close from '../../../../../public/static/assets/images/closed.webp';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 interface IMobileNavigation {
   openCloseNavi: () => void;

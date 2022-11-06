@@ -4,52 +4,7 @@ import Image from 'next/image';
 import { useSanityImageService } from '../../architecture/core/hooks/sanity-image.service';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
-
-const myPortableTextComponents = {
-  block: {
-    h2: ({ children }: any) => (
-      <h2 className="py-5 font-naruto text-2xl lg:text-3xl">{children}</h2>
-    ),
-    h4: ({ children }: any) => <h4 className="py-5 text-2xl">{children}</h4>,
-    // Ex. 2: rendering custom styles
-    normal: ({ children }: any) => (
-      <p className="py-3 font-capriola">{children}</p>
-    ),
-  },
-  marks: {
-    link: ({ children, value }: any) => (
-      <a
-        href={value.href}
-        target="_blank"
-        rel="noreferrer"
-        className="cursor-pointer font-capriola underline "
-      >
-        {children}
-      </a>
-    ),
-  },
-  list: {
-    // Ex. 1: customizing common list types
-    bullet: ({ children }: any) => <ul className="mt-xl pl-5">{children}</ul>,
-    number: ({ children }: any) => <ol className="mt-lg pl-5">{children}</ol>,
-
-    // Ex. 2: rendering custom lists
-    checkmarks: ({ children }: any) => (
-      <ol className="m-auto text-lg">{children}</ol>
-    ),
-  },
-  listItem: {
-    // Ex. 1: customizing common list types
-    bullet: ({ children }: any) => (
-      <li className="py-3" style={{ listStyleType: 'disclosure-closed' }}>
-        {children}
-      </li>
-    ),
-
-    // Ex. 2: rendering custom list items
-    checkmarks: ({ children }: any) => <li>✅ {children}</li>,
-  },
-};
+import { myPortableTextComponents } from '../../architecture/core/config/PortableTextConfig';
 
 const PostPage = ({ post, locale }: any) => {
   const image = useSanityImageService(post.mainImage?.asset._ref);
@@ -70,16 +25,16 @@ const PostPage = ({ post, locale }: any) => {
             src={image.src}
           />
         </div>
-        <section className="flex w-[90vw] flex-col lg:w-[80vw]">
+        <section className="flex w-[90vw] flex-col md:w-[80vw]">
           <div className="self-start py-20 text-white">
             <h1 className="p-2 font-naruto text-3xl md:text-5xl">
               {post?.title[locale] ? post?.title[locale] : ''}
             </h1>
-            <h3 className="text md:text p-2 font-naruto">
+            <h3 className="text md:text w-[90vw] p-2 font-naruto md:w-[80vw]">
               {post?.description[locale] ? post?.description[locale] : ''}
             </h3>
           </div>
-          <article className="md:text flex h-auto flex-col items-center pl-2 text-left text-white md:w-[60vw] md:items-start">
+          <article className="flex h-auto flex-col items-center pl-2 text-left text-white md:w-[60vw] md:items-start">
             {post?.body[locale] && (
               <PortableText
                 value={[...post?.body[locale]]}

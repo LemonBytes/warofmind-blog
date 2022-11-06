@@ -15,7 +15,6 @@ const fullConfig = resolveConfig({ tailwindConfig } as any);
 
 const checkBreakpoint = (width: number, breakpoint: string) => {
   const breakpointNumber = parseInt(breakpoint.replace(/px/, ''));
-
   return width <= breakpointNumber;
 };
 
@@ -39,7 +38,8 @@ export const PostCard = ({ post }: any) => {
       className=" flex h-[550px] w-full cursor-pointer flex-col items-center overflow-hidden "
     >
       <a
-        onClick={() => router.push('/posts/' + post.slug.current)}
+        href={`/${currentLang}/posts/${post.slug.current}`}
+        /*    onClick={() => router.push('/posts/' + post.slug.current)} */
         className="flex h-[550px] w-full flex-col items-center"
       >
         <motion.div
@@ -88,14 +88,20 @@ export const PostCard = ({ post }: any) => {
         transition={{ duration: 0.6 }}
         className="relative bottom-[10%] flex w-screen w-[85%] justify-between"
       >
-        <Link href={'/test'}>
-          <a className="text font-naruto text-white">{published}</a>
-        </Link>
+        <p className="text font-naruto text-white">{published}</p>
+
         <div className="flex gap-2">
           {post.topics?.map((topic: string, key: number) => {
             return (
-              <Link key={key} href={`/topics/${topic}`} locale={currentLang}>
-                <a className="text flex border p-1 font-naruto text-white">
+              <Link
+                key={key}
+                href={`${currentLang}/topics/${topic}`}
+                locale={currentLang}
+              >
+                <a
+                  className="text flex border p-1 font-naruto text-xs text-white"
+                  href={`${currentLang}/topics/${topic}`}
+                >
                   {t(topic)}
                 </a>
               </Link>

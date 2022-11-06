@@ -30,7 +30,7 @@ export const PageTitle = () => {
   let minimized = minimizePosition(xPosition, yPosition);
 
   return (
-    <h1 className="z-20 -mt-5 flex h-screen w-full items-center justify-center bg-black font-naruto text-6xl text-blurrRed  lg:text-9xl ">
+    <h1 className="z-20  flex h-screen w-full items-center justify-center bg-black font-naruto text-6xl text-blurrRed  lg:text-9xl ">
       <p
         style={{
           marginBottom: `${minimized.yPosition}px`,

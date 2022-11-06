@@ -7,6 +7,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import useGetDimensions from '../architecture/core/hooks/useGetDimensions';
 import { AestheticSquare } from '../architecture/core/components/squares/AestheticSquare';
 import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link';
 
 export const createRandomSqaure = (
   width: number,
@@ -26,15 +28,15 @@ export interface IPost {
 
 const Home: NextPage<IPost> = ({ posts }) => {
   const { width, height } = useGetDimensions();
-  const sqaures = [];
+  /*   const sqaures = [];
   if (width && height) {
     for (let i = 0; i < 150; i++) {
       const { size, xPosition, yPosition, rotation, smallSquare } =
         createRandomSqaure(width * 0.95, height, Math.random() > 0.3);
       sqaures.push({ size, xPosition, yPosition, rotation, smallSquare });
     }
-  }
-
+  } */
+  const { t } = useTranslation('common');
   return (
     <>
       <section>

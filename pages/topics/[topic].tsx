@@ -3,54 +3,7 @@ import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
 import { TopicOverview } from '../../architecture/core/components/pages/topics/TopicsPage';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
-
-const myPortableTextComponents = {
-  block: {
-    h2: ({ children }: any) => (
-      <h2 className="self-start py-5 font-naruto text-2xl md:text-3xl">
-        {children}
-      </h2>
-    ),
-    h4: ({ children }: any) => <h4 className="py-5 text-2xl">{children}</h4>,
-    // Ex. 2: rendering custom styles
-    normal: ({ children }: any) => (
-      <p className="w-full py-3 font-capriola">{children}</p>
-    ),
-  },
-  marks: {
-    link: ({ children, value }: any) => (
-      <a
-        href={value.href}
-        target="_blank"
-        rel="noreferrer"
-        className="cursor-pointer font-capriola underline "
-      >
-        {children}
-      </a>
-    ),
-  },
-  list: {
-    // Ex. 1: customizing common list types
-    bullet: ({ children }: any) => <ul className="mt-xl pl-5">{children}</ul>,
-    number: ({ children }: any) => <ol className="mt-lg pl-5">{children}</ol>,
-
-    // Ex. 2: rendering custom lists
-    checkmarks: ({ children }: any) => (
-      <ol className="m-auto text-lg">{children}</ol>
-    ),
-  },
-  listItem: {
-    // Ex. 1: customizing common list types
-    bullet: ({ children }: any) => (
-      <li className="py-3" style={{ listStyleType: 'disclosure-closed' }}>
-        {children}
-      </li>
-    ),
-
-    // Ex. 2: rendering custom list items
-    checkmarks: ({ children }: any) => <li>✅ {children}</li>,
-  },
-};
+import { myPortableTextComponents } from '../../architecture/core/config/PortableTextConfig';
 
 const TopicPage = ({ overview, locale }: any) => {
   return (
@@ -61,7 +14,7 @@ const TopicPage = ({ overview, locale }: any) => {
       </Head>
       <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:w-[90vw] md:items-start md:p-20">
         {overview[0]?.title[locale] && (
-          <h1 className=" w-[90vw] font-naruto text-6xl text-white">
+          <h1 className="w-[90vw] font-naruto text-5xl text-white">
             {overview[0]?.title[locale]}
           </h1>
         )}

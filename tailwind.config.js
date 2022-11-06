@@ -36,9 +36,9 @@ module.exports = {
           return acc;
         }, {}),
       backgroundImage: {
-        brushR: "url('../public/static/assets/images/brushR.png')",
-        brush: "url('../public/static/assets/images/brush.png')",
-        wBrush: "url('../public/static/assets/images/wBrush.png')",
+
+        brush: "url('../public/static/assets/images/brush.webp')",
+
       },
       backgroundPosition: {
         topBar: '-150px',

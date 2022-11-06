@@ -24,18 +24,18 @@ const LinkInfos = [
     previewType: 'brazilian-jiu-jitsu' as previewType,
     linkText: 'brazilian-jiu-jitsu',
   },
-  {
+  /*   {
     previewType: 'karate' as previewType,
     linkText: 'karate',
-  },
+  }, */
   {
     previewType: 'mind' as previewType,
     linkText: 'mind',
   },
-  {
+  /*  {
     previewType: 'reviews' as previewType,
     linkText: 'reviews',
-  },
+  }, */
 ];
 
 export const LinkContainer: React.FC<IHover> = ({
@@ -56,12 +56,13 @@ export const LinkContainer: React.FC<IHover> = ({
               style={{ transitionDelay: `${100 + key * 10}` }}
               className="transition-all duration-300 ease-in-out"
             >
-              <WomLink
+              {/*  <WomLink
                 openCloseNavi={openCloseNavi}
                 setActicvePreviewType={setActicvePreviewType}
                 previewType={infos.previewType}
                 linkText={t(infos.linkText)}
-              />
+              /> */}
+              test
             </div>
           );
         })}
