@@ -8,9 +8,14 @@ export const myPortableTextComponents = {
     h3: ({ children }: any) => <h4 className="py-5 text-xl">{children}</h4>,
     // Ex. 2: rendering custom styles
     normal: ({ children }: any) => (
-      <p className="w-full py-5 font-capriola text-base md:text-lg">
+      <p className="my-5 w-full py-5 font-capriola text-base md:text-lg">
         {children}
       </p>
+    ),
+    strong: ({ children }: any) => (
+      <strong className="w-full py-8  font-capriola text-base md:text-lg">
+        {children}
+      </strong>
     ),
     p: ({ children }: any) => (
       <p className="w-full py-10 font-capriola text-base md:text-lg">
@@ -43,7 +48,10 @@ export const myPortableTextComponents = {
   listItem: {
     // Ex. 1: customizing common list types
     bullet: ({ children }: any) => (
-      <li className="py-3" style={{ listStyleType: 'disclosure-closed' }}>
+      <li
+        className="mt-6"
+        style={{ listStyleType: 'disclosure-closed', marginTop: '32px' }}
+      >
         {children}
       </li>
     ),
