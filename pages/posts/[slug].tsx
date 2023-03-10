@@ -1,13 +1,14 @@
 import { PortableText } from '@portabletext/react';
 import { PostAdapter } from '../../architecture/core/adapters/post-adapter';
-import Image from 'next/image';
 import { useSanityImageService } from '../../architecture/core/hooks/sanity-image.service';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import Head from 'next/head';
 import { myPortableTextComponents } from '../../architecture/core/config/PortableTextConfig';
+import Head from 'next/head';
+import Img from 'next/image';
 
 const PostPage = ({ post, locale }: any) => {
-  const image = useSanityImageService(post.mainImage?.asset._ref);
+  const imageSrc = useSanityImageService(post.mainImage?.asset._ref);
+
   return (
     <>
       <Head>
@@ -16,13 +17,13 @@ const PostPage = ({ post, locale }: any) => {
       </Head>
       <main className="flex h-auto w-screen flex-col items-center pb-[150px] lg:p-20">
         <div className="z-[-1] h-[40%] w-screen lg:h-[20%] lg:w-[80vw] lg:border-2 lg:border-white">
-          <Image
-            sizes="(min-width: 70vw) 90vw, 800px"
+          <Img
             className="border border-white"
-            width={800}
-            height={400}
+            width={2000}
+            height={1200}
+            style={{ width: '50%', height: 'auto' }}
             alt=""
-            src={image.src}
+            src={imageSrc}
           />
         </div>
         <section className="flex w-[90vw] flex-col md:w-[80vw]">

@@ -27,15 +27,13 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
           ></Image>
         </button>
       </div>
-      <Link href="/legal-notice">
-        <a
-          id="legalNotice"
-          href="/legal-notice"
-          className="absolute right-0 cursor-pointer self-end justify-self-end p-3
+      <Link
+        href="/legal-notice"
+        id="legalNotice"
+        className="absolute right-0 cursor-pointer self-end justify-self-end p-3
            font-naruto text-xl text-white"
-        >
-          {t('legalNotice')}
-        </a>
+      >
+        {t('legalNotice')}
       </Link>
       <MenuView openClose={openClose} openCloseNavi={openCloseNavi} />
     </div>

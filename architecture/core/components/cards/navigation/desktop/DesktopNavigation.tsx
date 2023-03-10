@@ -19,14 +19,13 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
 
   return (
     <div className="hidden md:fixed md:right-0 md:top-0 md:z-40 md:flex md:h-screen md:w-[10vw]">
-      <Link href="/contact">
-        <a
-          id="contactME"
-          className="absolute right-0 cursor-pointer p-3
+      <Link
+        href="/contact"
+        id="contactME"
+        className="absolute right-0 cursor-pointer p-3
         font-naruto text-xl text-white "
-        >
-          {t('contact')}
-        </a>
+      >
+        {t('contact')}
       </Link>
       <div className="h-50 absolute right-5 z-40 flex w-20 cursor-pointer items-center justify-center self-center ">
         <button className="absolute" onClick={openCloseNavi} id="openMenu">
@@ -39,15 +38,13 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
           ></Image>
         </button>
       </div>
-      <Link href="/legal-notice">
-        <a
-          id="legalNotice"
-          href="/legal-notice"
-          className="absolute right-0 cursor-pointer self-end justify-self-end p-3
+      <Link
+        href="/legal-notice"
+        id="legalNotice"
+        className="absolute right-0 cursor-pointer self-end justify-self-end p-3
            font-naruto text-xl text-white"
-        >
-          {t('legalNotice')}
-        </a>
+      >
+        {t('legalNotice')}
       </Link>
       <MenuView openClose={openClose} openCloseNavi={openCloseNavi} />
     </div>

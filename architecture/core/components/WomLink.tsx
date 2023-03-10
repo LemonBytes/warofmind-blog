@@ -21,15 +21,16 @@ export const WomLink: React.FC<IWomLink> = ({
   const router = useRouter();
   const currentLang = router.locale;
   return (
-    <Link passHref href={`/topics/${previewType}`} locale={currentLang}>
-      <a
-        onMouseOver={() => handleMouse(previewType)}
-        onMouseLeave={() => handleMouse('')}
-        onClick={openCloseNavi}
-        className="flex h-auto w-36 items-center justify-center p-1  text-center font-naruto text-2xl font-medium text-white sm:mt-16 sm:h-28 sm:w-[70vw] sm:items-start sm:justify-start sm:p-5 sm:text-4xl  md:w-full"
-      >
-        <button>{linkText}</button>
-      </a>
+    <Link
+      passHref
+      href={`/topics/${previewType}`}
+      locale={currentLang}
+      onMouseOver={() => handleMouse(previewType)}
+      onMouseLeave={() => handleMouse('')}
+      onClick={openCloseNavi}
+      className="flex h-auto w-36 items-center justify-center p-1  text-center font-naruto text-2xl font-medium text-white sm:mt-16 sm:h-28 sm:w-[70vw] sm:items-start sm:justify-start sm:p-5 sm:text-4xl  md:w-full"
+    >
+      <button>{linkText}</button>
     </Link>
   );
 };

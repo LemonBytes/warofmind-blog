@@ -1,16 +1,16 @@
-import { useRef, useState } from 'react';
+/* eslint-disable react/no-unescaped-entities */
+
 import { PostCardGrid } from '../../cards/PostCardGrid';
 import { QuoteBox } from './QuoteBox';
 import { PageTitle } from './PageTitle';
 import React from 'react';
 const { motion } = require('framer-motion');
 
-import useGetDimensions from '../../../hooks/useGetDimensions';
 import { useTranslation } from 'next-i18next';
-import Link from 'next/link';
 
 export const Landing = ({ posts }: any) => {
   const { t } = useTranslation('common');
+
   return (
     <main className="oveflow-hidden flex w-screen  flex-col items-center justify-center">
       <section className="h-screen w-screen snap-y snap-mandatory overflow-y-scroll md:w-[90vw]">

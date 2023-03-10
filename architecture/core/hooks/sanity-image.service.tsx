@@ -1,13 +1,22 @@
-import { createClient, SanityClient } from 'next-sanity';
+import { createClient, type ClientConfig } from '@sanity/client';
 import { useNextSanityImage } from 'next-sanity-image';
+import imageUrlBuilder from '@sanity/image-url';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import builder from '@sanity/image-url/lib/types/builder';
 
-export const useSanityImageService = (imageSource: string) => {
-  const client: SanityClient = createClient({
+export const useSanityImageService = (imageSource: SanityImageSource) => {
+  const config: ClientConfig = {
     projectId: 'cb6cd06x',
     dataset: 'production',
-    apiVersion: '2022-03-25',
-    useCdn: false,
+    useCdn: true,
+    apiVersion: '2022-01-12',
+  };
+  const client = createClient(config);
+  const builder = imageUrlBuilder({
+    projectId: 'cb6cd06x',
+    dataset: 'production',
   });
-  const image = useNextSanityImage(client, imageSource);
-  return image;
+  const urlFor = (imageSource: SanityImageSource) => builder.image(imageSource);
+
+  return urlFor(imageSource).url();
 };

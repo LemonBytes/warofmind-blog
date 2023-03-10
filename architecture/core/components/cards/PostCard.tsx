@@ -1,6 +1,6 @@
 const { motion } = require('framer-motion');
 import { DateTime } from 'luxon';
-import Image from 'next/image';
+import Img from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -27,44 +27,40 @@ export const PostCard = ({ post }: any) => {
   const router = useRouter();
   const currentLang = router.locale;
   const [isHovered, setHovered] = useState(false);
+
   const published = DateTime.fromISO(post.publishedAt).toLocaleString(
     DateTime.DATETIME_MED
   );
+
   return (
     <motion.div
       initial={false}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className=" flex h-[550px] w-full cursor-pointer flex-col items-center overflow-hidden "
+      className="flex h-auto w-full cursor-pointer flex-col items-center overflow-hidden md:min-w-[500px] md:max-w-2xl"
     >
-      <a
+      <Link
+        passHref
         href={`/${currentLang}/posts/${post.slug.current}`}
         /*    onClick={() => router.push('/posts/' + post.slug.current)} */
-        className="flex h-[550px] w-full flex-col items-center"
+        className="flex h-auto w-full flex-col items-center md:w-full md:min-w-full md:min-w-[500px] md:max-w-2xl"
       >
         <motion.div
           animate={{
-            scale: isHovered || mobile ? 1.01 : 1.15,
+            scale: isHovered || mobile ? 1.2 : 1.3,
             opacity: isHovered || mobile ? 0.4 : 1,
           }}
-          className="h-[550px] w-full"
+          className="h-[500px] w-full md:min-w-[500px] md:max-w-2xl"
           transition={{ duration: 0.6 }}
         >
-          <Image
-            alt=""
-            src={image.src}
-            layout="fill"
-            objectFit="cover"
-            sizes="320 640 750"
-            objectPosition="center"
-          />
+          <Img alt="" src={image} fill />
         </motion.div>
         <motion.div
           animate={{ y: isHovered || mobile ? -135 : -0 }}
           transition={{ duration: 0.6 }}
-          className="relative bottom-[65%] flex w-screen justify-center  md:bottom-[55%] lg:flex lg:w-[85%]"
+          className="relative bottom-[55%] flex w-screen justify-center  md:bottom-[55%] md:flex md:w-[80%]"
         >
-          <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white lg:text-4xl ">
+          <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white md:text-4xl ">
             {post.title[currentLang!]}
           </h3>
         </motion.div>
@@ -74,19 +70,19 @@ export const PostCard = ({ post }: any) => {
             delay: 0.6,
             duration: 0.6,
           }}
-          className="relative bottom-[60%] flex w-screen justify-center md:bottom-[55%]  lg:w-[85%]"
+          className="relative bottom-[50%] flex w-screen justify-center md:bottom-[60%]  md:w-[90%]"
         >
           <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white ">
             {post.description[currentLang!]}
           </p>
         </motion.div>
-      </a>
+      </Link>
       <motion.div
         animate={{
-          y: isHovered || mobile ? -15 : 60,
+          y: isHovered || mobile ? -5 : 100,
         }}
         transition={{ duration: 0.6 }}
-        className="relative bottom-[10%] flex w-screen w-[85%] justify-between"
+        className="relative bottom-[5%] flex w-screen w-[80%] justify-between"
       >
         <p className="text font-naruto text-white">{published}</p>
 
@@ -95,15 +91,11 @@ export const PostCard = ({ post }: any) => {
             return (
               <Link
                 key={key}
-                href={`${currentLang}/topics/${topic}`}
                 locale={currentLang}
+                className="text flex border p-1 font-naruto text-xs text-white"
+                href={`${currentLang}/topics/${topic}`}
               >
-                <a
-                  className="text flex border p-1 font-naruto text-xs text-white"
-                  href={`${currentLang}/topics/${topic}`}
-                >
-                  {t(topic)}
-                </a>
+                {t(topic)}
               </Link>
             );
           })}

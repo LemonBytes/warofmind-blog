@@ -6,16 +6,13 @@ import Image from 'next/image';
 export const LogoContainer = () => {
   return (
     <div className="fixed h-14 w-14">
-      <Link href="/" passHref>
-        <button className="cursor-pointer">
-          <Image
-            src={logo}
-            width={50}
-            height={50}
-            objectFit={'cover'}
-            alt={'this is an image of the website logo'}
-          ></Image>
-        </button>
+      <Link href="/" passHref className="cursor-pointer">
+        <Image
+          src={logo}
+          width={50}
+          height={50}
+          alt={'this is an image of the website logo'}
+        ></Image>
       </Link>
     </div>
   );
