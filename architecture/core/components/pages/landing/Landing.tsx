@@ -12,12 +12,12 @@ export const Landing = ({ posts }: any) => {
   const { t } = useTranslation('common');
 
   return (
-    <main className="oveflow-hidden flex w-screen  flex-col items-center justify-center">
-      <section className="h-screen w-screen snap-y snap-mandatory overflow-y-scroll md:w-[90vw]">
-        <section className="h-screen snap-center  pb-[50vh] lg:pb-[0]">
+    <main className="oveflow-hidden flex w-screen flex-col items-center justify-center ">
+      <section className="w-screen scroll-smooth lg:w-[80vw] ">
+        <section className="mb-[100vh] h-screen">
           <PageTitle />
         </section>
-        <section className="mb-[50vh] hidden h-screen snap-center  text-center md:flex md:w-full md:items-center md:justify-center ">
+        <section className="mb-[100vh] hidden  text-center md:flex md:w-full md:items-center md:justify-center ">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -28,7 +28,7 @@ export const Landing = ({ posts }: any) => {
             <QuoteBox fontSize="text-3xl lg:text-6xl " />
           </motion.div>
         </section>
-        <section className="lg:screen h-screen snap-center md:h-screen lg:flex lg:self-start">
+        <section className="mb-[100vh] lg:flex">
           <PostCardGrid posts={posts} />;
         </section>
       </section>

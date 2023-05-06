@@ -1,6 +1,6 @@
 const { motion } = require('framer-motion');
 import { DateTime } from 'luxon';
-import Img from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -18,14 +18,36 @@ const checkBreakpoint = (width: number, breakpoint: string) => {
   return width <= breakpointNumber;
 };
 
-export const PostCard = ({ post }: any) => {
+export interface PostCardProps {
+  post: {
+    title: {
+      [key: string]: string;
+    };
+    description: {
+      [key: string]: string;
+    };
+    slug: {
+      current: string;
+    };
+    mainImage: {
+      asset: {
+        _ref: string;
+      };
+    };
+    publishedAt: string;
+    topics: string[];
+  };
+  gridProps?: string;
+}
+
+export const PostCard = ({ post, gridProps }: PostCardProps) => {
   const image = useSanityImageService(post.mainImage.asset._ref);
   const { width } = useGetDimensions();
   const { t } = useTranslation('common');
   const { sm }: any = fullConfig.theme?.screens!;
   const mobile = checkBreakpoint(width, sm);
   const router = useRouter();
-  const currentLang = router.locale;
+  const currentLang: string = router.locale ?? 'en';
   const [isHovered, setHovered] = useState(false);
 
   const published = DateTime.fromISO(post.publishedAt).toLocaleString(
@@ -33,35 +55,61 @@ export const PostCard = ({ post }: any) => {
   );
 
   return (
-    <motion.div
-      initial={false}
+    <article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="flex h-auto w-full cursor-pointer flex-col items-center overflow-hidden md:min-w-[500px] md:max-w-2xl"
+      className={`${gridProps} curser-pointer border-box relative flex-col items-center justify-center border `}
     >
       <Link
         passHref
         href={`/${currentLang}/posts/${post.slug.current}`}
-        /*    onClick={() => router.push('/posts/' + post.slug.current)} */
-        className="flex h-auto w-full flex-col items-center md:w-full md:min-w-full md:min-w-[500px] md:max-w-2xl"
+        className="opacity-60"
       >
-        <motion.div
-          animate={{
-            scale: isHovered || mobile ? 1.2 : 1.3,
-            opacity: isHovered || mobile ? 0.4 : 1,
-          }}
-          className="h-[500px] w-full md:min-w-[500px] md:max-w-2xl"
-          transition={{ duration: 0.6 }}
-        >
-          <Img alt="" src={image} fill />
-        </motion.div>
-        <motion.div
+        <Image
+          src={image}
+          alt={'Test Image'}
+          width={1500}
+          height={1500}
+          className="h-full w-full object-cover"
+        />
+        <div className="opacity-100">
+          <motion.div
+            animate={{ y: isHovered || mobile ? -135 : -0 }}
+            transition={{ duration: 0.6 }}
+            className="relative flex w-screen justify-center  opacity-100 md:bottom-[55%] md:flex md:w-[80%]"
+          >
+            <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white opacity-100 md:text-4xl ">
+              {post.title[currentLang]}
+            </h3>
+          </motion.div>
+          <motion.div
+            animate={{
+              opacity: isHovered || mobile ? 1 : 0,
+              delay: 0.6,
+              duration: 0.6,
+            }}
+            className="relative flex w-screen justify-center opacity-100  md:bottom-[60%] md:w-[90%]"
+          >
+            <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white opacity-100">
+              {post.description[currentLang]}
+            </p>
+          </motion.div>
+        </div>
+      </Link>
+    </article>
+  );
+};
+
+/*
+
+
+  <motion.div
           animate={{ y: isHovered || mobile ? -135 : -0 }}
           transition={{ duration: 0.6 }}
-          className="relative bottom-[55%] flex w-screen justify-center  md:bottom-[55%] md:flex md:w-[80%]"
+          className="relative flex w-screen justify-center  md:bottom-[55%] md:flex md:w-[80%]"
         >
           <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white md:text-4xl ">
-            {post.title[currentLang!]}
+            {post.title[currentLang]}
           </h3>
         </motion.div>
         <motion.div
@@ -70,19 +118,20 @@ export const PostCard = ({ post }: any) => {
             delay: 0.6,
             duration: 0.6,
           }}
-          className="relative bottom-[50%] flex w-screen justify-center md:bottom-[60%]  md:w-[90%]"
+          className="relative flex w-screen justify-center md:bottom-[60%]  md:w-[90%]"
         >
           <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white ">
-            {post.description[currentLang!]}
+            {post.description[currentLang]}
           </p>
         </motion.div>
-      </Link>
-      <motion.div
+
+
+  <motion.div
         animate={{
           y: isHovered || mobile ? -5 : 100,
         }}
         transition={{ duration: 0.6 }}
-        className="relative bottom-[5%] flex w-screen w-[80%] justify-between"
+        className="relative  flex w-screen w-[80%] justify-between"
       >
         <p className="text font-naruto text-white">{published}</p>
 
@@ -101,6 +150,5 @@ export const PostCard = ({ post }: any) => {
           })}
         </div>
       </motion.div>
-    </motion.div>
-  );
-};
+
+*/

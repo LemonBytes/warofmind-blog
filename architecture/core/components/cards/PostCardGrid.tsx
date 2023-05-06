@@ -1,15 +1,36 @@
-import { PostCard } from './PostCard';
+import { PostCard, PostCardProps } from './PostCard';
 
-export const PostCardGrid = ({ posts }: any) => {
+interface IPostCardGridProps {
+  posts: PostCardProps[];
+}
+
+export const PostCardGrid = ({ posts }: IPostCardGridProps) => {
+  const newArray = [...posts];
+  newArray.push(posts[0]);
+  newArray.push(posts[1]);
+  newArray.push(posts[2]);
+  newArray.push(posts[0]);
+  newArray.push(posts[0]);
+  newArray.push(posts[0]);
+  newArray.push(posts[1]);
+  newArray.push(posts[2]);
+  newArray.push(posts[0]);
+
   return (
-    <section className="flex h-full w-full flex-col items-center overflow-y-scroll border-2 border-white">
-      <div className="grid w-full items-start justify-evenly">
-        <div className="gird-col-1 z-10 grid w-full auto-rows-auto gap-y-0 overflow-hidden border-2 border-white bg-black md:w-[80vw] md:grid-cols-2 md:gap-0">
-          {posts.map((post: any, key: number) => {
-            return <PostCard key={key} post={post} />;
-          })}
-        </div>
-      </div>
+    <section className="border-box m-0 grid w-full grid-cols-2 border p-0 lg:grid-cols-3 lg:place-items-stretch">
+      {newArray.map((post: any, index: number) => {
+        return (
+          <PostCard
+            key={index}
+            post={post}
+            gridProps={
+              index % 5 == 0
+                ? 'lg:col-span-2 lg:row-span-1 col-span-3'
+                : 'lg:col-span-1 lg:row-span-1 col-span-3'
+            }
+          />
+        );
+      })}
     </section>
   );
 };
