@@ -58,29 +58,36 @@ export const PostCard = ({ post, gridProps }: PostCardProps) => {
     <article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${gridProps} curser-pointer border-box relative flex-col items-center justify-center border `}
+      className={`${gridProps} w-full border-[0.5px] border-blurrRed lg:w-full`}
     >
       <Link
         passHref
         href={`/${currentLang}/posts/${post.slug.current}`}
-        className="opacity-60"
+        className="relative"
       >
-        <Image
-          src={image}
-          alt={'Test Image'}
-          width={1500}
-          height={1500}
-          className="h-full w-full object-cover"
-        />
-        <div className="opacity-100">
+        <div className="pb-[100%]">
+          <Image
+            src={image}
+            alt={'Test Image'}
+            fill
+            sizes="100vw"
+            className="opacity-30"
+          />
+        </div>
+        <div className="relative -top-[50%] flex w-full flex-col items-center justify-center">
           <motion.div
-            animate={{ y: isHovered || mobile ? -135 : -0 }}
+            animate={{
+              y: isHovered || mobile ? -135 : -0,
+              opacity: isHovered || mobile ? 0 : 1,
+              delay: 0.6,
+              duration: 0.6,
+            }}
             transition={{ duration: 0.6 }}
-            className="relative flex w-screen justify-center  opacity-100 md:bottom-[55%] md:flex md:w-[80%]"
+            className="absolute w-[90%] text-center md:w-[90%]"
           >
-            <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white opacity-100 md:text-4xl ">
+            <h4 className="text-ellipses text-bold font-naruto text-3xl text-white  md:text-4xl">
               {post.title[currentLang]}
-            </h3>
+            </h4>
           </motion.div>
           <motion.div
             animate={{
@@ -88,12 +95,29 @@ export const PostCard = ({ post, gridProps }: PostCardProps) => {
               delay: 0.6,
               duration: 0.6,
             }}
-            className="relative flex w-screen justify-center opacity-100  md:bottom-[60%] md:w-[90%]"
+            className="absolute w-[90%] text-center md:w-[90%]"
           >
-            <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white opacity-100">
+            <p className="text-ellipses text-bold font-naruto text-white opacity-100">
               {post.description[currentLang]}
             </p>
           </motion.div>
+        </div>
+        <div className="absolute bottom-10 flex w-screen justify-between px-4 md:w-[100%]">
+          <p className="text font-naruto text-white">{published}</p>
+          <div className="flex gap-2">
+            {post.topics?.map((topic: string, key: number) => {
+              return (
+                <Link
+                  key={key}
+                  locale={currentLang}
+                  className="text flex border p-1 font-naruto text-xs text-white"
+                  href={`${currentLang}/topics/${topic}`}
+                >
+                  {t(topic)}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </Link>
     </article>

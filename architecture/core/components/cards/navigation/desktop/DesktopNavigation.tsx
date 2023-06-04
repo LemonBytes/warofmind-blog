@@ -39,7 +39,7 @@ export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
         </button>
       </div>
       <Link
-        href="/legal-notice"
+        href="/imprint"
         id="legalNotice"
         className="absolute right-0 cursor-pointer self-end justify-self-end p-3
            font-naruto text-xl text-white"

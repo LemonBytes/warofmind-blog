@@ -4,6 +4,7 @@ import { appWithTranslation, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { WomHeader } from '../architecture/core/components/navigation/general/Header';
 import Head from 'next/head';
+import Footer from '../architecture/core/components/navigation/general/Footer';
 
 const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   return (
@@ -20,9 +21,9 @@ const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
         <meta name="robots" content="all"></meta>
         <title>War of Mind</title>
       </Head>
-      <WomHeader>
-        <Component {...pageProps} />
-      </WomHeader>
+      <WomHeader />
+      <Component {...pageProps} />
+      <Footer />
     </>
   );
 };

@@ -12,7 +12,7 @@ export const LogoContainer = () => {
           width={50}
           height={50}
           alt={'this is an image of the website logo'}
-        ></Image>
+        />
       </Link>
     </div>
   );

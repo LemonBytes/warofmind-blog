@@ -17,16 +17,16 @@ export const PostCardGrid = ({ posts }: IPostCardGridProps) => {
   newArray.push(posts[0]);
 
   return (
-    <section className="border-box m-0 grid w-full grid-cols-2 border p-0 lg:grid-cols-3 lg:place-items-stretch">
-      {newArray.map((post: any, index: number) => {
+    <section className="border-box m-0 grid w-full grid-cols-2 p-0 outline-[0.5px] outline-blurrRed lg:grid-cols-3">
+      {newArray.splice(0).map((post: any, index: number) => {
         return (
           <PostCard
             key={index}
             post={post}
             gridProps={
-              index % 5 == 0
-                ? 'lg:col-span-2 lg:row-span-1 col-span-3'
-                : 'lg:col-span-1 lg:row-span-1 col-span-3'
+              index % 6 == 0
+                ? 'lg:col-span-2 lg:row-span-2 col-span-2'
+                : 'lg:col-span-1 lg:row-span-1 col-span-2'
             }
           />
         );
