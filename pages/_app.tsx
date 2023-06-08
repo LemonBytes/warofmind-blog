@@ -2,9 +2,9 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { appWithTranslation, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { WomHeader } from '../architecture/core/components/navigation/general/Header';
+import { WomHeader } from '../architecture/core/components/wrapper/Header';
 import Head from 'next/head';
-import Footer from '../architecture/core/components/navigation/general/Footer';
+import Footer from '../architecture/core/components/wrapper/Footer';
 
 const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
   return (

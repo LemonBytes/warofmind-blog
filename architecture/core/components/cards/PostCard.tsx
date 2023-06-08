@@ -18,7 +18,7 @@ const checkBreakpoint = (width: number, breakpoint: string) => {
   return width <= breakpointNumber;
 };
 
-export interface PostCardProps {
+export interface IPostCardProps {
   post: {
     title: {
       [key: string]: string;
@@ -40,7 +40,7 @@ export interface PostCardProps {
   gridProps?: string;
 }
 
-export const PostCard = ({ post, gridProps }: PostCardProps) => {
+export const PostCard = ({ post, gridProps }: IPostCardProps) => {
   const image = useSanityImageService(post.mainImage.asset._ref);
   const { width } = useGetDimensions();
   const { t } = useTranslation('common');
@@ -77,8 +77,8 @@ export const PostCard = ({ post, gridProps }: PostCardProps) => {
         <div className="relative -top-[50%] flex w-full flex-col items-center justify-center">
           <motion.div
             animate={{
-              y: isHovered || mobile ? -135 : -0,
-              opacity: isHovered || mobile ? 0 : 1,
+              y: isHovered ? -135 : -0,
+              opacity: isHovered ? 0 : 1,
               delay: 0.6,
               duration: 0.6,
             }}
@@ -91,7 +91,7 @@ export const PostCard = ({ post, gridProps }: PostCardProps) => {
           </motion.div>
           <motion.div
             animate={{
-              opacity: isHovered || mobile ? 1 : 0,
+              opacity: isHovered ? 1 : 0,
               delay: 0.6,
               duration: 0.6,
             }}

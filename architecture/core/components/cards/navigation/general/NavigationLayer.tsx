@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { DesktopNavigation } from '../desktop/DesktopNavigation';
-import { LogoContainer } from './LogoContainer';
+
 import { MobileNavigation } from '../mobile/MobilNavigation';
+import { LogoContainer } from '../../../navigation/general/LogoContainer';
 
 export const NavigationLayer = () => {
   const [openClose, setOpenClose] = useState(false);

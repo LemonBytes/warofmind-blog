@@ -1,4 +1,4 @@
-import { NavigationLayer } from './NavigationLayer';
+import { NavigationLayer } from '../navigation/general/NavigationLayer';
 
 interface IWomHeader {
   children?: React.ReactNode;

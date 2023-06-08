@@ -36,9 +36,16 @@ module.exports = {
           return acc;
         }, {}),
       backgroundImage: {
-
         brush: "url('../public/static/assets/images/brush.webp')",
-
+      },
+      outlineWidth: {
+        DEFAULT: '1px',
+        0.5: '0.5px',
+        2: '2px',
+        3: '3px',
+        4: '4px',
+        6: '6px',
+        8: '8px',
       },
       backgroundPosition: {
         topBar: '-150px',

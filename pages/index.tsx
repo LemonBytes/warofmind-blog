@@ -3,7 +3,6 @@ import type { NextPage } from 'next';
 import { Landing } from '../architecture/core/components/pages/landing/Landing';
 import { PostAdapter } from '../architecture/core/adapters/post-adapter';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import useGetDimensions from '../architecture/core/hooks/useGetDimensions';
 import { useTranslation } from 'next-i18next';
 
 export interface IPost {

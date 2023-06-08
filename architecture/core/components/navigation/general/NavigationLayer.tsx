@@ -12,7 +12,6 @@ export const NavigationLayer = () => {
 
   return (
     <section id="navbar">
-      <LogoContainer />
       <MobileNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
       <DesktopNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
     </section>

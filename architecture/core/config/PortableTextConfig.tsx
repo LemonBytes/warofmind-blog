@@ -1,19 +1,18 @@
 export const myPortableTextComponents = {
   block: {
     h2: ({ children }: any) => (
-      <h2 className="self-start py-5 font-naruto text-2xl md:text-2xl">
+      <h2 className="self-start py-10 font-naruto text-2xl md:text-2xl">
         {children}
       </h2>
     ),
-    h3: ({ children }: any) => <h4 className="py-5 text-xl">{children}</h4>,
-    // Ex. 2: rendering custom styles
+    h3: ({ children }: any) => <h3 className="py-5 text-xl">{children}</h3>,
     normal: ({ children }: any) => (
       <p className="my-5 w-full py-5 font-capriola text-base md:text-lg">
         {children}
       </p>
     ),
     strong: ({ children }: any) => (
-      <strong className="w-full py-8  font-capriola text-base md:text-lg">
+      <strong className="w-full py-8 font-capriola text-base md:text-lg">
         {children}
       </strong>
     ),
@@ -36,17 +35,13 @@ export const myPortableTextComponents = {
     ),
   },
   list: {
-    // Ex. 1: customizing common list types
     bullet: ({ children }: any) => <ul className="mt-xl pl-5">{children}</ul>,
     number: ({ children }: any) => <ol className="mt-lg pl-5">{children}</ol>,
-
-    // Ex. 2: rendering custom lists
     checkmarks: ({ children }: any) => (
       <ol className="m-auto text-base">{children}</ol>
     ),
   },
   listItem: {
-    // Ex. 1: customizing common list types
     bullet: ({ children }: any) => (
       <li
         className="mt-6"
@@ -55,8 +50,6 @@ export const myPortableTextComponents = {
         {children}
       </li>
     ),
-
-    // Ex. 2: rendering custom list items
     checkmarks: ({ children }: any) => <li>✅ {children}</li>,
   },
 };

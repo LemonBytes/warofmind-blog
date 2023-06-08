@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useMousePosition } from '../../../hooks/useMousePosition';
-
 import { LinkContainer } from '../general/LinkContainer';
 import { PreviewBox } from './PreviewBox';
 

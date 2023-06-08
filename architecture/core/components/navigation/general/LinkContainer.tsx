@@ -69,13 +69,6 @@ export const LinkContainer: React.FC<IHover> = ({
             </div>
           );
         })}
-
-        <Link
-          href="/imprint"
-          className=" flex h-auto w-36 items-center justify-center p-1 text-center font-naruto text-2xl font-medium text-white sm:mt-16 sm:h-28 sm:w-[70vw] sm:items-start sm:justify-start sm:p-5 sm:text-4xl md:hidden"
-        >
-          {t('legalNotice')}
-        </Link>
       </div>
     </div>
   );

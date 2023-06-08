@@ -7,12 +7,10 @@ export const LogoContainer = () => {
   return (
     <div className="fixed h-14 w-14">
       <Link href="/" passHref>
-        <button className="cursor-pointer">
+        <button className=" cursor-pointer">
           <Image
             src={logo}
-            width={50}
-            height={50}
-            objectFit={'cover'}
+            fill
             alt={'this is an image of the website logo'}
           ></Image>
         </button>

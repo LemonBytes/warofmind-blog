@@ -6,6 +6,7 @@ import close from '../../../../../public/static/assets/images/closed.webp';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslation } from 'next-i18next';
+import MenuButton from '../general/MenuButton';
 
 interface IMobileNavigation {
   openCloseNavi: () => void;
@@ -25,14 +26,7 @@ export const MobileNavigation: React.FC<IMobileNavigation> = ({
         openClose={openClose}
       />
       <nav id="navigation" className="fixed bottom-[8%] right-[10%] h-20 w-20">
-        <button onClick={openCloseNavi}>
-          <Image
-            width={250}
-            height={250}
-            src={openClose ? open : close}
-            alt={'navigation button'}
-          ></Image>
-        </button>
+        <MenuButton openCloseNavi={openCloseNavi} openClose={openClose} />
       </nav>
     </div>
   );
