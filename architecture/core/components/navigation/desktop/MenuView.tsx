@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useMousePosition } from '../../../hooks/useMousePosition';
+
 import { LinkContainer } from '../general/LinkContainer';
 import { PreviewBox } from './PreviewBox';
+import { useMousePosition } from '../../../hooks/useMousePosition';
 
 interface IMenuView {
   openClose: boolean;

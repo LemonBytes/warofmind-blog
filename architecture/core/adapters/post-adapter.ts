@@ -18,10 +18,19 @@ export class PostAdapter {
       useCdn: false,
     });
   }
-  async findByTopic(topic: topicType) {
+  async findOverview(topic: topicType) {
     return await this.sanityClient.fetch(
       `*[_type == "overview" && slug.current == '${topic}' ]{ ..., "post": *[_type == "post" && '${topic}' in topics ]}`
     );
+  }
+  async findByTopic(topics: topicType[]) {
+    const query = topics
+      .map((topic: topicType) => `"${topic}" in topics`)
+      .join(' || ');
+    const posts = await this.sanityClient.fetch(
+      `*[_type == "post" && (${query})]`
+    );
+    return posts;
   }
 
   async findAll() {
@@ -30,13 +39,10 @@ export class PostAdapter {
   async findLast() {
     return await this.sanityClient.fetch(`*[_type == "post" ][0...7]`);
   }
-  async findPopular() {
-    return await this.sanityClient.fetch(`*[_type == "post" ]`);
-  }
   async findBySlug(slug: string) {
     const post = await this.sanityClient.fetch(
       `*[_type == "post" && slug.current == '${slug}']`
     );
-    return post;
+    return post[0];
   }
 }

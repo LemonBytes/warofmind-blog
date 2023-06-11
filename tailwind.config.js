@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     screens: {
       sm: '640px',
-      md: '768px',
+      md: '860px',
       lg: '1024px',
       xl: '1280px',
     },
@@ -39,7 +39,7 @@ module.exports = {
         brush: "url('../public/static/assets/images/brush.webp')",
       },
       outlineWidth: {
-        DEFAULT: '1px',
+        DEFAULT: '0.5px',
         0.5: '0.5px',
         2: '2px',
         3: '3px',

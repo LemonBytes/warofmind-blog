@@ -14,8 +14,8 @@ const Footer = () => {
   ];
   const { t } = useTranslation('common');
   return (
-    <footer className="bottom-0 flex  w-screen flex-col-reverse p-0.5 md:h-64 md:flex-row md:p-0 md:px-[10%]">
-      <div className="flex w-full  flex-col items-center justify-start  outline outline-blurrRed md:h-64  md:w-[61vw]">
+    <footer className="md: bottom-0 flex h-full w-screen flex-col-reverse p-0.5 md:h-64 md:flex-row md:px-[10%]">
+      <div className="flex w-full  flex-col items-center justify-start  outline  outline-blurrRed md:h-full md:w-[61vw]">
         {links.map((link, index) => (
           <Link
             href={link.href}

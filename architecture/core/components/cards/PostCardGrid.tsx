@@ -17,7 +17,7 @@ export const PostCardGrid = ({ posts }: IPostCardGridProps) => {
   newArray.push(posts[0]);
 
   return (
-    <section className="border-box grid w-full grid-cols-2  outline-[0.5px] outline-blurrRed md:grid-cols-3">
+    <section className="  grid w-full grid-cols-2  outline outline-blurrRed md:grid-cols-3">
       {newArray.splice(0).map((post: any, index: number) => {
         return (
           <PostCard

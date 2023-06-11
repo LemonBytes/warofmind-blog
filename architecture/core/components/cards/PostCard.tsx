@@ -41,7 +41,9 @@ export interface IPostCardProps {
 }
 
 export const PostCard = ({ post, gridProps }: IPostCardProps) => {
-  const image = useSanityImageService(post.mainImage.asset._ref);
+  const image =
+    useSanityImageService(post?.mainImage.asset._ref) ??
+    require(`../../../../public/static/assets/images/topics/${post.topics[0]}.jpg`);
   const { width } = useGetDimensions();
   const { t } = useTranslation('common');
   const { sm }: any = fullConfig.theme?.screens!;
@@ -58,21 +60,15 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
     <article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${gridProps} w-full border-[0.5px] border-blurrRed lg:w-full`}
+      className={`${gridProps} w-screen outline outline-blurrRed md:w-full `}
     >
       <Link
         passHref
         href={`/${currentLang}/posts/${post.slug.current}`}
         className="relative"
       >
-        <div className="pb-[100%]">
-          <Image
-            src={image}
-            alt={'Test Image'}
-            fill
-            sizes="100vw"
-            className="opacity-30"
-          />
+        <div className="w-full pb-[100%]">
+          <Image src={image} alt={'Test Image'} fill className="opacity-25" />
         </div>
         <div className="relative -top-[50%] flex w-full flex-col items-center justify-center">
           <motion.div
@@ -123,56 +119,3 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
     </article>
   );
 };
-
-/*
-
-
-  <motion.div
-          animate={{ y: isHovered || mobile ? -135 : -0 }}
-          transition={{ duration: 0.6 }}
-          className="relative flex w-screen justify-center  md:bottom-[55%] md:flex md:w-[80%]"
-        >
-          <h3 className="text-ellipses text-bold absolute w-[90%] text-center font-naruto text-4xl text-white md:text-4xl ">
-            {post.title[currentLang]}
-          </h3>
-        </motion.div>
-        <motion.div
-          animate={{
-            opacity: isHovered || mobile ? 1 : 0,
-            delay: 0.6,
-            duration: 0.6,
-          }}
-          className="relative flex w-screen justify-center md:bottom-[60%]  md:w-[90%]"
-        >
-          <p className="text-ellipses text-bold text absolute w-[90%] text-center font-naruto text-white ">
-            {post.description[currentLang]}
-          </p>
-        </motion.div>
-
-
-  <motion.div
-        animate={{
-          y: isHovered || mobile ? -5 : 100,
-        }}
-        transition={{ duration: 0.6 }}
-        className="relative  flex w-screen w-[80%] justify-between"
-      >
-        <p className="text font-naruto text-white">{published}</p>
-
-        <div className="flex gap-2">
-          {post.topics?.map((topic: string, key: number) => {
-            return (
-              <Link
-                key={key}
-                locale={currentLang}
-                className="text flex border p-1 font-naruto text-xs text-white"
-                href={`${currentLang}/topics/${topic}`}
-              >
-                {t(topic)}
-              </Link>
-            );
-          })}
-        </div>
-      </motion.div>
-
-*/

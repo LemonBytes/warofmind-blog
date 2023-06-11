@@ -1,12 +1,12 @@
 import { BlurrLayer } from './BlurrLayer';
 import { BottomNavigationBrush } from './BottomNavigationBrush';
-import { MobileQuoteBar } from './MobileQuoteBar';
+
 import open from '../../../../../public/static/assets/images/open.webp';
 import close from '../../../../../public/static/assets/images/closed.webp';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useTranslation } from 'next-i18next';
+import { QuoteBox } from '../../pages/landing/QuoteBox';
 import MenuButton from '../general/MenuButton';
+import { MobileQuoteBar } from './MobileQuoteBar';
 
 interface IMobileNavigation {
   openCloseNavi: () => void;
@@ -25,7 +25,7 @@ export const MobileNavigation: React.FC<IMobileNavigation> = ({
         openCloseNavi={openCloseNavi}
         openClose={openClose}
       />
-      <nav id="navigation" className="fixed bottom-[8%] right-[10%] h-20 w-20">
+      <nav id="navigation" className="fixed bottom-[5%] right-[8%] h-16 w-16">
         <MenuButton openCloseNavi={openCloseNavi} openClose={openClose} />
       </nav>
     </div>

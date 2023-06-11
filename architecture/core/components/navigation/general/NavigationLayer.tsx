@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DesktopNavigation } from '../desktop/DesktopNavigation';
-import { LogoContainer } from './LogoContainer';
 import { MobileNavigation } from '../mobile/MobilNavigation';
+import { LogoContainer } from './LogoContainer';
 
 export const NavigationLayer = () => {
   const [openClose, setOpenClose] = useState(false);
@@ -12,6 +12,7 @@ export const NavigationLayer = () => {
 
   return (
     <section id="navbar">
+      <LogoContainer />
       <MobileNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
       <DesktopNavigation openClose={openClose} openCloseNavi={openCloseNavi} />
     </section>

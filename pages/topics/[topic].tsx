@@ -4,8 +4,9 @@ import { TopicOverview } from '../../architecture/core/components/pages/topics/T
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { myPortableTextComponents } from '../../architecture/core/config/PortableTextConfig';
+import Image from 'next/image';
 
-const TopicPage = ({ overview, locale }: any) => {
+const TopicPage = ({ overview, locale, topic }: any) => {
   return (
     <>
       <Head>
@@ -13,6 +14,15 @@ const TopicPage = ({ overview, locale }: any) => {
         <meta name="description" content={overview[0]?.description[locale]} />
       </Head>
       <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:w-[90vw] md:items-start md:p-20">
+        <div className="z-[-1] h-[20%] w-screen md:h-auto md:w-[80vw]">
+          <Image
+            className="w-full border border-white md:h-[65vh] "
+            alt="main image of the blog post"
+            src={require(`../../public/static/assets/images/topics/${topic}.jpg`)}
+            width={600}
+            height={400}
+          />
+        </div>
         {overview[0]?.title[locale] && (
           <h1 className="w-[90vw] font-naruto text-5xl text-white">
             {overview[0]?.title[locale]}
@@ -62,12 +72,14 @@ export const getStaticPaths = async ({ locales }: any) => {
 
 export const getStaticProps = async ({ params, locale }: any) => {
   const TopicAdapter = new PostAdapter();
-  const overview = await TopicAdapter.findByTopic(params.topic);
+  const topic = params.topic;
+  const overview = await TopicAdapter.findOverview(topic);
 
   return {
     props: {
       overview,
       locale,
+      topic,
       ...(await serverSideTranslations(locale, ['common'])),
     },
   };

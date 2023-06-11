@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { QuoteBox } from '../../pages/landing/QuoteBox';
-import { WomLink } from '../../WomLink';
 
 interface IState {
   openClose: boolean;
