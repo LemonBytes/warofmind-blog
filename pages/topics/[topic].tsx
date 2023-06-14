@@ -5,44 +5,62 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { myPortableTextComponents } from '../../architecture/core/config/PortableTextConfig';
 import Image from 'next/image';
+import TemplatePost from '../../architecture/core/components/template/TemplatePost';
 
 const TopicPage = ({ overview, locale, topic }: any) => {
+  const mainImageSource = require(`../../public/static/assets/images/topics/${topic}.jpg`);
+  const title = overview[0]?.title[locale];
+  const description = overview[0]?.description[locale];
+  const postBody = overview[0]?.body[locale];
+  const associatedPosts = overview[0]?.post;
+
   return (
-    <>
-      <Head>
-        <title>{overview[0]?.title[locale]}</title>
-        <meta name="description" content={overview[0]?.description[locale]} />
-      </Head>
-      <main className="flex h-auto w-screen flex-col items-center pb-[250px] pt-40 text-white md:w-[90vw] md:items-start md:p-20">
-        <div className="z-[-1] h-[20%] w-screen md:h-auto md:w-[80vw]">
-          <Image
-            className="w-full border border-white md:h-[65vh] "
-            alt="main image of the blog post"
-            src={require(`../../public/static/assets/images/topics/${topic}.jpg`)}
-            width={600}
-            height={400}
-          />
-        </div>
-        {overview[0]?.title[locale] && (
-          <h1 className="w-[90vw] font-naruto text-5xl text-white">
-            {overview[0]?.title[locale]}
-          </h1>
-        )}
-        <article className="flex h-auto w-[90vw] flex-col items-center text-left  text-white md:w-[50vw] md:items-start  lg:text-xl">
-          {overview[0]?.body[locale] ? (
-            <PortableText
-              value={[...overview[0]?.body[locale]]}
-              components={myPortableTextComponents}
-            />
-          ) : (
-            <>ups</>
-          )}
-        </article>
-        <section className="mt-20 flex h-full w-screen flex-col items-center md:w-[100%]">
-          {overview[0]?.post && <TopicOverview posts={overview[0]?.post} />}
-        </section>
-      </main>
-    </>
+    // <>
+    //   <Head>
+    //     <title>{overview[0]?.title[locale]}</title>
+    //     <meta name="description" content={overview[0]?.description[locale]} />
+    //   </Head>
+    //   <main className="flex h-auto w-screen flex-col items-center font-capriola text-white">
+    //     <div className="z-[-1] h-[20%] w-screen md:h-auto md:w-[80vw]">
+    //       <Image
+    //         className="w-full outline outline-blurrRed md:h-[65vh]  "
+    //         alt="main image of the blog post"
+    //         src={require(`../../public/static/assets/images/topics/${topic}.jpg`)}
+    //         width={600}
+    //         height={400}
+    //       />
+    //     </div>
+    //     <section className="flex h-auto w-screen flex-col items-center border border-blurrRed  md:w-[80vw] ">
+    //       {overview[0]?.title[locale] && (
+    //         <h1 className="p-1 py-2  font-naruto text-4xl ">
+    //           {overview[0]?.title[locale]}
+    //         </h1>
+    //       )}
+    //       <article className="flex flex-col items-start px-8 py-10 text-left text-white md:w-[60vw] md:items-start md:px-12 ">
+    //         {overview[0]?.body[locale] ? (
+    //           <PortableText
+    //             value={[...overview[0]?.body[locale]]}
+    //             components={myPortableTextComponents}
+    //           />
+    //         ) : (
+    //           <>ups</>
+    //         )}
+    //       </article>
+    //     </section>
+    //     <section className="w-screen md:w-[80vw]">
+    //       {overview[0]?.post && <TopicOverview posts={overview[0]?.post} />}
+    //     </section>
+    //   </main>
+    // </>
+    <TemplatePost
+      locale={locale}
+      mainImageSource={mainImageSource}
+      title={title}
+      description={description}
+      postBody={postBody}
+      associatedPostsTitle={'related'}
+      associatedPosts={associatedPosts}
+    />
   );
 };
 

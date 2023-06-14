@@ -14,19 +14,19 @@ const Footer = () => {
   ];
   const { t } = useTranslation('common');
   return (
-    <footer className="md: bottom-0 flex h-full w-screen flex-col-reverse p-0.5 md:h-64 md:flex-row md:px-[10%]">
-      <div className="flex w-full  flex-col items-center justify-start  outline  outline-blurrRed md:h-full md:w-[61vw]">
+    <footer className="flex h-full w-screen flex-col-reverse  md:bottom-0 md:h-64 md:flex-row md:px-[10%]">
+      <div className="flex w-full  flex-col items-center justify-start  border  border-blurrRed md:h-full md:w-[61vw]">
         {links.map((link, index) => (
           <Link
             href={link.href}
             key={index}
-            className=" flex w-full grow items-center py-2 pl-2 font-naruto text-3xl text-white outline  outline-blurrRed md:text-4xl"
+            className=" flex w-full grow items-center border border-blurrRed py-2 pl-2 font-naruto text-3xl  text-white md:text-4xl"
           >
             {t(link.name)}
           </Link>
         ))}
       </div>
-      <div className="flex h-32 w-full  items-center justify-evenly  p-0  outline  outline-blurrRed md:h-full md:w-[39vw]">
+      <div className="flex h-32 w-full  items-center justify-evenly  border  border-blurrRed  p-0 md:h-full md:w-[39vw]">
         <Link href="https://www.instagram.com/warofmind_/" target="_blank">
           <Image src={instagramIcon} alt="tiktok" width={25} height={25} />
         </Link>

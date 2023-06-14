@@ -12,15 +12,15 @@ interface IDesktopNavigation {
   openClose: boolean;
 }
 
-export const DesktopNavigation: React.FC<IDesktopNavigation> = ({
+export const RightSidebar: React.FC<IDesktopNavigation> = ({
   openCloseNavi,
   openClose,
 }) => {
   const { t } = useTranslation('common');
 
   return (
-    <div className="d hidden md:fixed md:right-0 md:top-0 md:z-40 md:flex md:h-screen md:w-[10vw]">
-      <div className="h-50 absolute right-5 z-40 flex w-20 cursor-pointer items-center justify-center self-center ">
+    <div className=" hidden border border-l-blurrRed md:fixed md:right-0 md:top-0 md:z-40 md:flex md:h-screen md:w-[10vw]">
+      <div className="h-50 absolute right-10 top-[5%]  z-40 flex w-20 cursor-pointer items-center justify-center self-center ">
         <MenuButton openCloseNavi={openCloseNavi} openClose={openClose} />
       </div>
       <MenuView openClose={openClose} openCloseNavi={openCloseNavi} />

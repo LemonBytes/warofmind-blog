@@ -1,6 +1,5 @@
 @tailwind base;
-@tailwind utilities {
-}
+@tailwind utilities;
 
 @layer base {
   @font-face {

@@ -5,20 +5,9 @@ interface IPostCardGridProps {
 }
 
 export const PostCardGrid = ({ posts }: IPostCardGridProps) => {
-  const newArray = [...posts];
-  newArray.push(posts[0]);
-  newArray.push(posts[1]);
-  newArray.push(posts[2]);
-  newArray.push(posts[0]);
-  newArray.push(posts[0]);
-  newArray.push(posts[0]);
-  newArray.push(posts[1]);
-  newArray.push(posts[2]);
-  newArray.push(posts[0]);
-
   return (
-    <section className="  grid w-full grid-cols-2  outline outline-blurrRed md:grid-cols-3">
-      {newArray.splice(0).map((post: any, index: number) => {
+    <section className="border-box grid w-screen grid-cols-2 border border-blurrRed md:w-[80vw] md:grid-cols-3">
+      {posts.map((post: any, index: number) => {
         return (
           <PostCard
             key={index}

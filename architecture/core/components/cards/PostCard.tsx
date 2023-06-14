@@ -7,7 +7,6 @@ import { useState } from 'react';
 import { useSanityImageService } from '../../hooks/sanity-image.service';
 import tailwindConfig from '../../../../tailwind.config';
 import resolveConfig from 'tailwindcss/resolveConfig';
-import useGetDimensions from '../../hooks/useGetDimensions';
 import { useTranslation } from 'next-i18next';
 
 //ts-ignore
@@ -44,10 +43,9 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
   const image =
     useSanityImageService(post?.mainImage.asset._ref) ??
     require(`../../../../public/static/assets/images/topics/${post.topics[0]}.jpg`);
-  const { width } = useGetDimensions();
+
   const { t } = useTranslation('common');
   const { sm }: any = fullConfig.theme?.screens!;
-  const mobile = checkBreakpoint(width, sm);
   const router = useRouter();
   const currentLang: string = router.locale ?? 'en';
   const [isHovered, setHovered] = useState(false);
@@ -60,17 +58,18 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
     <article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className={`${gridProps} w-screen outline outline-blurrRed md:w-full `}
+      className={`${gridProps} w-screen border border-blurrRed md:w-full `}
     >
       <Link
         passHref
         href={`/${currentLang}/posts/${post.slug.current}`}
-        className="relative"
-      >
+        className="relative inset-0 w-screen cursor-pointer border border-blurrRed  md:w-full"
+      ></Link>
+      <div className="relative">
         <div className="w-full pb-[100%]">
           <Image src={image} alt={'Test Image'} fill className="opacity-25" />
         </div>
-        <div className="relative -top-[50%] flex w-full flex-col items-center justify-center">
+        <div className="absolute inset-0 flex w-full flex-col items-center justify-center">
           <motion.div
             animate={{
               y: isHovered ? -135 : -0,
@@ -107,7 +106,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
                   key={key}
                   locale={currentLang}
                   className="text flex border p-1 font-naruto text-xs text-white"
-                  href={`${currentLang}/topics/${topic}`}
+                  href={`/${currentLang}/topics/${topic}`}
                 >
                   {t(topic)}
                 </Link>
@@ -115,7 +114,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
             })}
           </div>
         </div>
-      </Link>
+      </div>
     </article>
   );
 };

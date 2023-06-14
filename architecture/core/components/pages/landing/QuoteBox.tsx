@@ -1,12 +1,17 @@
 'use client';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import quotes_de from '../../../../../public/static/assets/quotes/quotes_de.json';
 import quotes_en from '../../../../../public/static/assets/quotes/quotes_en.json';
 
 interface IQuoteBox {
   fontSize?: string;
   openClose?: boolean;
+}
+
+interface IQuote {
+  text: string;
+  author: string;
 }
 
 const sendRandomQuote = (language: string | undefined) => {
@@ -22,9 +27,8 @@ const sendRandomQuote = (language: string | undefined) => {
 export const QuoteBox: React.FC<IQuoteBox> = ({ fontSize }) => {
   const router = useRouter();
   const currentLang = router.locale;
-
-  const [quote, setQuote] = useState(sendRandomQuote(currentLang));
-
+  const [quote, setQuote] = useState<IQuote>({ text: '', author: '' });
+  useEffect(() => setQuote(sendRandomQuote(currentLang)), []);
   return (
     <div className="overflow-x item-center flex h-full w-full justify-center font-naruto text-white ">
       <div
