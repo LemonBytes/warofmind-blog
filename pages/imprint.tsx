@@ -2,8 +2,8 @@ import React from 'react';
 
 const LegalNotice = () => {
   return (
-    <section className="flex flex-col items-center py-10 text-base">
-      <section className="w-[90%]">
+    <section className="flex h-[70vh] flex-col items-center border-x border-blurrRed py-10 text-base text-white md:px-[12%]">
+      <section className="flex w-[90%] flex-col">
         <h1 className="text-2xl ">Legal Notice</h1>
         <h2 className="py-3 text-xl">Information according to &sect; 5 TMG</h2>
         <p>

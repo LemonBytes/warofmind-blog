@@ -6,7 +6,7 @@ interface IPostCardGridProps {
 
 export const PostCardGrid = ({ posts }: IPostCardGridProps) => {
   return (
-    <section className="border-box grid w-screen grid-cols-2 border border-blurrRed md:w-[80vw] md:grid-cols-3">
+    <section className="border-box grid w-screen grid-cols-2 border border-blurrRed md:w-[80vw] lg:grid-cols-3">
       {posts.map((post: any, index: number) => {
         return (
           <PostCard

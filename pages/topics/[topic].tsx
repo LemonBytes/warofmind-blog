@@ -15,43 +15,6 @@ const TopicPage = ({ overview, locale, topic }: any) => {
   const associatedPosts = overview[0]?.post;
 
   return (
-    // <>
-    //   <Head>
-    //     <title>{overview[0]?.title[locale]}</title>
-    //     <meta name="description" content={overview[0]?.description[locale]} />
-    //   </Head>
-    //   <main className="flex h-auto w-screen flex-col items-center font-capriola text-white">
-    //     <div className="z-[-1] h-[20%] w-screen md:h-auto md:w-[80vw]">
-    //       <Image
-    //         className="w-full outline outline-blurrRed md:h-[65vh]  "
-    //         alt="main image of the blog post"
-    //         src={require(`../../public/static/assets/images/topics/${topic}.jpg`)}
-    //         width={600}
-    //         height={400}
-    //       />
-    //     </div>
-    //     <section className="flex h-auto w-screen flex-col items-center border border-blurrRed  md:w-[80vw] ">
-    //       {overview[0]?.title[locale] && (
-    //         <h1 className="p-1 py-2  font-naruto text-4xl ">
-    //           {overview[0]?.title[locale]}
-    //         </h1>
-    //       )}
-    //       <article className="flex flex-col items-start px-8 py-10 text-left text-white md:w-[60vw] md:items-start md:px-12 ">
-    //         {overview[0]?.body[locale] ? (
-    //           <PortableText
-    //             value={[...overview[0]?.body[locale]]}
-    //             components={myPortableTextComponents}
-    //           />
-    //         ) : (
-    //           <>ups</>
-    //         )}
-    //       </article>
-    //     </section>
-    //     <section className="w-screen md:w-[80vw]">
-    //       {overview[0]?.post && <TopicOverview posts={overview[0]?.post} />}
-    //     </section>
-    //   </main>
-    // </>
     <TemplatePost
       locale={locale}
       mainImageSource={mainImageSource}

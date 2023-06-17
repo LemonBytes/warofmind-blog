@@ -1,7 +1,7 @@
 import React from 'react';
 const disclaimer = () => {
   return (
-    <section className="flex flex-col items-center py-10 text-base">
+    <section className="flex h-auto  flex-col items-center border-x border-blurrRed py-10 text-base text-white md:h-[70vh] md:px-[10%]">
       <section className="w-[90%]">
         <div className="md:w-[50%]">
           <strong>

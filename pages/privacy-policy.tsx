@@ -3,8 +3,8 @@ import React from 'react';
 
 const PrivacyPolicy = () => {
   return (
-    <section className="flex w-screen flex-col items-center">
-      <section className="flex w-[85%] flex-col justify-around md:w-[60%]">
+    <section className="flex w-screen flex-col items-center border-x border-blurrRed py-5 text-white">
+      <section className="flex w-[90%] flex-col justify-around md:w-[75%]">
         <h1 className="text-3xl ">Privacy Policy</h1>
         <div className="p-2">
           <p className="py-1">Last updated: May 07, 2023</p>
