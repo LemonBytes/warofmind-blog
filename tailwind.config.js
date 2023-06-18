@@ -54,6 +54,20 @@ module.exports = {
       screens: {
         smallPhone: { raw: '(max-height: 670px)' },
       },
+      keyframes: {
+        down: {
+          '0%': { transform: 'translateY(calc(-40px * 246))' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        up: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(calc(-40px * 246))' },
+        },
+      },
+      animation: {
+        'infinite-down': 'down 70s linear infinite',
+        'infinite-up': 'up 70s linear infinite',
+      },
     },
   },
   mode: 'jit',

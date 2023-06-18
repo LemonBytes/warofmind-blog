@@ -10,6 +10,10 @@
     font-family: 'capriola';
     src: url('../public/static/assets/fonts/Capriola.ttf');
   }
+  @font-face {
+    font-family: 'major';
+    src: url('../public/static/assets/fonts/MajorMono.ttf');
+  }
   body {
     @apply bg-black;
   }

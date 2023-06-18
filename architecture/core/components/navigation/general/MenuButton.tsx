@@ -15,7 +15,10 @@ const MenuButton: React.FC<IMenuButton> = ({
   stylingButton,
 }) => {
   return (
-    <button className={`${stylingButton}`} onClick={openCloseNavi}>
+    <button
+      className={`${stylingButton}  hover:animate-none md:animate-pulse `}
+      onClick={openCloseNavi}
+    >
       <Image
         width={250}
         height={250}
