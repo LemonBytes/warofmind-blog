@@ -16,10 +16,10 @@ const LinkInfos = [
     previewType: 'boxing' as previewType,
     linkText: 'boxing',
   },
-  /*  {
+  {
     previewType: 'brazilian-jiu-jitsu' as previewType,
     linkText: 'brazilian-jiu-jitsu',
-  }, */
+  },
   {
     previewType: 'muay-thai' as previewType,
     linkText: 'muayThai',

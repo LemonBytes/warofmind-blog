@@ -13,7 +13,7 @@ module.exports = {
     colors: {
       black: `rgb(${26}, ${25}, ${25})`,
       white: `rgb(${212}, ${211}, ${211})`,
-      blurrRed: `rgb(${200}, ${4}, ${34}, ${0.8})`,
+      blurrRed: `rgb(${200}, ${4}, ${34}, ${0.5})`,
       menuBlack: `rgb(${0}, ${0}, ${0}, ${0.8})`,
     },
     extend: {
@@ -67,6 +67,7 @@ module.exports = {
       animation: {
         'infinite-down': 'down 70s linear infinite',
         'infinite-up': 'up 70s linear infinite',
+        pulse: 'pulse 5s linear infinite',
       },
     },
   },
