@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 const PrivacyPolicy = () => {
@@ -562,6 +563,14 @@ const PrivacyPolicy = () => {
       </section>
     </section>
   );
+};
+
+export const getStaticProps = async ({ locale }: any) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 };
 
 export default PrivacyPolicy;

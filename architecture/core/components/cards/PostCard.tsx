@@ -104,7 +104,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
               <Link
                 key={key}
                 locale={currentLang}
-                className="text group relative flex items-center overflow-hidden border p-2 font-naruto text-xs text-white"
+                className="text group relative flex items-center overflow-hidden border p-1 font-naruto text-xs text-white md:p-2"
                 href={`/${currentLang}/topics/${topic}`}
               >
                 <span className="absolute inset-0 flex h-full w-full bg-blurrRed  opacity-0 transition-opacity duration-300  group-hover:opacity-50"></span>

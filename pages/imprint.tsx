@@ -1,8 +1,9 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 
 const LegalNotice = () => {
   return (
-    <section className="flex h-[70vh] flex-col items-center border-x border-blurrRed py-10 text-base text-white md:px-[12%]">
+    <section className="flex h-screen flex-col items-center border-x border-blurrRed py-10 text-xl text-white md:px-[12%]">
       <section className="flex w-[90%] flex-col">
         <h1 className="text-2xl ">Legal Notice</h1>
         <h2 className="py-3 text-xl">Information according to &sect; 5 TMG</h2>
@@ -25,6 +26,14 @@ const LegalNotice = () => {
       </section>
     </section>
   );
+};
+
+export const getStaticProps = async ({ locale }: any) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 };
 
 export default LegalNotice;

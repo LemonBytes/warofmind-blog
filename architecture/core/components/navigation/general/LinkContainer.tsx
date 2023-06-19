@@ -33,7 +33,6 @@ const LinkInfos = [
     previewType: 'mind' as previewType,
     linkText: 'mind',
   },
-
   {
     previewType: 'reviews' as previewType,
     linkText: 'reviews',
@@ -50,7 +49,7 @@ export const LinkContainer: React.FC<IHover> = ({
       id="linkCon"
       className="w-98 relative inset-x-2 flex h-44 items-center overflow-x-scroll rounded-3xl  md:inset-0 md:right-0 md:block md:h-screen md:w-screen md:justify-start md:overflow-visible md:px-16 md:pb-20"
     >
-      <div className="md:-px-9 mx-5 grid h-auto w-auto grid-cols-3 gap-y-8 gap-x-40 border border pt-2 md:-m-6 md:flex md:h-screen md:w-screen md:flex-col md:items-start md:gap-y-20 md:overflow-y-scroll md:px-4 md:pt-12">
+      <div className=" grid h-auto w-auto grid-cols-4 gap-y-1 gap-x-40 border pt-2 md:-m-6 md:flex md:h-screen md:w-screen md:flex-col md:items-start md:gap-y-20 md:overflow-y-scroll md:px-4 md:pt-12">
         {LinkInfos.map((infos, key) => {
           return (
             <div
@@ -69,6 +68,14 @@ export const LinkContainer: React.FC<IHover> = ({
             </div>
           );
         })}
+        <Link
+          className="flex h-auto w-36 items-center justify-center p-1  text-center font-naruto text-2xl font-medium text-white sm:mt-16 sm:h-28 sm:w-[70vw] sm:items-start sm:justify-start sm:p-5 sm:text-4xl  md:w-full"
+          href={'https://sales.warofmind.com'}
+          target="__blank"
+          onClick={openCloseNavi}
+        >
+          SHOP
+        </Link>
       </div>
     </div>
   );

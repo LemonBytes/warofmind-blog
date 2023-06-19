@@ -5,6 +5,7 @@ import instagramIcon from '../../../../public/static/assets/images/instagram.svg
 import tiktokIcon from '../../../../public/static/assets/images/tiktok.svg';
 import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const Footer = () => {
   const links = [

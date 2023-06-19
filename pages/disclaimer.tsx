@@ -1,3 +1,4 @@
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 const disclaimer = () => {
   return (
@@ -44,6 +45,14 @@ const disclaimer = () => {
       </section>
     </section>
   );
+};
+
+export const getStaticProps = async ({ locale }: any) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
 };
 
 export default disclaimer;
