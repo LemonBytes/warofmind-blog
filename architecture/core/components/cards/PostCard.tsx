@@ -76,7 +76,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
               transition={{ duration: 0.6 }}
               className="absolute w-[90%] text-center md:w-[90%]"
             >
-              <h4 className="text-ellipses text-bold font-naruto text-3xl text-white  md:text-4xl">
+              <h4 className="text-ellipses text-bold font-naruto text-2xl text-white  md:text-4xl">
                 {post.title[currentLang]}
               </h4>
             </motion.div>
@@ -88,7 +88,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
               }}
               className="absolute w-[90%] text-center md:w-[90%]"
             >
-              <p className="text-ellipses text-bold font-naruto text-white opacity-100">
+              <p className="text-ellipses text-bold white font- font-naruto text-sm text-white opacity-100 md:text-base">
                 {post.description[currentLang]}
               </p>
             </motion.div>
@@ -96,19 +96,19 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
         </div>
       </Link>
 
-      <div className="absolute bottom-8  flex w-screen justify-between  px-4 md:w-[100%]">
+      <div className="absolute bottom-8  flex w-screen justify-between  px-4 text-center md:w-[100%]">
         <p className="text font-naruto text-white">{published}</p>
-        <div className="relative flex gap-2">
+        <div className="relative flex gap-2 text-center">
           {post.topics?.map((topic: string, key: number) => {
             return (
               <Link
                 key={key}
                 locale={currentLang}
-                className="text group relative flex items-center overflow-hidden border p-1 font-naruto text-xs text-white md:p-2"
+                className="group relative flex items-center overflow-hidden border p-1 font-naruto text-xs text-[10px] text-white md:p-2"
                 href={`/${currentLang}/topics/${topic}`}
               >
-                <span className="absolute inset-0 flex h-full w-full bg-blurrRed  opacity-0 transition-opacity duration-300  group-hover:opacity-50"></span>
-                <span className="relative z-10">{t(topic)}</span>
+                <span className="absolute inset-0 flex h-full w-full bg-blurrRed  text-center opacity-0 transition-opacity  duration-300 group-hover:opacity-50"></span>
+                <span className="relative z-10 ">{t(topic)}</span>
               </Link>
             );
           })}

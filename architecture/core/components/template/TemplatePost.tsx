@@ -51,10 +51,7 @@ const TemplatePost: React.FC<ITemplate> = ({
         </div>
         <section className="flex h-auto w-screen flex-col items-center border border-blurrRed  md:w-[80vw] ">
           {topics && published && (
-            <div className="flex h-20 w-screen  items-center  justify-between text-white md:w-[80vw]">
-              {published && (
-                <div className="px-2 font-naruto md:px-5">{published}</div>
-              )}
+            <div className="flex h-20 w-screen flex-col items-start justify-between  px-3  py-3 text-white md:w-[80vw]">
               {topics && (
                 <div className="flex gap-2 px-2 md:px-5">
                   {topics?.map((topic: string, key: number) => {
@@ -71,6 +68,9 @@ const TemplatePost: React.FC<ITemplate> = ({
                   })}
                 </div>
               )}
+              {published && (
+                <div className="px-2 font-naruto md:px-5">{published}</div>
+              )}
             </div>
           )}
           <section className="flex w-[90vw] flex-col md:w-[80vw]">
@@ -80,7 +80,7 @@ const TemplatePost: React.FC<ITemplate> = ({
                 {description}
               </h2>
             </div>
-            <div className="flex flex-col items-start py-5  text-left text-white md:w-[60vw] md:items-start md:px-12">
+            <div className="flex flex-col items-start py-5 px-3  text-left text-white md:w-[60vw] md:items-start md:px-12">
               {postBody && (
                 <PortableText
                   value={[...postBody]}

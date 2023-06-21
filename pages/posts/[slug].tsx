@@ -92,6 +92,7 @@ export const getStaticProps = async ({ params, locale }: any) => {
       relatedPosts,
       locale,
       ...(await serverSideTranslations(locale, ['common'])),
+      revalidate: 3600 * 24,
     },
   };
 };
