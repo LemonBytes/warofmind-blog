@@ -80,7 +80,7 @@ const TemplatePost: React.FC<ITemplate> = ({
                 {description}
               </h2>
             </div>
-            <div className="flex flex-col items-start py-5 text-left text-white md:w-[60vw] md:items-start md:px-12">
+            <div className="flex flex-col items-start py-5  text-left text-white md:w-[60vw] md:items-start md:px-12">
               {postBody && (
                 <PortableText
                   value={[...postBody]}

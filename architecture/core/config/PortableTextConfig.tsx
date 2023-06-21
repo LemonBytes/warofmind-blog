@@ -35,8 +35,8 @@ export const myPortableTextComponents = {
     ),
   },
   list: {
-    bullet: ({ children }: any) => <ul className="mt-xl pl-5">{children}</ul>,
-    number: ({ children }: any) => <ol className="mt-lg pl-5">{children}</ol>,
+    bullet: ({ children }: any) => <ul className="mt-xl pl-8">{children}</ul>,
+    number: ({ children }: any) => <ol className="mt-lg pl-8">{children}</ol>,
     checkmarks: ({ children }: any) => (
       <ol className="m-auto text-base">{children}</ol>
     ),
@@ -44,7 +44,7 @@ export const myPortableTextComponents = {
   listItem: {
     bullet: ({ children }: any) => (
       <li
-        className="mt-6"
+        className="mt-6 pl-2"
         style={{ listStyleType: 'disclosure-closed', marginTop: '32px' }}
       >
         {children}
