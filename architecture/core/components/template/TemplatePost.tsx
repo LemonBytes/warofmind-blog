@@ -36,8 +36,20 @@ const TemplatePost: React.FC<ITemplate> = ({
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>War of Mind - {title}</title>
         <meta name="description" content={description} />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+        />
+
+        <meta name="" content="all"></meta>
+        <link rel="icon" href="../public/static/assets/images/favicon.ico" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4562193178047106"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <main className="flex h-auto w-screen flex-col items-center font-capriola text-white">
         <div className="z-[-1] h-[20%] w-screen md:h-auto md:w-[80vw]">

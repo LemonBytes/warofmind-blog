@@ -22,6 +22,11 @@ const WarOfMindApp = ({ Component, pageProps }: AppProps) => {
         <meta name="" content="all"></meta>
         <title>War of Mind</title>
         <link rel="icon" href="../public/static/assets/images/favicon.ico" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4562193178047106"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <WomHeader />
       <Component {...pageProps} />
