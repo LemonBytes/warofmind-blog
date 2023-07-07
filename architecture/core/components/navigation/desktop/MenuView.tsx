@@ -16,7 +16,6 @@ export type previewType =
   | 'brazilian-jiu-jitsu'
   | 'mind'
   | 'reviews'
-  | 'allPosts'
   | 'karate'
   | '';
 

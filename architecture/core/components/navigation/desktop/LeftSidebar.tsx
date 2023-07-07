@@ -6,14 +6,14 @@ export const LeftSidebar = () => {
   return (
     <div className=" md:-0 hidden items-center border border-r-blurrRed md:fixed md:flex md:h-screen md:w-[10vw] md:flex-col">
       <Slider
-        position={'top-16'}
+        position={'top-40'}
         animation={'animate-infinite-down'}
         reverseText={true}
       />
-      <div className="h-50 absolute  bottom-[5%] flex w-full  cursor-pointer flex-col items-center justify-center self-center">
+      <div className="h-50 absolute  top-[5%] flex w-full  cursor-pointer flex-col items-center justify-center self-center">
         <Link
           href={'/'}
-          className=" animate-pulse font-naruto text-5xl text-blurrRed hover:animate-none"
+          className=" animate-pulse font-naruto text-blurrRed hover:animate-none md:text-4xl xl:text-5xl"
         >
           HOME
         </Link>

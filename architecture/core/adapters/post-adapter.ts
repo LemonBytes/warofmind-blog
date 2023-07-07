@@ -28,7 +28,7 @@ export class PostAdapter {
       .map((topic: topicType) => `"${topic}" in topics`)
       .join(' || ');
     const posts = await this.sanityClient.fetch(
-      `*[_type == "post" && (${query})]`
+      `*[_type == "post" && (${query})][0...10]`
     );
     return posts;
   }
@@ -37,7 +37,7 @@ export class PostAdapter {
     return await this.sanityClient.fetch(`*[_type == "post" ]`);
   }
   async findLast() {
-    return await this.sanityClient.fetch(`*[_type == "post" ][0...7]`);
+    return await this.sanityClient.fetch(`*[_type == "post" ][0...10]`);
   }
   async findBySlug(slug: string) {
     const post = await this.sanityClient.fetch(

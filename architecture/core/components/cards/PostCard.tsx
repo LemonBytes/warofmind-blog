@@ -76,7 +76,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
               transition={{ duration: 0.6 }}
               className="absolute w-[90%] text-center md:w-[90%]"
             >
-              <h4 className="text-ellipses text-bold font-naruto text-2xl text-white  md:text-4xl">
+              <h4 className="text-ellipses text-bold font-naruto text-2xl text-white  md:text-3xl xl:text-4xl">
                 {post.title[currentLang]}
               </h4>
             </motion.div>
@@ -88,7 +88,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
               }}
               className="absolute w-[90%] text-center md:w-[90%]"
             >
-              <p className="text-ellipses text-bold white font- font-naruto text-sm text-white opacity-100 md:text-base">
+              <p className="text-ellipses text-bold white font- md:xs xl-text-base font-naruto text-xs text-white opacity-100 ">
                 {post.description[currentLang]}
               </p>
             </motion.div>
@@ -96,7 +96,7 @@ export const PostCard = ({ post, gridProps }: IPostCardProps) => {
         </div>
       </Link>
 
-      <div className="absolute bottom-8  flex w-screen justify-between  px-4 text-center md:w-[100%]">
+      <div className="absolute bottom-8  flex w-screen justify-between  px-4 text-center md:hidden md:w-[100%] xl:flex">
         <p className="text font-naruto text-white">{published}</p>
         <div className="relative flex gap-2 text-center">
           {post.topics?.map((topic: string, key: number) => {
